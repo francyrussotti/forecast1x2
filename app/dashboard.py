@@ -10,7 +10,16 @@ import pandas as pd
 import streamlit as st
 
 # Su Streamlit Cloud il pacchetto non è installato con pip install -e: lo si prende da src/.
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+_SRC = Path(__file__).resolve().parents[1] / "src"
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+# Streamlit rilancia questo file a ogni aggiornamento ma tiene in memoria i moduli già importati: se il codice
+# del pacchetto è cambiato (es. dopo un push su GitHub), li si scarta così vengono reimportati nuovi.
+_sig = tuple(sorted((p.name, p.stat().st_mtime_ns) for p in (_SRC / "forecast1x2").glob("*.py")))
+if getattr(sys, "_forecast1x2_src_sig", None) != _sig:
+    for _name in [m for m in sys.modules if m == "forecast1x2" or m.startswith("forecast1x2.")]:
+        del sys.modules[_name]
+    sys._forecast1x2_src_sig = _sig
 
 from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
