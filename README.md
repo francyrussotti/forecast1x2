@@ -249,7 +249,13 @@ Le giocate con valore si possono aggiungere a una **schedina**, che confronta le
 
 ## Schedina consigliata
 
-Pagina «Schedina consigliata» della dashboard; codice in `src/forecast1x2/advisor.py`. Propone la giocata più probabile di ogni partita e schedine pronte (singola, doppia, tripla), con le quote Planetwin365, la probabilità di vincere e il rendimento atteso.
+Due pagine della dashboard; codice in `src/forecast1x2/advisor.py`, con le quote Planetwin365, la probabilità di vincere e il rendimento atteso.
+- **«Schedine pronte»** (pagina iniziale) combina le partite di tutti i 10 campionati.
+  - Filtri: periodo (prossimi 7 giorni, oggi, domani, fino a domenica) e campionati.
+  - In cima, le quattro più probabili: singola ≥ 1,50, doppia ≥ 1,50, doppia ≥ 2,00, tripla ≥ 3,00.
+  - «Costruisci la tua»: da 1 a 5 partite, quota totale minima e obiettivo (più probabile oppure miglior rendimento atteso). Mostra 3 alternative senza partite in comune.
+  - La ricerca è esatta: per ogni partita tiene le giocate non battute sia in probabilità sia in quota, e prova tutte le combinazioni tra le partite migliori (80 per le singole, 30 per le doppie, 16 per le triple, 11 per le quadruple, 9 per le cinquine). Dura meno di un secondo.
+- **«Giocate per partita»**: per ogni partita la giocata più probabile e la più conveniente, più Combo e Multigoal da cercare.
 
 **Cosa dice il regolamento scommesse** (documento Sisal sul calcio, 572 pagine):
 - più esiti della stessa partita si combinano con i mercati **Combo** (1X2 + U/O, DC + GG/NG, DC + Multigoal…), che sono una scommessa sola; solo i mercati segnati «(LEGABILE)», quasi tutti sui giocatori, si legano liberamente;

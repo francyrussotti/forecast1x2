@@ -609,14 +609,13 @@ def matches_label(df):
     return (k.dt.dayofweek.map(dict(enumerate(DAYS))) + " " + k.dt.strftime("%d/%m %H:%M")).to_numpy()
 
 
-def page_advice():
-    st.title("Schedina consigliata")
-    st.info(DISCLAIMER)
+def advice_data():
+    """Upcoming matches, fair-odds parameters and the value table of the bookmaker prices (None if missing)."""
     up = read_csv("fair_odds.csv")
     bk = read_csv("bookmaker_odds.csv")
     if up is None or bk is None or up.empty or bk.empty:
         st.warning(f"Servono le quote {BOOKMAKER_NAME}: arrivano con l'aggiornamento automatico (di solito dal venerdì).")
-        return
+        return None
     up = up[pd.to_datetime(up.kickoff_utc, utc=True) > pd.Timestamp.now(tz="UTC")]
     params = load_params()
     cal = read_csv("markets_calibration.csv")
@@ -627,8 +626,11 @@ def page_advice():
     vt = value_table(up, bk, params, err)
     if vt.empty:
         st.warning(f"Nessuna quota {BOOKMAKER_NAME} per le prossime partite.")
-        return
+        return None
+    return up, params, vt, bk
 
+
+def how_we_choose():
     with st.expander("Come scelgo le giocate (e perché poche partite per schedina)", expanded=False):
         st.markdown(
             "- **La giocata più probabile** di ogni partita, con quota tra 1,20 e 2,50, tra i mercati dove "
@@ -642,24 +644,99 @@ def page_advice():
         st.caption("Verifica 2024/25-2025/26 alle quote Bet365, 10 campionati. Nessun modo di giocare ha guadagnato in "
                    "modo affidabile: il più probabile, a quota bassa e in singola, è quello che perde meno.")
 
-    st.subheader("Schedine pronte")
-    stake = st.number_input("Puntata (€)", min_value=1.0, max_value=1000.0, value=10.0, step=1.0, key="adv_stake")
+
+def slip_card(m, stake, title=None):
+    """One slip: legs, total odds, chance to win, payout and average result."""
+    if title:
+        st.markdown(f"**{title}**")
+    for leg, when in zip(m["legs"].itertuples(), matches_label(m["legs"])):
+        st.markdown(f"{when} · {ALL_LEAGUE_NAMES.get(leg.league, leg.league)}  \n{leg.home} – {leg.away}: "
+                    f"**{leg.market}** @ {leg.odds:.2f}")
+    o = advisor.expected_outcome(m["prob"], m["odds"], stake)
+    st.metric("Quota totale", f"{m['odds']:.2f}", f"vince {o['win_pct']:.0f}% delle volte", delta_color="off")
+    st.caption(f"Con {stake:.0f} € incassi {o['payout']:.2f} € se vince. In media, ripetendola tante volte: "
+               f"{o['avg_result']:+.2f} € a giocata ({100 * m['value']:+.1f}%).")
+
+
+PERIODS = ["Prossimi 7 giorni", "Oggi", "Domani", "Fino a domenica"]
+
+
+def in_period(kickoff_utc: pd.Series, period: str) -> pd.Series:
+    k = pd.to_datetime(kickoff_utc, utc=True).dt.tz_convert(TZ)
+    today = pd.Timestamp.now(tz=TZ).normalize()
+    if period == "Oggi":
+        return k.dt.normalize() == today
+    if period == "Domani":
+        return k.dt.normalize() == today + pd.Timedelta(days=1)
+    if period == "Fino a domenica":
+        return k.dt.normalize() <= today + pd.Timedelta(days=6 - today.dayofweek)
+    return k <= today + pd.Timedelta(days=8)
+
+
+def page_slips():
+    st.title("Schedine pronte")
+    st.info(DISCLAIMER)
+    data = advice_data()
+    if data is None:
+        return
+    up, params, vt, bk = data
+    how_we_choose()
+
+    c1, c2 = st.columns(2)
+    period = c1.selectbox("Partite", PERIODS, key="sl_period")
+    stake = c2.number_input("Puntata per schedina (€)", min_value=1.0, max_value=1000.0, value=10.0, step=1.0,
+                            key="sl_stake")
+    leagues = [d for d in ALL_LEAGUE_NAMES if d in set(vt.league)]
+    chosen = st.multiselect("Campionati", leagues, default=leagues, format_func=ALL_LEAGUE_NAMES.get, key="sl_leagues")
+    pool = vt[vt.league.isin(chosen) & in_period(vt.kickoff_utc, period).to_numpy()]
+    n_matches = pool[["league", "home", "away"]].drop_duplicates().shape[0]
+    st.caption(f"{n_matches} partite con quote {BOOKMAKER_NAME} in {len(chosen)} campionati "
+               f"(quote del {fmt_time(bk.fetched_at.max())}). Controlla sempre la quota sul sito prima di giocare.")
+    if pool.empty:
+        st.warning("Nessuna partita con questi filtri.")
+        return
+
+    st.subheader("Le più probabili")
     cols = st.columns(len(SLIPS))
     for col, (name, (k, target)) in zip(cols, SLIPS.items()):
-        m = advisor.best_multiple(vt, k, target)
         with col:
-            st.markdown(f"**{name}**")
+            m = advisor.best_multiple(pool, k, target)
             if m is None:
+                st.markdown(f"**{name}**")
                 st.caption("Nessuna combinazione possibile.")
-                continue
-            for leg, when in zip(m["legs"].itertuples(), matches_label(m["legs"])):
-                st.markdown(f"{when} · {leg.home} – {leg.away}  \n**{leg.market}** ({leg.group}) @ {leg.odds:.2f}")
-            o = advisor.expected_outcome(m["prob"], m["odds"], stake)
-            st.metric("Quota totale", f"{m['odds']:.2f}", f"vince {o['win_pct']:.0f}% delle volte", delta_color="off")
-            st.caption(f"Se vince incassi {o['payout']:.2f} €. In media, ripetendola tante volte: "
-                       f"{o['avg_result']:+.2f} € a giocata ({100 * m['value']:+.1f}%).")
-    st.caption("Probabilità dalle quote di mercato senza margine; quote "
-               f"{BOOKMAKER_NAME} del {fmt_time(bk.fetched_at.max())}. Controlla sempre la quota sul sito prima di giocare.")
+            else:
+                slip_card(m, stake, name)
+
+    st.subheader("Costruisci la tua")
+    c1, c2, c3 = st.columns(3)
+    k = c1.slider("Partite", 1, 5, 2, key="sl_k")
+    target = c2.number_input("Quota totale almeno", min_value=1.2, max_value=50.0, value=2.0, step=0.1, key="sl_q")
+    objective = c3.radio("Obiettivo", ["Più probabile", "Miglior rendimento"], key="sl_obj")
+    if k >= 4:
+        st.warning(f"Con {k} partite il margine del bookmaker si moltiplica: nello storico le quadruple hanno reso "
+                   "−12% e le cinquine −16%, contro il −4% delle doppie.")
+    slips = advisor.alternative_slips(pool, k, target, 3, "prob" if objective == "Più probabile" else "value")
+    if not slips:
+        st.caption("Nessuna combinazione raggiunge questa quota con le regole del consigliere (quota per partita "
+                   "1,20-2,50): prova meno partite in più o una quota più bassa.")
+    cols = st.columns(3)
+    for i, (col, m) in enumerate(zip(cols, slips)):
+        with col:
+            slip_card(m, stake, f"Alternativa {i + 1}")
+    if slips:
+        st.caption("Le alternative non hanno partite in comune: si possono giocare anche tutte. «Miglior rendimento» "
+                   "cerca la combinazione che perde meno in media (o guadagna, se capita), di solito con quota "
+                   "più alta e probabilità più bassa.")
+
+
+def page_advice():
+    st.title("Giocate per partita")
+    st.info(DISCLAIMER)
+    data = advice_data()
+    if data is None:
+        return
+    up, params, vt, bk = data
+    how_we_choose()
 
     st.subheader("Giocata consigliata per ogni partita")
     bp, cp = advisor.best_picks(vt), advisor.cheapest_picks(vt)
@@ -698,12 +775,14 @@ def page_advice():
         }), hide_index=True, width="stretch")
 
 
-page = st.sidebar.radio("Pagina", ["Previsioni", "Schedina consigliata", "Quote giuste e strategia",
-                                   "Consigli in prova", "Backtest"])
+page = st.sidebar.radio("Pagina", ["Schedine pronte", "Giocate per partita", "Previsioni",
+                                   "Quote giuste e strategia", "Consigli in prova", "Backtest"])
 sidebar_update(read_meta())
 if page == "Previsioni":
     page_predictions()
-elif page == "Schedina consigliata":
+elif page == "Schedine pronte":
+    page_slips()
+elif page == "Giocate per partita":
     page_advice()
 elif page == "Quote giuste e strategia":
     page_fair_odds()

@@ -8,7 +8,8 @@ Regole (verifica 2024/25-2025/26 alle quote Bet365, vedi README «Schedina consi
 Quindi: giocata più probabile, nei mercati dove il bookmaker trattiene meno, in singola o al massimo in doppia.
 Per lo stesso incontro il regolamento prevede i mercati Combo: due esiti della stessa partita non vanno in multipla.
 """
-from itertools import combinations, product
+from functools import reduce
+from itertools import combinations
 
 import numpy as np
 import pandas as pd
@@ -74,24 +75,50 @@ def pareto_options(c: pd.DataFrame) -> list:
     return sorted(out, key=lambda d: -d.prob.iloc[0])
 
 
-def best_multiple(vt: pd.DataFrame, k: int, target_odds: float = 1.0):
-    """Most likely k-fold (different matches, one option each) with total odds >= target_odds.
+POOL_BY_LEGS = {1: 80, 2: 30, 3: 16, 4: 11, 5: 9}   # matches searched, so that any search stays under ~1 s
+OBJECTIVES = ("prob", "value")
 
-    Exact search over the Pareto options of the POOL matches with the most probable picks.
-    Returns a dict (legs, odds, prob, value) or None."""
-    options = pareto_options(candidates(vt))[:POOL]
+
+def best_multiple(vt: pd.DataFrame, k: int, target_odds: float = 1.0, objective: str = "prob",
+                  exclude: set = frozenset(), pool: int = None):
+    """Best k-fold (different matches, one option each) with total odds >= target_odds.
+
+    objective 'prob': most likely to win; 'value': highest expected return (probability x odds).
+    Exact search over the Pareto options of the best `pool` matches (by most probable pick, or by best expected
+    return for 'value'); matches in `exclude` (league, home, away) are skipped. Returns a dict or None."""
+    if objective not in OBJECTIVES:
+        raise ValueError(objective)
+    options = [o for o in pareto_options(candidates(vt)) if tuple(o.iloc[0][KEYS]) not in exclude]
+    if objective == "value":
+        options.sort(key=lambda o: -(o.prob * o.odds).max())
+    options = options[:pool or POOL_BY_LEGS.get(k, 8)]
+    log_target = np.log(target_odds) - 1e-12
     best = None
     for idx in combinations(range(len(options)), k):
-        for rows in product(*(options[i].itertuples(index=False) for i in idx)):
-            q = float(np.prod([r.odds for r in rows]))
-            p = float(np.prod([r.prob for r in rows]))
-            if q >= target_odds and (best is None or p > best[2] + 1e-12):
-                best = (rows, q, p)
+        sets = [options[i] for i in idx]
+        lq = reduce(np.add, np.ix_(*[np.log(s.odds.to_numpy()) for s in sets]))   # every option combination
+        lp = reduce(np.add, np.ix_(*[np.log(s.prob.to_numpy()) for s in sets]))
+        score = np.where(lq >= log_target, lp if objective == "prob" else lp + lq, -np.inf)
+        j = np.unravel_index(np.argmax(score), score.shape)
+        if np.isfinite(score[j]) and (best is None or score[j] > best[0] + 1e-12):
+            best = (score[j], [s.iloc[[jj]] for s, jj in zip(sets, np.atleast_1d(j))])
     if best is None:
         return None
-    rows, q, p = best
-    legs = pd.DataFrame(rows, columns=vt.columns).sort_values("kickoff_utc").reset_index(drop=True)
+    legs = pd.concat(best[1]).sort_values("kickoff_utc").reset_index(drop=True)
+    q, p = float(legs.odds.prod()), float(legs.prob.prod())
     return {"legs": legs, "odds": q, "prob": p, "value": p * q - 1}
+
+
+def alternative_slips(vt: pd.DataFrame, k: int, target_odds: float, n: int = 3, objective: str = "prob") -> list:
+    """Up to n slips with no match in common, each the best of what is left."""
+    out, used = [], set()
+    for _ in range(n):
+        m = best_multiple(vt, k, target_odds, objective, exclude=used)
+        if m is None:
+            break
+        out.append(m)
+        used |= {tuple(r) for r in m["legs"][KEYS].itertuples(index=False)}
+    return out
 
 
 def expected_outcome(prob: float, odds: float, stake: float = 10.0) -> dict:

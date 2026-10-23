@@ -50,6 +50,16 @@ def test_best_multiple_uses_different_matches_and_reaches_the_target():
     assert ad.best_multiple(vt(), 3, 50.0) is None
 
 
+def test_alternative_slips_share_no_match_and_value_objective():
+    slips = ad.alternative_slips(vt(), 1, 1.2, n=5)
+    homes = [m["legs"].home.iloc[0] for m in slips]
+    assert homes == ["A", "B", "C"]                      # each match used once, most probable first
+    best_value = ad.best_multiple(vt(), 1, 1.2, objective="value")
+    assert best_value["legs"].market.iloc[0] == "1X"     # 0.70 x 1.40 = 0.98: the smallest loss
+    with pytest.raises(ValueError):
+        ad.best_multiple(vt(), 1, 1.2, objective="boh")
+
+
 def test_pareto_options_drop_dominated_choices():
     opts = {d.home.iloc[0]: list(d.market) for d in ad.pareto_options(ad.candidates(vt()))}
     assert opts["A"] == ["Under 4.5", "1X"]   # 1X is less likely but pays more: kept
