@@ -14,6 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
+from forecast1x2.tips import RULE_FROZEN, RULE_VERSION, THRESHOLD, load_register, summary
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
@@ -330,9 +331,80 @@ def page_backtest():
     st.altair_chart(line, use_container_width=True)
 
 
-page = st.sidebar.radio("Pagina", ["Previsioni", "Backtest"])
+ALL_LEAGUE_NAMES = {**LEAGUE_NAMES, "I2": "Serie B", "E1": "Championship", "SP2": "La Liga 2",
+                    "D2": "2. Bundesliga", "F2": "Ligue 2"}
+
+
+def tips_results_table(s: pd.DataFrame) -> pd.DataFrame:
+    return pd.DataFrame({
+        "Gruppo": s.group.str.capitalize().to_numpy(), "Giocate": s.bets.to_numpy(), "Vinte": s.wins.to_numpy(),
+        "Guadagno (unità)": s.profit.round(1).to_numpy(),
+        "Rendimento": ["—" if pd.isna(r) else f"{100 * r:+.1f}%" for r in s.roi],
+        "IC 95%": ["—" if pd.isna(lo) else f"{100 * lo:+.1f}% … {100 * hi:+.1f}%" for lo, hi in zip(s.ci_low, s.ci_high)],
+    })
+
+
+def page_tips():
+    st.title("Consigli in prova: over/under 2.5")
+    st.info(DISCLAIMER)
+    st.warning(
+        "Questa è una **prova a soldi finti**, non un sistema che vince. Si segnalano le partite in cui un "
+        f"bookmaker paga l'over o l'under 2.5 almeno il {100 * THRESHOLD:.0f}% più della media del mercato, "
+        "con le quote del venerdì. Nello storico la regola ha funzionato in seconda divisione e non in prima, "
+        "con pochi casi: serve almeno una stagione intera di prova prima di trarre conclusioni.")
+    reg = load_register()
+    now = pd.Timestamp.now(tz="UTC")
+    kickoff = pd.to_datetime(reg.kickoff_utc, utc=True)
+
+    st.subheader("Prossime partite segnalate")
+    nxt = reg[(reg.status == "aperta") & (kickoff > now)].assign(k=kickoff).sort_values("k")
+    if nxt.empty:
+        st.caption("Nessuna partita segnalata al momento. Le quote escono di solito il venerdì.")
+    else:
+        k = nxt.k.dt.tz_convert(TZ)
+        st.dataframe(pd.DataFrame({
+            "Data e ora (Roma)": k.dt.dayofweek.map(dict(enumerate(DAYS))) + " " + k.dt.strftime("%d/%m %H:%M"),
+            "Campionato": nxt.league.map(ALL_LEAGUE_NAMES).to_numpy(),
+            "Partita": (nxt.home + " – " + nxt.away).to_numpy(),
+            "Giocata": (nxt.pick + " 2.5").to_numpy(),
+            "Quota migliore": nxt.odds_best.round(2).to_numpy(),
+            "Quota media": [round(o if p == "Over" else u, 2) for p, o, u in zip(nxt.pick, nxt.avg_over, nxt.avg_under)],
+            "Vantaggio stimato": [f"+{100 * e:.1f}%" for e in nxt.edge],
+        }), hide_index=True, width="stretch")
+        st.caption("Quota migliore = la più alta tra i bookmaker raccolti da football-data, che non dice quale sia: "
+                   "nella realtà può non essere disponibile o essere già cambiata.")
+    waiting = ((reg.status == "aperta") & (kickoff <= now)).sum()
+    if waiting:
+        st.caption(f"{waiting} partite già iniziate in attesa del risultato.")
+
+    st.subheader("Risultati della prova")
+    s = summary(reg)
+    st.dataframe(tips_results_table(s), hide_index=True, width="stretch")
+    st.caption(f"1 unità per giocata alla quota migliore registrata. Regola {RULE_VERSION}, congelata il "
+               f"{pd.Timestamp(RULE_FROZEN):%d/%m/%Y}: ogni partita entra nel registro almeno un'ora prima "
+               "dell'inizio e non viene più modificata. IC 95% bootstrap per settimane.")
+    if s.bets.iloc[0] < 100:
+        st.caption("Meno di 100 giocate concluse: il risultato dipende ancora soprattutto dal caso.")
+
+    hist = read_csv("tips_backtest.csv")
+    if hist is not None:
+        st.subheader("La stessa regola sullo storico")
+        st.dataframe(tips_results_table(hist).assign(Periodo=hist.period.to_numpy())[
+            ["Periodo", "Gruppo", "Giocate", "Vinte", "Guadagno (unità)", "Rendimento", "IC 95%"]],
+            hide_index=True, width="stretch")
+        st.caption("La soglia è stata scelta sul periodo di calibrazione; 2024/25-2025/26 è la verifica. "
+                   "Il 2026/27 fino al congelamento della regola non è una prova: la prova vera è il registro qui sopra.")
+
+    if len(reg):
+        with st.expander("Tutte le giocate registrate"):
+            st.dataframe(reg.sort_values("kickoff_utc", ascending=False), hide_index=True, width="stretch")
+
+
+page = st.sidebar.radio("Pagina", ["Previsioni", "Consigli in prova", "Backtest"])
 sidebar_update(read_meta())
 if page == "Previsioni":
     page_predictions()
+elif page == "Consigli in prova":
+    page_tips()
 else:
     page_backtest()

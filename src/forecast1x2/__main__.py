@@ -1,4 +1,4 @@
-"""CLI: python -m forecast1x2 {aggiorna,auto,update-data,predict,backtest}"""
+"""CLI: python -m forecast1x2 {aggiorna,auto,update-data,predict,backtest,consigli-backtest}"""
 import argparse
 import sys
 
@@ -14,6 +14,7 @@ def main(argv=None):
     sub.add_parser("backtest", help="calibra gli iperparametri e lancia il backtest walk-forward")
     sub.add_parser("aggiorna", help="update-data + predict: il comando da usare prima di ogni giornata")
     sub.add_parser("auto", help="aggiorna solo se è passato un evento partita (per l'esecuzione pianificata)")
+    sub.add_parser("consigli-backtest", help="verifica storica della regola dei consigli in prova (over/under)")
     args = p.parse_args(argv)
 
     if args.cmd == "auto":
@@ -35,6 +36,9 @@ def main(argv=None):
             elif args.cmd == "backtest":
                 from .evaluation import run_backtest
                 run_backtest()
+            elif args.cmd == "consigli-backtest":
+                from .tips import run_rule_backtest
+                run_rule_backtest()
     except DataError as e:
         print(f"ERRORE: {e}", file=sys.stderr)
         return 1

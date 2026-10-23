@@ -12,12 +12,14 @@ Previsioni 1X2 (Dixon-Coles + Elo + xG) per Serie A, Premier, Liga, Bundesliga, 
 .venv/bin/python -m pytest                       # test (~2 s)
 .venv/bin/python -m forecast1x2 aggiorna         # update-data + predict
 .venv/bin/python -m forecast1x2 backtest         # ~4 min
+.venv/bin/python -m forecast1x2 consigli-backtest   # storico della regola over/under (~10 s)
 .venv/bin/streamlit run app/dashboard.py --server.address localhost
 ```
 Per l'anteprima nel browser integrato c'è la configurazione `dashboard-progetto` in `.claude/launch.json` (porta 8502).
 
 ## Struttura
-- `src/forecast1x2/`: `data.py` (download e normalizzazione), `model.py` (Dixon-Coles), `elo.py`, `xg.py`, `evaluation.py` (backtest), `auto.py` (aggiornamento automatico), `__main__.py` (CLI).
+- `src/forecast1x2/`: `data.py` (download e normalizzazione), `model.py` (Dixon-Coles), `elo.py`, `xg.py`, `evaluation.py` (backtest), `auto.py` (aggiornamento automatico), `tips.py` (registro dei consigli in prova over/under), `__main__.py` (CLI).
+- `data/tips/ou_register.csv`: registro dei consigli in prova, solo in aggiunta. Non modificarlo a mano e non cambiare la regola `ou25-v1` guardando i risultati: una regola nuova va in una versione nuova.
 - `app/dashboard.py`: legge solo da `outputs/`, non rifà le stime.
 - `data/raw/`: CSV football-data e JSON di calendari/xG scaricati. `data/team_names.csv`: mappatura dei nomi delle squadre per fonte.
 - `outputs/`: previsioni, rating, iperparametri e risultati del backtest.

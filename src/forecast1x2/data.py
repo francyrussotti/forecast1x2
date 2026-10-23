@@ -357,6 +357,11 @@ def update_data(force: bool = False) -> None:
         xg = pd.read_csv(xg_path, parse_dates=["date"], dtype={"season": str}) if xg_path.exists() else None
         warnings.append(f"xG non aggiornati ({e}); " + ("uso gli ultimi disponibili" if xg is not None else "modello sui soli gol"))
     matches = attach_xg(matches, xg)
+    from .tips import update_register   # local import: tips imports this module
+    try:   # trial tips register: optional, never blocks results and predictions
+        warnings += update_register(matches)
+    except (DataError, ValueError, KeyError) as e:
+        warnings.append(f"registro consigli non aggiornato ({e})")
     for w in warnings:
         print(f"ATTENZIONE: {w}")
     write_csv_atomic(matches, PROCESSED / "matches.csv")

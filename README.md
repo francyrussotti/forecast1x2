@@ -64,6 +64,7 @@ Testato con Python 3.9.6, l'unico disponibile su questa macchina. Con Python ≥
 .venv/bin/python -m forecast1x2 update-data --force  # riscarica anche le stagioni chiuse
 .venv/bin/python -m forecast1x2 backtest             # calibra ξ, λ e w (2022/23 + 2023/24), backtest su 2024/25 e 2025/26 (~4 min)
 .venv/bin/python -m forecast1x2 predict              # previsioni della prossima giornata
+.venv/bin/python -m forecast1x2 consigli-backtest    # verifica storica della regola dei consigli in prova
 .venv/bin/streamlit run app/dashboard.py --server.address localhost   # dashboard su http://localhost:8501
 .venv/bin/python -m pytest                           # test
 ```
@@ -202,6 +203,46 @@ Le percentuali si aggiornano a ogni backtest (`outputs/risk_tiers.csv`). La colo
 | Gioca sempre il favorito del mercato (riferimento) | −3,4% | circa il margine del bookmaker |
 
 Le cifre valgono sia per il modello sui soli gol sia per quello con xG. Il modello «vede valore» soprattutto dove sbaglia rispetto al mercato.
+
+## Consigli in prova: over/under 2.5
+
+Un registro di giocate **simulate** (1 unità, nessun soldo vero) per verificare in avanti l'unica idea che nello storico ha mostrato un segnale. Codice in `src/forecast1x2/tips.py`, pagina «Consigli in prova» nella dashboard.
+
+**Ricerca (ottobre 2026).** Sullo stesso storico 2015-2026 dei 10 campionati sono state provate le strategie con un fondamento nella letteratura. Le soglie sono state scelte sul 2015/16-2023/24 e verificate sul 2024/25-2025/26. Nessuna batte il mercato in modo affidabile:
+
+| Strategia (quota migliore disponibile) | Verifica 2024-26 |
+|---|---|
+| Modello del progetto contro la quota migliore | da −5% a −18% |
+| 1X2 con la quota migliore molto sopra la media (Kaunitz et al., 2017) | −28% |
+| Sempre gli sfavoriti (probabilità < 20%) | −15% |
+| Sempre il pareggio (quota ≥ 2,62) / sempre i favoriti forti | circa 0% |
+| **Over/under 2.5 con la quota migliore molto sopra la media** | **segnale, ma su pochi casi** |
+
+**Regola `ou25-v1`, congelata il 23/10/2026.** Con le quote del venerdì di football-data (`fixtures.csv`):
+- probabilità «giusta» = quote medie over/under senza margine;
+- vantaggio = quota migliore × probabilità giusta − 1, sul lato migliore;
+- consiglio se il vantaggio supera il 2%, in prima e seconda divisione.
+
+La soglia è stata scelta sul periodo di calibrazione (`python -m forecast1x2 consigli-backtest`, risultati in `outputs/tips_backtest.csv`):
+
+| Periodo | Giocate | Rendimento | IC 95% |
+|---|---|---|---|
+| Calibrazione 2015-24, tutte | 1.197 | +3,8% | da −3,4% a +11,4% |
+| di cui seconda divisione | 385 | +16,0% | da +3,9% a +28,4% |
+| Verifica 2024-26, tutte | 105 | +5,1% | da −18,9% a +30,6% |
+| di cui seconda divisione | 42 | +32,4% | da −5,4% a +68,0% |
+
+Il segnale c'è solo in seconda divisione, con circa 100 casi a stagione in tutto: per questo è una prova e non un consiglio.
+
+**Come funziona il registro** (`data/tips/ou_register.csv`):
+- si aggiorna da solo a ogni `update-data`/`aggiorna`/`auto`; un errore del registro non blocca mai le previsioni;
+- una partita entra una volta sola, almeno un'ora prima dell'inizio, con le quote di quel momento, e non viene più modificata;
+- dopo la partita la giocata diventa «vinta» o «persa»; se dopo 7 giorni manca il risultato (partita rinviata) diventa «annullata».
+
+**Limiti.**
+- La quota migliore è la più alta tra i bookmaker raccolti da football-data, che non dice quale. Spesso coincide con Betfair Exchange, dove sulle vincite si paga una commissione.
+- Chi vince con regolarità viene limitato dai bookmaker: è successo anche agli autori dello studio del 2017.
+- Prima di qualsiasi conclusione serve almeno una stagione intera di prova.
 
 ## xG (expected goals): attivi tramite Sportmonks
 
