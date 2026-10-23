@@ -8,6 +8,9 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
+# Su Streamlit Cloud il pacchetto non è installato con pip install -e: lo si prende da src/.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
 from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
