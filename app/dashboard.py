@@ -26,7 +26,7 @@ from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
 from forecast1x2 import advisor
 from forecast1x2.markets import fair_odds_for, load_params
-from forecast1x2.oddspapi import BOOKMAKER_NAME, value_table
+from forecast1x2.oddspapi import BOOKMAKER_NAME, BOOKMAKERS, best_prices, value_table
 from forecast1x2.tips import RULE_FROZEN, RULE_VERSION, THRESHOLD, load_register, summary
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -483,17 +483,19 @@ def page_fair_odds():
         "Errore storico (pp)": [round(err.get((g, m), np.nan), 1) for g, m in zip(fo.group, fo.market)],
         "Quota bookmaker": "",
     })
-    if bk is not None:   # prefill with Planetwin365 where available; the user can overwrite
-        mine = bk[(bk.league == row.league) & (bk.home == row.home) & (bk.away == row.away)]
-        pw = {(g, m): o for g, m, o in zip(mine.group, mine.market, mine.odds)}
-        table["Quota bookmaker"] = [f"{pw[(g, m)]:.2f}".replace(".", ",") if (g, m) in pw else ""
+    if bk is not None:   # prefill with the best of the bookmakers where available; the user can overwrite
+        mine = best_prices(bk[(bk.league == row.league) & (bk.home == row.home) & (bk.away == row.away)])
+        pw = {(g, m): (o, b) for g, m, o, b in zip(mine.group, mine.market, mine.odds, mine.bookmaker)}
+        table["Quota bookmaker"] = [f"{pw[(g, m)][0]:.2f}".replace(".", ",") if (g, m) in pw else ""
                                     for g, m in zip(fo.group, fo.market)]
+        table["Dove"] = [BOOKMAKERS.get(pw[(g, m)][1], pw[(g, m)][1]) if (g, m) in pw else ""
+                         for g, m in zip(fo.group, fo.market)]
         if pw:
-            st.caption(f"Colonna «Quota bookmaker» già compilata con le quote {BOOKMAKER_NAME} "
-                       f"del {fmt_time(mine.fetched_at.iloc[0])}: puoi sovrascriverle con quelle di un altro bookmaker.")
+            st.caption(f"Colonna «Quota bookmaker» già compilata con la quota migliore tra {BOOKMAKER_NAME} "
+                       f"del {fmt_time(mine.fetched_at.iloc[0])} («Dove» dice quale): puoi sovrascriverla.")
     edited = st.data_editor(
         table, hide_index=True, width="stretch", key=f"fo_edit_{div}_{row.home}_{row.away}",
-        disabled=["Gruppo", "Mercato", "Probabilità %", "Quota giusta", "Errore storico (pp)"],
+        disabled=["Gruppo", "Mercato", "Probabilità %", "Quota giusta", "Errore storico (pp)", "Dove"],
         column_config={"Quota bookmaker": st.column_config.TextColumn(
                            help="La quota del tuo bookmaker, con la virgola o con il punto: 2,40 oppure 2.40."),
                        "Errore storico (pp)": st.column_config.NumberColumn(
@@ -557,7 +559,8 @@ def bookmaker_opportunities(up, bk, params, err):
         "Campionato": good.league.map(ALL_LEAGUE_NAMES).to_numpy(),
         "Partita": (good.home + " – " + good.away).to_numpy(),
         "Mercato": (good.group + ": " + good.market).to_numpy(),
-        f"Quota {BOOKMAKER_NAME}": good.odds.round(2).to_numpy(),
+        "Miglior quota": good.odds.round(2).to_numpy(),
+        "Dove": good.bookmaker.map(lambda b: BOOKMAKERS.get(b, b)).to_numpy(),
         "Quota giusta": good.fair_odds.round(2).to_numpy(),
         "Valore %": (100 * good.value).round(1).to_numpy(),
         "Puntata (% budget)": (100 * good.stake).round(2).to_numpy(),
@@ -651,7 +654,7 @@ def slip_card(m, stake, title=None):
         st.markdown(f"**{title}**")
     for leg, when in zip(m["legs"].itertuples(), matches_label(m["legs"])):
         st.markdown(f"{when} · {ALL_LEAGUE_NAMES.get(leg.league, leg.league)}  \n{leg.home} – {leg.away}: "
-                    f"**{leg.market}** @ {leg.odds:.2f}")
+                    f"**{leg.market}** @ {leg.odds:.2f} ({BOOKMAKERS.get(leg.bookmaker, leg.bookmaker)})")
     o = advisor.expected_outcome(m["prob"], m["odds"], stake)
     st.metric("Quota totale", f"{m['odds']:.2f}", f"vince {o['win_pct']:.0f}% delle volte", delta_color="off")
     st.caption(f"Con {stake:.0f} € incassi {o['payout']:.2f} € se vince. In media, ripetendola tante volte: "
@@ -743,14 +746,15 @@ def page_advice():
     if bp.empty:
         st.caption("Nessuna giocata rispetta le regole.")
     else:
-        table = bp[["league", "kickoff_utc", "home", "away", "market", "odds", "prob"]].merge(
+        table = bp[["league", "kickoff_utc", "home", "away", "market", "odds", "prob", "bookmaker"]].merge(
             cp[["league", "home", "away", "market", "odds", "prob", "value"]], on=["league", "home", "away"],
             how="left", suffixes=("", "_c")).sort_values("kickoff_utc")
         st.dataframe(pd.DataFrame({
             "Data (Roma)": matches_label(table),
             "Campionato": table.league.map(ALL_LEAGUE_NAMES).to_numpy(),
             "Partita": (table.home + " – " + table.away).to_numpy(),
-            "Più probabile": (table.market + " @ " + table.odds.map("{:.2f}".format)).to_numpy(),
+            "Più probabile": (table.market + " @ " + table.odds.map("{:.2f}".format) + " ("
+                              + table.bookmaker.map(lambda b: BOOKMAKERS.get(b, b)) + ")").to_numpy(),
             "Vince (%)": (100 * table.prob).round(0).to_numpy(),
             "Più conveniente": [f"{m} @ {o:.2f}" if isinstance(m, str) else "—" for m, o in zip(table.market_c, table.odds_c)],
             "Vince (%) ": [round(100 * p) if p == p else None for p in table.prob_c],

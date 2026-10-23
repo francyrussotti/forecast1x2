@@ -78,11 +78,14 @@ class Resp:
         return self.data
 
 
-class FakeApi:
-    """Answers like OddsPapi v4 (shapes from the official docs)."""
+BOOK_FACTOR = {"planetwin365.it": 1.0, "sisal.it": 1.02, "bet365.it": 0.98}
 
-    def __init__(self, fail=None):
-        self.calls, self.fail = [], fail
+
+class FakeApi:
+    """Answers like OddsPapi v4 (shapes from the official docs); `books` are the bookmakers the key can see."""
+
+    def __init__(self, fail=None, books=("planetwin365.it",)):
+        self.calls, self.fail, self.books = [], fail, books
 
     def __call__(self, url, params, timeout):
         path = url.replace(op.BASE_URL, "")
@@ -90,7 +93,7 @@ class FakeApi:
         if self.fail == path:
             return Resp({"error": 401, "message": "invalid apiKey"}, 401)
         if path == "/bookmakers":
-            return Resp([{"bookmakerName": "Planetwin365 IT", "slug": op.BOOKMAKER}])
+            return Resp([{"bookmakerName": b, "slug": b} for b in self.books])
         if path == "/tournaments":
             return Resp(TOURNAMENTS)
         if path == "/markets":
@@ -98,10 +101,17 @@ class FakeApi:
         if path == "/participants":
             return Resp(NAMES)
         if path == "/odds-by-tournaments":
-            ids = params["tournamentIds"].split(",")
-            if len(ids) > 5:
-                return Resp({"error": {"message": "Too many tournament IDs specified."}}, 400)
-            return Resp([fx for t in ids for fx in ODDS.get(t, [])])
+            ids, book = params["tournamentIds"].split(","), params["bookmaker"]
+            if len(ids) > 5 or "," in book:
+                return Resp({"error": {"message": "Invalid parameter."}}, 400)
+            out = []
+            for fx in (fx for t in ids for fx in ODDS.get(t, [])):
+                mk = json.loads(json.dumps(fx["bookmakerOdds"][op.BOOKMAKER]))
+                for m in mk["markets"].values():
+                    for oc in m["outcomes"].values():
+                        oc["players"]["0"]["price"] = round(oc["players"]["0"]["price"] * BOOK_FACTOR[book], 3)
+                out.append({**fx, "bookmakerOdds": {book: mk}})
+            return Resp(out)
         raise AssertionError(path)
 
 
@@ -154,7 +164,8 @@ def paths(tmp_path, monkeypatch):
 def test_update_downloads_matches_and_counts_requests(paths):
     api = FakeApi()
     warnings = op.update_bookmaker_odds(NOW, api, **paths)
-    assert warnings == ["Planetwin365: campionati non trovati su OddsPapi: E1, F2, I2, SP2"]
+    assert warnings == ["OddsPapi: campionati non trovati: E1, F2, I2, SP2",
+                        "OddsPapi: bookmaker non disponibili: bet365.it, sisal.it"]
     assert [c[0] for c in api.calls] == ["/bookmakers", "/tournaments", "/markets", "/odds-by-tournaments",
                                          "/odds-by-tournaments", "/participants"]   # 6 leagues -> 2 calls of max 5
     assert all(c[1]["apiKey"] == "SECRETKEY" and len(c[1].get("tournamentIds", "").split(",")) <= 5 for c in api.calls)
@@ -167,13 +178,34 @@ def test_update_downloads_matches_and_counts_requests(paths):
     state = json.loads(paths["state_path"].read_text())
     assert state["requests"] == 6 and state["month"] == "2026-10"
 
-    api2 = FakeApi()   # 6 hours later: nothing is requested
-    op.update_bookmaker_odds(NOW + pd.Timedelta(hours=6), api2, **paths)
+    api2 = FakeApi()   # 13 hours later: nothing is requested (one download a day)
+    op.update_bookmaker_odds(NOW + pd.Timedelta(hours=13), api2, **paths)
     assert api2.calls == []
-    api3 = FakeApi()   # 13 hours later: reference and team names cached, only the odds
-    op.update_bookmaker_odds(NOW + pd.Timedelta(hours=13), api3, **paths)
+    api3 = FakeApi()   # 24 hours later: reference and team names cached, only the odds
+    op.update_bookmaker_odds(NOW + pd.Timedelta(hours=24), api3, **paths)
     assert [c[0] for c in api3.calls] == ["/odds-by-tournaments", "/odds-by-tournaments"]
     assert json.loads(paths["state_path"].read_text())["requests"] == 8
+
+
+def test_three_bookmakers_and_best_price(paths):
+    api = FakeApi(books=tuple(op.BOOKMAKERS))
+    assert op.update_bookmaker_odds(NOW, api, **paths) == ["OddsPapi: campionati non trovati: E1, F2, I2, SP2"]
+    odds_calls = [c[1]["bookmaker"] for c in api.calls if c[0] == "/odds-by-tournaments"]
+    assert odds_calls == ["planetwin365.it"] * 2 + ["sisal.it"] * 2 + ["bet365.it"] * 2   # one bookmaker per call
+    bk = pd.read_csv(paths["out"])
+    assert bk.groupby("bookmaker").size().to_dict() == {"bet365.it": 10, "planetwin365.it": 10, "sisal.it": 10}
+    best = op.best_prices(bk).set_index(["home", "group", "market"])
+    assert best.loc[("Real Madrid", "1X2", "1"), "bookmaker"] == "sisal.it"   # 1.5 x 1.02 is the highest
+    assert best.loc[("Real Madrid", "1X2", "1"), "odds"] == pytest.approx(1.53)
+    assert len(best) == 10
+
+
+def test_budget_skips_whole_bookmakers(paths):
+    paths["state_path"].write_text(json.dumps({"month": "2026-10", "requests": op.MONTHLY_CAP - 7}))
+    api = FakeApi(books=tuple(op.BOOKMAKERS))
+    warnings = op.update_bookmaker_odds(NOW, api, **paths)   # 3 reference + 2 odds = 5; Sisal would need 2 more
+    assert "saltato Sisal/Snai" in " ".join(warnings) and "saltato Bet365" in " ".join(warnings)
+    assert json.loads(paths["state_path"].read_text())["requests"] <= op.MONTHLY_CAP
 
 
 def test_monthly_cap_and_errors_without_the_key(paths):
