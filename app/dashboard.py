@@ -24,6 +24,7 @@ if getattr(sys, "_forecast1x2_src_sig", None) != _sig:
 from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
+from forecast1x2 import advisor
 from forecast1x2.markets import fair_odds_for, load_params
 from forecast1x2.oddspapi import BOOKMAKER_NAME, value_table
 from forecast1x2.tips import RULE_FROZEN, RULE_VERSION, THRESHOLD, load_register, summary
@@ -593,10 +594,117 @@ def slip_section():
         st.rerun()
 
 
-page = st.sidebar.radio("Pagina", ["Previsioni", "Quote giuste e strategia", "Consigli in prova", "Backtest"])
+HISTORY = pd.DataFrame({   # strategy_research: Bet365, 10 campionati, verifica 2024/25-2025/26
+    "Come giocare": ["Singola: la più probabile di ogni partita", "…con quota 1,01-1,30", "Doppia delle più probabili",
+                     "Tripla", "Quadrupla", "Cinquina", "«Valore» su un solo bookmaker (oltre +5%)"],
+    "Vinte": ["60%", "83%", "37%", "21%", "13%", "8%", "10%"],
+    "Rendimento": ["−3,6%", "+0,1%", "−4,4%", "−10,0%", "−11,6%", "−15,9%", "−49,5%"],
+})
+SLIPS = {"Singola (quota ≥ 1,50)": (1, 1.5), "Doppia prudente (≥ 1,50)": (2, 1.5),
+         "Doppia (≥ 2,00)": (2, 2.0), "Tripla (≥ 3,00)": (3, 3.0)}
+
+
+def matches_label(df):
+    k = pd.to_datetime(df.kickoff_utc, utc=True).dt.tz_convert(TZ)
+    return (k.dt.dayofweek.map(dict(enumerate(DAYS))) + " " + k.dt.strftime("%d/%m %H:%M")).to_numpy()
+
+
+def page_advice():
+    st.title("Schedina consigliata")
+    st.info(DISCLAIMER)
+    up = read_csv("fair_odds.csv")
+    bk = read_csv("bookmaker_odds.csv")
+    if up is None or bk is None or up.empty or bk.empty:
+        st.warning(f"Servono le quote {BOOKMAKER_NAME}: arrivano con l'aggiornamento automatico (di solito dal venerdì).")
+        return
+    up = up[pd.to_datetime(up.kickoff_utc, utc=True) > pd.Timestamp.now(tz="UTC")]
+    params = load_params()
+    cal = read_csv("markets_calibration.csv")
+    err = {}
+    if cal is not None:
+        t = cal[cal.period.str.startswith("verifica")]
+        err = {(g, m): d for g, m, d in zip(t.group, t.market, t.diff_pp)}
+    vt = value_table(up, bk, params, err)
+    if vt.empty:
+        st.warning(f"Nessuna quota {BOOKMAKER_NAME} per le prossime partite.")
+        return
+
+    with st.expander("Come scelgo le giocate (e perché poche partite per schedina)", expanded=False):
+        st.markdown(
+            "- **La giocata più probabile** di ogni partita, con quota tra 1,20 e 2,50, tra i mercati dove "
+            f"{BOOKMAKER_NAME} trattiene meno (Under/Over, Doppia chance, Goal, 1X2: circa il 6%; oltre quota 5 "
+            "il bookmaker trattiene il 29%).\n"
+            "- **Mai due giocate della stessa partita** in una multipla: il regolamento prevede per questo i mercati "
+            "Combo, che vanno giocati come una sola scommessa.\n"
+            "- **Al massimo due o tre partite**: ogni partita in più moltiplica anche il margine del bookmaker.\n"
+            "- Nel regolamento una partita rinviata o annullata vale **quota 1,00** nella multipla.")
+        st.dataframe(HISTORY, hide_index=True, width="stretch")
+        st.caption("Verifica 2024/25-2025/26 alle quote Bet365, 10 campionati. Nessun modo di giocare ha guadagnato in "
+                   "modo affidabile: il più probabile, a quota bassa e in singola, è quello che perde meno.")
+
+    st.subheader("Schedine pronte")
+    stake = st.number_input("Puntata (€)", min_value=1.0, max_value=1000.0, value=10.0, step=1.0, key="adv_stake")
+    cols = st.columns(len(SLIPS))
+    for col, (name, (k, target)) in zip(cols, SLIPS.items()):
+        m = advisor.best_multiple(vt, k, target)
+        with col:
+            st.markdown(f"**{name}**")
+            if m is None:
+                st.caption("Nessuna combinazione possibile.")
+                continue
+            for leg, when in zip(m["legs"].itertuples(), matches_label(m["legs"])):
+                st.markdown(f"{when} · {leg.home} – {leg.away}  \n**{leg.market}** ({leg.group}) @ {leg.odds:.2f}")
+            o = advisor.expected_outcome(m["prob"], m["odds"], stake)
+            st.metric("Quota totale", f"{m['odds']:.2f}", f"vince {o['win_pct']:.0f}% delle volte", delta_color="off")
+            st.caption(f"Se vince incassi {o['payout']:.2f} €. In media, ripetendola tante volte: "
+                       f"{o['avg_result']:+.2f} € a giocata ({100 * m['value']:+.1f}%).")
+    st.caption("Probabilità dalle quote di mercato senza margine; quote "
+               f"{BOOKMAKER_NAME} del {fmt_time(bk.fetched_at.max())}. Controlla sempre la quota sul sito prima di giocare.")
+
+    st.subheader("Giocata consigliata per ogni partita")
+    bp, cp = advisor.best_picks(vt), advisor.cheapest_picks(vt)
+    if bp.empty:
+        st.caption("Nessuna giocata rispetta le regole.")
+    else:
+        table = bp[["league", "kickoff_utc", "home", "away", "market", "odds", "prob"]].merge(
+            cp[["league", "home", "away", "market", "odds", "prob", "value"]], on=["league", "home", "away"],
+            how="left", suffixes=("", "_c")).sort_values("kickoff_utc")
+        st.dataframe(pd.DataFrame({
+            "Data (Roma)": matches_label(table),
+            "Campionato": table.league.map(ALL_LEAGUE_NAMES).to_numpy(),
+            "Partita": (table.home + " – " + table.away).to_numpy(),
+            "Più probabile": (table.market + " @ " + table.odds.map("{:.2f}".format)).to_numpy(),
+            "Vince (%)": (100 * table.prob).round(0).to_numpy(),
+            "Più conveniente": [f"{m} @ {o:.2f}" if isinstance(m, str) else "—" for m, o in zip(table.market_c, table.odds_c)],
+            "Vince (%) ": [round(100 * p) if p == p else None for p in table.prob_c],
+            "Costo atteso": [f"{100 * v:+.1f}%" if v == v else "—" for v in table.value],
+        }), hide_index=True, width="stretch")
+        st.caption("Più probabile: la giocata che vince più spesso. Più conveniente: tra quelle con almeno il 60% di "
+                   f"probabilità, quella su cui {BOOKMAKER_NAME} trattiene meno (costo atteso più vicino a zero).")
+
+    st.subheader("Combo e Multigoal: quote da cercare")
+    st.caption(f"{BOOKMAKER_NAME} non pubblica Combo e Multigoal su OddsPapi: ecco le più probabili di ogni partita e "
+               "la quota sotto cui non conviene giocarle (quota giusta − 6%, lo stesso costo massimo delle altre).")
+    labels = [f"{w} · {h} – {a}" for w, h, a in zip(matches_label(up), up.home, up.away)]
+    i = st.selectbox("Partita", range(len(up)), format_func=lambda j: labels[j], key="adv_game")
+    ex = advisor.exotic_suggestions(fair_odds_for(up.iloc[i], params))
+    if ex.empty:
+        st.caption("Nessun Combo o Multigoal con quota giusta tra 1,30 e 2,50.")
+    else:
+        st.dataframe(pd.DataFrame({
+            "Mercato": (ex.group + ": " + ex.market).to_numpy(), "Probabilità %": (100 * ex.prob).round(0).to_numpy(),
+            "Quota giusta": ex.fair_odds.round(2).to_numpy(),
+            "Gioca solo se la quota è almeno": (ex.fair_odds * (1 - advisor.MAX_COST)).round(2).to_numpy(),
+        }), hide_index=True, width="stretch")
+
+
+page = st.sidebar.radio("Pagina", ["Previsioni", "Schedina consigliata", "Quote giuste e strategia",
+                                   "Consigli in prova", "Backtest"])
 sidebar_update(read_meta())
 if page == "Previsioni":
     page_predictions()
+elif page == "Schedina consigliata":
+    page_advice()
 elif page == "Quote giuste e strategia":
     page_fair_odds()
 elif page == "Consigli in prova":

@@ -247,6 +247,48 @@ Le giocate con valore si possono aggiungere a una **schedina**, che confronta le
 - Le probabilità sono quelle del mercato: il valore nasce solo dove il proprio bookmaker paga più del mercato. Succede soprattutto sui mercati «esotici» (Combo, Multigoal), dove il margine è più alto e le quote sono meno curate.
 - Per questi mercati non abbiamo quote storiche: si è verificato che le probabilità sono giuste, non che giocarli avrebbe reso.
 
+## Schedina consigliata
+
+Pagina «Schedina consigliata» della dashboard; codice in `src/forecast1x2/advisor.py`. Propone la giocata più probabile di ogni partita e schedine pronte (singola, doppia, tripla), con le quote Planetwin365, la probabilità di vincere e il rendimento atteso.
+
+**Cosa dice il regolamento scommesse** (documento Sisal sul calcio, 572 pagine):
+- più esiti della stessa partita si combinano con i mercati **Combo** (1X2 + U/O, DC + GG/NG, DC + Multigoal…), che sono una scommessa sola; solo i mercati segnati «(LEGABILE)», quasi tutti sui giocatori, si legano liberamente;
+- in una multipla una partita rinviata o annullata vale **quota 1,00**;
+- conta solo il tempo regolamentare, recupero compreso.
+
+**Cosa dicono i dati** (ottobre 2026):
+
+Margine di Planetwin365 sulle 2.111 quote del 23/10/2026, misurato come rendimento atteso rispetto alla quota giusta:
+
+| Fascia di quota | Rendimento atteso |
+|---|---|
+| 1,01-1,60 | circa −6% |
+| 1,60-3,00 | da −8% a −10% |
+| 3,00-5,00 | −12% |
+| oltre 5 | −29% |
+
+I mercati più convenienti sono Over 1,5, 1X2, Under 3,5, Goal e Doppia chance 12 (circa −5/−6%); i peggiori Under 0,5 e Over 5,5 (circa −38%).
+
+Storico 2015-2026 alle quote Bet365 (1X2 e Over/Under 2,5), verifica 2024/25-2025/26:
+
+| Come giocare | Vinte | Rendimento |
+|---|---|---|
+| Singola: la più probabile di ogni partita | 60% | −3,6% |
+| …con quota 1,01-1,30 | 83% | +0,1% |
+| Doppia delle più probabili | 37% | −4,4% |
+| Tripla | 21% | −10,0% |
+| Quadrupla | 13% | −11,6% |
+| Cinquina | 8% | −15,9% |
+| «Valore» contro il consenso su un solo bookmaker (soglia +5%, scelta sulla calibrazione dove rendeva +9,4%) | 10% | −49,5% |
+
+**Regole del consigliere**, che seguono da questi numeri:
+- giocata più probabile di ogni partita, con quota tra 1,20 e 2,50 e costo atteso non peggiore di −6%;
+- per ogni partita anche la «più conveniente»: tra quelle con almeno il 60% di probabilità, quella su cui il bookmaker trattiene meno;
+- schedine con al massimo 3 partite diverse; la combinazione più probabile che raggiunge la quota totale richiesta si cerca in modo esatto tra le 15 partite con le giocate più probabili;
+- Combo e Multigoal (che Planetwin365 non pubblica su OddsPapi): le più probabili di ogni partita, con la quota minima sotto cui non conviene giocarle (quota giusta − 6%).
+
+Nessun modo di giocare ha guadagnato in modo affidabile: il consigliere sceglie quello che perde meno, non uno che vince.
+
 ## Consigli in prova: over/under 2.5
 
 Un registro di giocate **simulate** (1 unità, nessun soldo vero) per verificare in avanti l'unica idea che nello storico ha mostrato un segnale. Codice in `src/forecast1x2/tips.py`, pagina «Consigli in prova» nella dashboard.
