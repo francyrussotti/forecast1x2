@@ -137,6 +137,8 @@ def update_register(matches: pd.DataFrame, now: pd.Timestamp = None, fd_path: Pa
                 reg = pd.concat([reg, new], ignore_index=True) if len(reg) else new
                 print(f"registro consigli: {len(new)} nuovi consigli over/under")
     reg = settle(reg, matches, now)
+    for c in ["fair_prob", "edge", "profit"]:   # stable text: re-reading floats must not change the file
+        reg[c] = pd.to_numeric(reg[c]).round(6)
     path.parent.mkdir(parents=True, exist_ok=True)
     write_csv_atomic(reg[COLUMNS], path)
     return warnings
