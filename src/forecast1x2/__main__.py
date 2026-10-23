@@ -1,0 +1,45 @@
+"""CLI: python -m forecast1x2 {aggiorna,auto,update-data,predict,backtest}"""
+import argparse
+import sys
+
+from .data import DataError, pipeline_lock
+
+
+def main(argv=None):
+    p = argparse.ArgumentParser(prog="forecast1x2")
+    sub = p.add_subparsers(dest="cmd", required=True)
+    up = sub.add_parser("update-data", help="scarica e normalizza risultati, quote e calendari")
+    up.add_argument("--force", action="store_true", help="riscarica anche le stagioni chiuse")
+    sub.add_parser("predict", help="previsioni della prossima giornata in outputs/")
+    sub.add_parser("backtest", help="calibra gli iperparametri e lancia il backtest walk-forward")
+    sub.add_parser("aggiorna", help="update-data + predict: il comando da usare prima di ogni giornata")
+    sub.add_parser("auto", help="aggiorna solo se è passato un evento partita (per l'esecuzione pianificata)")
+    args = p.parse_args(argv)
+
+    if args.cmd == "auto":
+        from .auto import run_auto
+        return run_auto()
+    try:
+        with pipeline_lock():
+            if args.cmd == "update-data":
+                from .data import update_data
+                update_data(force=args.force)
+            elif args.cmd == "predict":
+                from .model import predict_all
+                predict_all()
+            elif args.cmd == "aggiorna":
+                from .data import update_data
+                from .model import predict_all
+                update_data()
+                predict_all()
+            elif args.cmd == "backtest":
+                from .evaluation import run_backtest
+                run_backtest()
+    except DataError as e:
+        print(f"ERRORE: {e}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

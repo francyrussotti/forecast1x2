@@ -1,0 +1,13 @@
+{
+  "data_updated_at": "2026-10-23T16:18:04+00:00",
+  "last_match_date": {
+    "I1": "2026-10-19",
+    "E0": "2026-10-19",
+    "SP1": "2026-10-21",
+    "D1": "2026-10-18",
+    "F1": "2026-10-18"
+  },
+  "warnings": [
+    "Ligue 1: calendario dalla fonte di riserva (openfootball). Motivo: Ligue 1: coppie casa/trasferta ripetute nel calendario: [('Rennes', 'Paris SG')]"
+  ]
+}

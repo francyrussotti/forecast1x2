@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dashboard-progetto",
+      "runtimeExecutable": "/Users/francescorussotti/forecasting calcio/.venv/bin/streamlit",
+      "runtimeArgs": ["run", "/Users/francescorussotti/forecasting calcio/app/dashboard.py", "--server.headless", "true", "--server.port", "8502", "--server.address", "localhost"],
+      "port": 8502
+    }
+  ]
+}

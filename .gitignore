@@ -1,0 +1,28 @@
+# Ambiente Python: si ricrea con installa.command o pip install -r requirements.txt
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Registro dell'aggiornamento automatico, specifico di questo Mac
+logs/
+
+# Lucchetti degli aggiornamenti in corso
+outputs/*.lock
+
+# File di sistema macOS
+.DS_Store
+._*
+
+# Cartella vuota
+avviare/
+
+# Segreti: il token Sportmonks sta fuori dal progetto, ma per sicurezza
+.env
+*.token
+sportmonks_token
+.streamlit/secrets.toml
+
+# Impostazioni locali di Claude Code
+.claude/settings.local.json

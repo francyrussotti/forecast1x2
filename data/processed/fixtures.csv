@@ -1,0 +1,1753 @@
+league,round,kickoff_utc,home,away,source,source_played
+I1,1,2026-08-22 16:30:00+00:00,Inter,Monza,fixturedownload,True
+I1,1,2026-08-22 16:30:00+00:00,Udinese,Como,fixturedownload,True
+I1,1,2026-08-22 18:45:00+00:00,Genoa,Napoli,fixturedownload,True
+I1,1,2026-08-22 18:45:00+00:00,Parma,Cagliari,fixturedownload,True
+I1,1,2026-08-23 16:30:00+00:00,Frosinone,Juventus,fixturedownload,True
+I1,1,2026-08-23 16:30:00+00:00,Venezia,Lecce,fixturedownload,True
+I1,1,2026-08-23 18:45:00+00:00,Atalanta,Sassuolo,fixturedownload,True
+I1,1,2026-08-23 18:45:00+00:00,Torino,Milan,fixturedownload,True
+I1,1,2026-08-24 16:30:00+00:00,Bologna,Lazio,fixturedownload,True
+I1,1,2026-08-24 18:45:00+00:00,Roma,Fiorentina,fixturedownload,True
+I1,2,2026-08-28 18:45:00+00:00,Milan,Venezia,fixturedownload,True
+I1,2,2026-08-29 16:30:00+00:00,Fiorentina,Frosinone,fixturedownload,True
+I1,2,2026-08-29 16:30:00+00:00,Monza,Udinese,fixturedownload,True
+I1,2,2026-08-29 16:30:00+00:00,Sassuolo,Torino,fixturedownload,True
+I1,2,2026-08-29 18:45:00+00:00,Juventus,Parma,fixturedownload,True
+I1,2,2026-08-30 16:30:00+00:00,Napoli,Como,fixturedownload,True
+I1,2,2026-08-30 18:45:00+00:00,Cagliari,Inter,fixturedownload,True
+I1,2,2026-08-30 18:45:00+00:00,Lazio,Genoa,fixturedownload,True
+I1,2,2026-08-31 16:30:00+00:00,Lecce,Roma,fixturedownload,True
+I1,2,2026-08-31 18:45:00+00:00,Atalanta,Bologna,fixturedownload,True
+I1,3,2026-09-04 18:45:00+00:00,Genoa,Como,fixturedownload,True
+I1,3,2026-09-05 13:00:00+00:00,Fiorentina,Torino,fixturedownload,True
+I1,3,2026-09-05 16:00:00+00:00,Inter,Napoli,fixturedownload,True
+I1,3,2026-09-05 18:45:00+00:00,Roma,Atalanta,fixturedownload,True
+I1,3,2026-09-06 13:00:00+00:00,Frosinone,Venezia,fixturedownload,True
+I1,3,2026-09-06 13:00:00+00:00,Parma,Monza,fixturedownload,True
+I1,3,2026-09-06 16:00:00+00:00,Bologna,Sassuolo,fixturedownload,True
+I1,3,2026-09-06 18:45:00+00:00,Juventus,Milan,fixturedownload,True
+I1,3,2026-09-07 16:30:00+00:00,Cagliari,Lecce,fixturedownload,True
+I1,3,2026-09-07 18:45:00+00:00,Udinese,Lazio,fixturedownload,True
+I1,4,2026-09-11 18:45:00+00:00,Venezia,Fiorentina,fixturedownload,True
+I1,4,2026-09-12 13:00:00+00:00,Genoa,Frosinone,fixturedownload,True
+I1,4,2026-09-12 16:00:00+00:00,Lazio,Milan,fixturedownload,True
+I1,4,2026-09-12 18:45:00+00:00,Atalanta,Cagliari,fixturedownload,True
+I1,4,2026-09-13 13:00:00+00:00,Lecce,Monza,fixturedownload,True
+I1,4,2026-09-13 16:00:00+00:00,Napoli,Bologna,fixturedownload,True
+I1,4,2026-09-13 18:45:00+00:00,Sassuolo,Juventus,fixturedownload,True
+I1,4,2026-09-14 16:30:00+00:00,Como,Parma,fixturedownload,True
+I1,4,2026-09-14 16:30:00+00:00,Torino,Roma,fixturedownload,True
+I1,4,2026-09-14 18:45:00+00:00,Inter,Udinese,fixturedownload,True
+I1,5,2026-09-18 18:45:00+00:00,Monza,Sassuolo,fixturedownload,True
+I1,5,2026-09-19 13:00:00+00:00,Bologna,Torino,fixturedownload,True
+I1,5,2026-09-19 13:00:00+00:00,Udinese,Cagliari,fixturedownload,True
+I1,5,2026-09-19 16:00:00+00:00,Roma,Inter,fixturedownload,True
+I1,5,2026-09-19 18:45:00+00:00,Venezia,Lazio,fixturedownload,True
+I1,5,2026-09-20 10:30:00+00:00,Fiorentina,Napoli,fixturedownload,True
+I1,5,2026-09-20 13:00:00+00:00,Frosinone,Como,fixturedownload,True
+I1,5,2026-09-20 13:00:00+00:00,Parma,Genoa,fixturedownload,True
+I1,5,2026-09-20 16:00:00+00:00,Juventus,Atalanta,fixturedownload,True
+I1,5,2026-09-20 18:45:00+00:00,Milan,Lecce,fixturedownload,True
+I1,6,2026-10-10 13:00:00+00:00,Genoa,Fiorentina,fixturedownload,True
+I1,6,2026-10-10 16:00:00+00:00,Inter,Parma,fixturedownload,True
+I1,6,2026-10-10 18:45:00+00:00,Napoli,Frosinone,fixturedownload,True
+I1,6,2026-10-11 10:30:00+00:00,Como,Roma,fixturedownload,True
+I1,6,2026-10-11 13:00:00+00:00,Lazio,Monza,fixturedownload,True
+I1,6,2026-10-11 13:00:00+00:00,Lecce,Bologna,fixturedownload,True
+I1,6,2026-10-11 16:00:00+00:00,Sassuolo,Milan,fixturedownload,True
+I1,6,2026-10-11 18:45:00+00:00,Cagliari,Juventus,fixturedownload,True
+I1,6,2026-10-12 16:30:00+00:00,Atalanta,Venezia,fixturedownload,True
+I1,6,2026-10-12 18:45:00+00:00,Torino,Udinese,fixturedownload,True
+I1,7,2026-10-16 18:45:00+00:00,Frosinone,Sassuolo,fixturedownload,True
+I1,7,2026-10-17 13:00:00+00:00,Venezia,Napoli,fixturedownload,True
+I1,7,2026-10-17 16:00:00+00:00,Bologna,Inter,fixturedownload,True
+I1,7,2026-10-17 18:45:00+00:00,Roma,Genoa,fixturedownload,True
+I1,7,2026-10-18 10:30:00+00:00,Udinese,Lecce,fixturedownload,True
+I1,7,2026-10-18 13:00:00+00:00,Fiorentina,Como,fixturedownload,True
+I1,7,2026-10-18 16:00:00+00:00,Milan,Atalanta,fixturedownload,True
+I1,7,2026-10-18 18:45:00+00:00,Juventus,Lazio,fixturedownload,True
+I1,7,2026-10-19 16:30:00+00:00,Monza,Cagliari,fixturedownload,True
+I1,7,2026-10-19 18:45:00+00:00,Parma,Torino,fixturedownload,True
+I1,8,2026-10-23 18:45:00+00:00,Torino,Monza,fixturedownload,False
+I1,8,2026-10-24 13:00:00+00:00,Cagliari,Bologna,fixturedownload,False
+I1,8,2026-10-24 13:00:00+00:00,Como,Sassuolo,fixturedownload,False
+I1,8,2026-10-24 16:00:00+00:00,Napoli,Roma,fixturedownload,False
+I1,8,2026-10-24 18:45:00+00:00,Lazio,Parma,fixturedownload,False
+I1,8,2026-10-25 11:30:00+00:00,Inter,Fiorentina,fixturedownload,False
+I1,8,2026-10-25 14:00:00+00:00,Atalanta,Frosinone,fixturedownload,False
+I1,8,2026-10-25 14:00:00+00:00,Genoa,Venezia,fixturedownload,False
+I1,8,2026-10-25 17:00:00+00:00,Lecce,Juventus,fixturedownload,False
+I1,8,2026-10-25 19:45:00+00:00,Udinese,Milan,fixturedownload,False
+I1,9,2026-10-27 17:30:00+00:00,Sassuolo,Lazio,fixturedownload,False
+I1,9,2026-10-27 19:45:00+00:00,Roma,Cagliari,fixturedownload,False
+I1,9,2026-10-27 19:45:00+00:00,Torino,Como,fixturedownload,False
+I1,9,2026-10-28 17:30:00+00:00,Milan,Bologna,fixturedownload,False
+I1,9,2026-10-28 17:30:00+00:00,Parma,Udinese,fixturedownload,False
+I1,9,2026-10-28 17:30:00+00:00,Venezia,Inter,fixturedownload,False
+I1,9,2026-10-28 19:45:00+00:00,Genoa,Juventus,fixturedownload,False
+I1,9,2026-10-28 19:45:00+00:00,Monza,Napoli,fixturedownload,False
+I1,9,2026-10-29 17:30:00+00:00,Frosinone,Lecce,fixturedownload,False
+I1,9,2026-10-29 19:45:00+00:00,Fiorentina,Atalanta,fixturedownload,False
+I1,10,2026-10-31 14:00:00+00:00,Bologna,Monza,fixturedownload,False
+I1,10,2026-10-31 17:00:00+00:00,Udinese,Roma,fixturedownload,False
+I1,10,2026-10-31 19:45:00+00:00,Milan,Inter,fixturedownload,False
+I1,10,2026-11-01 11:30:00+00:00,Como,Venezia,fixturedownload,False
+I1,10,2026-11-01 14:00:00+00:00,Frosinone,Torino,fixturedownload,False
+I1,10,2026-11-01 14:00:00+00:00,Lazio,Cagliari,fixturedownload,False
+I1,10,2026-11-01 17:00:00+00:00,Lecce,Genoa,fixturedownload,False
+I1,10,2026-11-01 19:45:00+00:00,Juventus,Napoli,fixturedownload,False
+I1,10,2026-11-02 17:30:00+00:00,Sassuolo,Fiorentina,fixturedownload,False
+I1,10,2026-11-02 19:45:00+00:00,Atalanta,Parma,fixturedownload,False
+I1,11,2026-11-06 19:45:00+00:00,Venezia,Udinese,fixturedownload,False
+I1,11,2026-11-07 14:00:00+00:00,Cagliari,Frosinone,fixturedownload,False
+I1,11,2026-11-07 14:00:00+00:00,Torino,Lecce,fixturedownload,False
+I1,11,2026-11-07 17:00:00+00:00,Parma,Bologna,fixturedownload,False
+I1,11,2026-11-07 19:45:00+00:00,Roma,Sassuolo,fixturedownload,False
+I1,11,2026-11-08 11:30:00+00:00,Napoli,Lazio,fixturedownload,False
+I1,11,2026-11-08 14:00:00+00:00,Genoa,Milan,fixturedownload,False
+I1,11,2026-11-08 14:00:00+00:00,Monza,Atalanta,fixturedownload,False
+I1,11,2026-11-08 17:00:00+00:00,Inter,Como,fixturedownload,False
+I1,11,2026-11-08 19:45:00+00:00,Fiorentina,Juventus,fixturedownload,False
+I1,12,2026-11-21 14:00:00+00:00,Como,Cagliari,fixturedownload,False
+I1,12,2026-11-21 14:00:00+00:00,Lazio,Lecce,fixturedownload,False
+I1,12,2026-11-21 17:00:00+00:00,Parma,Roma,fixturedownload,False
+I1,12,2026-11-21 19:45:00+00:00,Napoli,Torino,fixturedownload,False
+I1,12,2026-11-22 11:30:00+00:00,Juventus,Venezia,fixturedownload,False
+I1,12,2026-11-22 14:00:00+00:00,Bologna,Udinese,fixturedownload,False
+I1,12,2026-11-22 14:00:00+00:00,Sassuolo,Genoa,fixturedownload,False
+I1,12,2026-11-22 17:00:00+00:00,Milan,Frosinone,fixturedownload,False
+I1,12,2026-11-22 19:45:00+00:00,Atalanta,Inter,fixturedownload,False
+I1,12,2026-11-23 19:45:00+00:00,Monza,Fiorentina,fixturedownload,False
+I1,13,2026-11-27 19:45:00+00:00,Venezia,Bologna,fixturedownload,False
+I1,13,2026-11-28 14:00:00+00:00,Frosinone,Parma,fixturedownload,False
+I1,13,2026-11-28 17:00:00+00:00,Torino,Lazio,fixturedownload,False
+I1,13,2026-11-28 19:45:00+00:00,Inter,Genoa,fixturedownload,False
+I1,13,2026-11-29 11:30:00+00:00,Udinese,Fiorentina,fixturedownload,False
+I1,13,2026-11-29 14:00:00+00:00,Sassuolo,Napoli,fixturedownload,False
+I1,13,2026-11-29 17:00:00+00:00,Roma,Monza,fixturedownload,False
+I1,13,2026-11-29 19:45:00+00:00,Como,Juventus,fixturedownload,False
+I1,13,2026-11-30 17:30:00+00:00,Lecce,Atalanta,fixturedownload,False
+I1,13,2026-11-30 19:45:00+00:00,Cagliari,Milan,fixturedownload,False
+I1,14,2026-12-04 19:45:00+00:00,Bologna,Roma,fixturedownload,False
+I1,14,2026-12-05 14:00:00+00:00,Monza,Como,fixturedownload,False
+I1,14,2026-12-05 17:00:00+00:00,Frosinone,Inter,fixturedownload,False
+I1,14,2026-12-05 19:45:00+00:00,Napoli,Lecce,fixturedownload,False
+I1,14,2026-12-06 11:30:00+00:00,Genoa,Torino,fixturedownload,False
+I1,14,2026-12-06 14:00:00+00:00,Lazio,Atalanta,fixturedownload,False
+I1,14,2026-12-06 17:00:00+00:00,Juventus,Udinese,fixturedownload,False
+I1,14,2026-12-06 19:45:00+00:00,Milan,Parma,fixturedownload,False
+I1,14,2026-12-07 17:30:00+00:00,Venezia,Sassuolo,fixturedownload,False
+I1,14,2026-12-07 19:45:00+00:00,Fiorentina,Cagliari,fixturedownload,False
+I1,15,2026-12-11 19:45:00+00:00,Udinese,Frosinone,fixturedownload,False
+I1,15,2026-12-12 14:00:00+00:00,Cagliari,Venezia,fixturedownload,False
+I1,15,2026-12-12 17:00:00+00:00,Lecce,Sassuolo,fixturedownload,False
+I1,15,2026-12-12 19:45:00+00:00,Como,Bologna,fixturedownload,False
+I1,15,2026-12-13 11:30:00+00:00,Lazio,Roma,fixturedownload,False
+I1,15,2026-12-13 14:00:00+00:00,Inter,Torino,fixturedownload,False
+I1,15,2026-12-13 17:00:00+00:00,Parma,Fiorentina,fixturedownload,False
+I1,15,2026-12-13 19:45:00+00:00,Napoli,Milan,fixturedownload,False
+I1,15,2026-12-14 17:30:00+00:00,Atalanta,Genoa,fixturedownload,False
+I1,15,2026-12-14 19:45:00+00:00,Juventus,Monza,fixturedownload,False
+I1,16,2026-12-18 17:30:00+00:00,Frosinone,Lazio,fixturedownload,False
+I1,16,2026-12-18 19:45:00+00:00,Lecce,Inter,fixturedownload,False
+I1,16,2026-12-19 14:00:00+00:00,Sassuolo,Parma,fixturedownload,False
+I1,16,2026-12-19 17:00:00+00:00,Milan,Como,fixturedownload,False
+I1,16,2026-12-19 19:45:00+00:00,Roma,Juventus,fixturedownload,False
+I1,16,2026-12-20 11:30:00+00:00,Fiorentina,Bologna,fixturedownload,False
+I1,16,2026-12-20 14:00:00+00:00,Torino,Cagliari,fixturedownload,False
+I1,16,2026-12-20 14:00:00+00:00,Venezia,Monza,fixturedownload,False
+I1,16,2026-12-20 17:00:00+00:00,Genoa,Udinese,fixturedownload,False
+I1,16,2026-12-20 19:45:00+00:00,Atalanta,Napoli,fixturedownload,False
+I1,17,2027-01-02 11:30:00+00:00,Cagliari,Genoa,fixturedownload,False
+I1,17,2027-01-02 14:00:00+00:00,Fiorentina,Lazio,fixturedownload,False
+I1,17,2027-01-02 14:00:00+00:00,Torino,Venezia,fixturedownload,False
+I1,17,2027-01-02 17:00:00+00:00,Roma,Frosinone,fixturedownload,False
+I1,17,2027-01-02 19:45:00+00:00,Monza,Milan,fixturedownload,False
+I1,17,2027-01-03 11:30:00+00:00,Inter,Sassuolo,fixturedownload,False
+I1,17,2027-01-03 14:00:00+00:00,Como,Lecce,fixturedownload,False
+I1,17,2027-01-03 14:00:00+00:00,Udinese,Atalanta,fixturedownload,False
+I1,17,2027-01-03 17:00:00+00:00,Parma,Napoli,fixturedownload,False
+I1,17,2027-01-03 19:45:00+00:00,Bologna,Juventus,fixturedownload,False
+I1,18,2027-01-05 17:30:00+00:00,Genoa,Monza,fixturedownload,False
+I1,18,2027-01-05 17:30:00+00:00,Venezia,Roma,fixturedownload,False
+I1,18,2027-01-05 19:45:00+00:00,Milan,Fiorentina,fixturedownload,False
+I1,18,2027-01-06 11:30:00+00:00,Juventus,Torino,fixturedownload,False
+I1,18,2027-01-06 14:00:00+00:00,Frosinone,Bologna,fixturedownload,False
+I1,18,2027-01-06 14:00:00+00:00,Lecce,Parma,fixturedownload,False
+I1,18,2027-01-06 17:00:00+00:00,Atalanta,Como,fixturedownload,False
+I1,18,2027-01-06 19:45:00+00:00,Lazio,Inter,fixturedownload,False
+I1,18,2027-01-07 17:30:00+00:00,Sassuolo,Udinese,fixturedownload,False
+I1,18,2027-01-07 19:45:00+00:00,Napoli,Cagliari,fixturedownload,False
+I1,19,2027-01-09 14:00:00+00:00,Monza,Frosinone,fixturedownload,False
+I1,19,2027-01-09 17:00:00+00:00,Roma,Milan,fixturedownload,False
+I1,19,2027-01-09 19:45:00+00:00,Bologna,Genoa,fixturedownload,False
+I1,19,2027-01-10 11:30:00+00:00,Como,Lazio,fixturedownload,False
+I1,19,2027-01-10 14:00:00+00:00,Fiorentina,Lecce,fixturedownload,False
+I1,19,2027-01-10 14:00:00+00:00,Parma,Venezia,fixturedownload,False
+I1,19,2027-01-10 17:00:00+00:00,Torino,Atalanta,fixturedownload,False
+I1,19,2027-01-10 19:45:00+00:00,Inter,Juventus,fixturedownload,False
+I1,19,2027-01-11 17:30:00+00:00,Cagliari,Sassuolo,fixturedownload,False
+I1,19,2027-01-11 19:45:00+00:00,Udinese,Napoli,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Atalanta,Roma,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Cagliari,Como,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Juventus,Genoa,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Lazio,Bologna,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Lecce,Udinese,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Milan,Torino,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Napoli,Fiorentina,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Parma,Inter,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Sassuolo,Monza,fixturedownload,False
+I1,20,2027-01-16 00:00:00+00:00,Venezia,Frosinone,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Bologna,Atalanta,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Como,Napoli,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Fiorentina,Sassuolo,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Frosinone,Milan,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Genoa,Parma,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Inter,Venezia,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Juventus,Cagliari,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Lecce,Torino,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Monza,Lazio,fixturedownload,False
+I1,21,2027-01-23 00:00:00+00:00,Roma,Udinese,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Atalanta,Fiorentina,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Cagliari,Parma,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Genoa,Lecce,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Lazio,Venezia,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Milan,Juventus,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Monza,Roma,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Napoli,Inter,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Sassuolo,Como,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Torino,Frosinone,fixturedownload,False
+I1,22,2027-01-30 00:00:00+00:00,Udinese,Bologna,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Atalanta,Lazio,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Bologna,Milan,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Como,Monza,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Fiorentina,Udinese,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Inter,Cagliari,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Juventus,Sassuolo,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Lecce,Napoli,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Parma,Frosinone,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Roma,Torino,fixturedownload,False
+I1,23,2027-02-06 00:00:00+00:00,Venezia,Genoa,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Bologna,Como,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Cagliari,Lazio,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Frosinone,Fiorentina,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Genoa,Atalanta,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Inter,Milan,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Monza,Lecce,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Napoli,Juventus,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Roma,Parma,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Torino,Sassuolo,fixturedownload,False
+I1,24,2027-02-13 00:00:00+00:00,Udinese,Venezia,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Atalanta,Monza,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Como,Torino,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Fiorentina,Inter,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Juventus,Bologna,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Lazio,Napoli,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Lecce,Frosinone,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Milan,Genoa,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Sassuolo,Roma,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Udinese,Parma,fixturedownload,False
+I1,25,2027-02-20 00:00:00+00:00,Venezia,Cagliari,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Bologna,Lecce,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Cagliari,Udinese,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Como,Milan,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Frosinone,Napoli,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Genoa,Lazio,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Inter,Atalanta,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Monza,Juventus,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Parma,Sassuolo,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Roma,Venezia,fixturedownload,False
+I1,26,2027-02-27 00:00:00+00:00,Torino,Fiorentina,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Atalanta,Torino,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Fiorentina,Venezia,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Juventus,Roma,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Lazio,Frosinone,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Lecce,Como,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Milan,Cagliari,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Monza,Genoa,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Napoli,Parma,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Sassuolo,Bologna,fixturedownload,False
+I1,27,2027-03-06 00:00:00+00:00,Udinese,Inter,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Bologna,Napoli,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Cagliari,Fiorentina,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Como,Udinese,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Frosinone,Monza,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Genoa,Roma,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Lazio,Juventus,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Milan,Sassuolo,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Parma,Lecce,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Torino,Inter,fixturedownload,False
+I1,28,2027-03-13 00:00:00+00:00,Venezia,Atalanta,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Atalanta,Milan,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Fiorentina,Genoa,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Inter,Frosinone,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Juventus,Como,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Monza,Bologna,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Napoli,Venezia,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Parma,Lazio,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Roma,Lecce,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Sassuolo,Cagliari,fixturedownload,False
+I1,29,2027-03-20 00:00:00+00:00,Udinese,Torino,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Cagliari,Napoli,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Como,Fiorentina,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Frosinone,Udinese,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Genoa,Inter,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Lecce,Lazio,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Milan,Monza,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Roma,Bologna,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Sassuolo,Atalanta,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Torino,Juventus,fixturedownload,False
+I1,30,2027-04-03 00:00:00+00:00,Venezia,Parma,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Bologna,Venezia,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Cagliari,Atalanta,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Fiorentina,Milan,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Frosinone,Genoa,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Inter,Roma,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Juventus,Lecce,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Lazio,Torino,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Napoli,Sassuolo,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Parma,Como,fixturedownload,False
+I1,31,2027-04-10 00:00:00+00:00,Udinese,Monza,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Atalanta,Udinese,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Bologna,Cagliari,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Como,Frosinone,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Fiorentina,Parma,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Milan,Napoli,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Monza,Inter,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Roma,Lazio,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Sassuolo,Lecce,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Torino,Genoa,fixturedownload,False
+I1,32,2027-04-17 00:00:00+00:00,Venezia,Juventus,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Cagliari,Monza,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Frosinone,Roma,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Genoa,Sassuolo,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Inter,Bologna,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Juventus,Fiorentina,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Lazio,Como,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Lecce,Milan,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Napoli,Udinese,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Parma,Atalanta,fixturedownload,False
+I1,33,2027-04-24 00:00:00+00:00,Venezia,Torino,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Atalanta,Juventus,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Bologna,Fiorentina,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Como,Inter,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Lecce,Cagliari,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Milan,Lazio,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Monza,Venezia,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Roma,Napoli,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Sassuolo,Frosinone,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Torino,Parma,fixturedownload,False
+I1,34,2027-05-01 00:00:00+00:00,Udinese,Genoa,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Fiorentina,Roma,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Frosinone,Atalanta,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Genoa,Cagliari,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Inter,Lecce,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Lazio,Sassuolo,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Napoli,Monza,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Parma,Milan,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Torino,Bologna,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Udinese,Juventus,fixturedownload,False
+I1,35,2027-05-08 00:00:00+00:00,Venezia,Como,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Bologna,Frosinone,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Cagliari,Torino,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Como,Atalanta,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Juventus,Inter,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Lazio,Udinese,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Lecce,Fiorentina,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Milan,Roma,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Monza,Parma,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Napoli,Genoa,fixturedownload,False
+I1,36,2027-05-15 00:00:00+00:00,Sassuolo,Venezia,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Atalanta,Lecce,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Fiorentina,Monza,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Frosinone,Cagliari,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Genoa,Bologna,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Inter,Lazio,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Parma,Juventus,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Roma,Como,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Torino,Napoli,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Udinese,Sassuolo,fixturedownload,False
+I1,37,2027-05-22 00:00:00+00:00,Venezia,Milan,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Bologna,Parma,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Cagliari,Roma,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Como,Genoa,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Juventus,Frosinone,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Lazio,Fiorentina,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Lecce,Venezia,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Milan,Udinese,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Monza,Torino,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Napoli,Atalanta,fixturedownload,False
+I1,38,2027-05-29 00:00:00+00:00,Sassuolo,Inter,fixturedownload,False
+E0,1,2026-08-21 19:00:00+00:00,Arsenal,Coventry,fixturedownload,True
+E0,1,2026-08-22 11:30:00+00:00,Hull,Man United,fixturedownload,True
+E0,1,2026-08-22 14:00:00+00:00,Everton,Crystal Palace,fixturedownload,True
+E0,1,2026-08-22 14:00:00+00:00,Ipswich,Sunderland,fixturedownload,True
+E0,1,2026-08-22 14:00:00+00:00,Nott'm Forest,Leeds,fixturedownload,True
+E0,1,2026-08-22 16:30:00+00:00,Brentford,Tottenham,fixturedownload,True
+E0,1,2026-08-23 13:00:00+00:00,Brighton,Aston Villa,fixturedownload,True
+E0,1,2026-08-23 13:00:00+00:00,Man City,Bournemouth,fixturedownload,True
+E0,1,2026-08-23 15:30:00+00:00,Newcastle,Liverpool,fixturedownload,True
+E0,1,2026-08-24 19:00:00+00:00,Fulham,Chelsea,fixturedownload,True
+E0,2,2026-08-28 19:00:00+00:00,Crystal Palace,Man City,fixturedownload,True
+E0,2,2026-08-29 11:30:00+00:00,Liverpool,Nott'm Forest,fixturedownload,True
+E0,2,2026-08-29 14:00:00+00:00,Bournemouth,Everton,fixturedownload,True
+E0,2,2026-08-29 14:00:00+00:00,Coventry,Hull,fixturedownload,True
+E0,2,2026-08-29 16:30:00+00:00,Tottenham,Newcastle,fixturedownload,True
+E0,2,2026-08-30 13:00:00+00:00,Chelsea,Brighton,fixturedownload,True
+E0,2,2026-08-30 13:00:00+00:00,Leeds,Brentford,fixturedownload,True
+E0,2,2026-08-30 13:00:00+00:00,Sunderland,Fulham,fixturedownload,True
+E0,2,2026-08-30 15:30:00+00:00,Man United,Ipswich,fixturedownload,True
+E0,2,2026-08-31 19:00:00+00:00,Aston Villa,Arsenal,fixturedownload,True
+E0,3,2026-09-04 19:00:00+00:00,Ipswich,Liverpool,fixturedownload,True
+E0,3,2026-09-05 11:30:00+00:00,Newcastle,Bournemouth,fixturedownload,True
+E0,3,2026-09-05 14:00:00+00:00,Brentford,Sunderland,fixturedownload,True
+E0,3,2026-09-05 14:00:00+00:00,Brighton,Leeds,fixturedownload,True
+E0,3,2026-09-05 14:00:00+00:00,Fulham,Crystal Palace,fixturedownload,True
+E0,3,2026-09-05 14:00:00+00:00,Man City,Coventry,fixturedownload,True
+E0,3,2026-09-05 14:00:00+00:00,Nott'm Forest,Tottenham,fixturedownload,True
+E0,3,2026-09-05 16:30:00+00:00,Hull,Aston Villa,fixturedownload,True
+E0,3,2026-09-06 13:00:00+00:00,Everton,Man United,fixturedownload,True
+E0,3,2026-09-06 15:30:00+00:00,Arsenal,Chelsea,fixturedownload,True
+E0,4,2026-09-12 14:00:00+00:00,Bournemouth,Brentford,fixturedownload,True
+E0,4,2026-09-12 14:00:00+00:00,Aston Villa,Nott'm Forest,fixturedownload,True
+E0,4,2026-09-12 14:00:00+00:00,Chelsea,Hull,fixturedownload,True
+E0,4,2026-09-12 14:00:00+00:00,Crystal Palace,Ipswich,fixturedownload,True
+E0,4,2026-09-12 14:00:00+00:00,Liverpool,Fulham,fixturedownload,True
+E0,4,2026-09-12 16:30:00+00:00,Tottenham,Everton,fixturedownload,True
+E0,4,2026-09-12 19:00:00+00:00,Sunderland,Arsenal,fixturedownload,True
+E0,4,2026-09-13 13:00:00+00:00,Coventry,Brighton,fixturedownload,True
+E0,4,2026-09-13 15:30:00+00:00,Man United,Man City,fixturedownload,True
+E0,4,2026-09-14 19:00:00+00:00,Leeds,Newcastle,fixturedownload,True
+E0,5,2026-09-18 19:00:00+00:00,Brentford,Chelsea,fixturedownload,True
+E0,5,2026-09-19 11:30:00+00:00,Tottenham,Aston Villa,fixturedownload,True
+E0,5,2026-09-19 14:00:00+00:00,Brighton,Arsenal,fixturedownload,True
+E0,5,2026-09-19 14:00:00+00:00,Everton,Ipswich,fixturedownload,True
+E0,5,2026-09-19 14:00:00+00:00,Newcastle,Hull,fixturedownload,True
+E0,5,2026-09-19 16:30:00+00:00,Nott'm Forest,Coventry,fixturedownload,True
+E0,5,2026-09-20 13:00:00+00:00,Bournemouth,Liverpool,fixturedownload,True
+E0,5,2026-09-20 13:00:00+00:00,Leeds,Crystal Palace,fixturedownload,True
+E0,5,2026-09-20 13:00:00+00:00,Man City,Sunderland,fixturedownload,True
+E0,5,2026-09-20 15:30:00+00:00,Fulham,Man United,fixturedownload,True
+E0,6,2026-10-10 11:30:00+00:00,Arsenal,Leeds,fixturedownload,True
+E0,6,2026-10-10 14:00:00+00:00,Aston Villa,Brentford,fixturedownload,True
+E0,6,2026-10-10 14:00:00+00:00,Chelsea,Bournemouth,fixturedownload,True
+E0,6,2026-10-10 14:00:00+00:00,Ipswich,Fulham,fixturedownload,True
+E0,6,2026-10-10 14:00:00+00:00,Sunderland,Brighton,fixturedownload,True
+E0,6,2026-10-10 16:30:00+00:00,Man United,Tottenham,fixturedownload,True
+E0,6,2026-10-11 13:00:00+00:00,Crystal Palace,Nott'm Forest,fixturedownload,True
+E0,6,2026-10-11 13:00:00+00:00,Hull,Everton,fixturedownload,True
+E0,6,2026-10-11 15:30:00+00:00,Liverpool,Man City,fixturedownload,True
+E0,6,2026-10-12 19:00:00+00:00,Coventry,Newcastle,fixturedownload,True
+E0,7,2026-10-17 11:30:00+00:00,Everton,Chelsea,fixturedownload,True
+E0,7,2026-10-17 14:00:00+00:00,Brentford,Liverpool,fixturedownload,True
+E0,7,2026-10-17 14:00:00+00:00,Fulham,Hull,fixturedownload,True
+E0,7,2026-10-17 14:00:00+00:00,Man City,Ipswich,fixturedownload,True
+E0,7,2026-10-17 16:30:00+00:00,Newcastle,Aston Villa,fixturedownload,True
+E0,7,2026-10-18 13:00:00+00:00,Bournemouth,Sunderland,fixturedownload,True
+E0,7,2026-10-18 13:00:00+00:00,Brighton,Crystal Palace,fixturedownload,True
+E0,7,2026-10-18 13:00:00+00:00,Leeds,Man United,fixturedownload,True
+E0,7,2026-10-18 15:30:00+00:00,Nott'm Forest,Arsenal,fixturedownload,True
+E0,7,2026-10-19 19:00:00+00:00,Tottenham,Coventry,fixturedownload,True
+E0,8,2026-10-23 19:00:00+00:00,Ipswich,Nott'm Forest,fixturedownload,False
+E0,8,2026-10-24 11:30:00+00:00,Aston Villa,Man City,fixturedownload,False
+E0,8,2026-10-24 14:00:00+00:00,Arsenal,Everton,fixturedownload,False
+E0,8,2026-10-24 14:00:00+00:00,Coventry,Fulham,fixturedownload,False
+E0,8,2026-10-24 16:30:00+00:00,Chelsea,Tottenham,fixturedownload,False
+E0,8,2026-10-25 14:00:00+00:00,Crystal Palace,Newcastle,fixturedownload,False
+E0,8,2026-10-25 14:00:00+00:00,Hull,Brentford,fixturedownload,False
+E0,8,2026-10-25 14:00:00+00:00,Liverpool,Brighton,fixturedownload,False
+E0,8,2026-10-25 14:00:00+00:00,Man United,Bournemouth,fixturedownload,False
+E0,8,2026-10-25 16:30:00+00:00,Sunderland,Leeds,fixturedownload,False
+E0,9,2026-10-31 12:30:00+00:00,Chelsea,Man United,fixturedownload,False
+E0,9,2026-10-31 15:00:00+00:00,Bournemouth,Leeds,fixturedownload,False
+E0,9,2026-10-31 15:00:00+00:00,Brentford,Nott'm Forest,fixturedownload,False
+E0,9,2026-10-31 15:00:00+00:00,Coventry,Sunderland,fixturedownload,False
+E0,9,2026-10-31 15:00:00+00:00,Hull,Ipswich,fixturedownload,False
+E0,9,2026-10-31 15:00:00+00:00,Man City,Brighton,fixturedownload,False
+E0,9,2026-10-31 17:30:00+00:00,Tottenham,Crystal Palace,fixturedownload,False
+E0,9,2026-10-31 20:00:00+00:00,Aston Villa,Fulham,fixturedownload,False
+E0,9,2026-11-01 16:30:00+00:00,Liverpool,Arsenal,fixturedownload,False
+E0,9,2026-11-02 20:00:00+00:00,Newcastle,Everton,fixturedownload,False
+E0,10,2026-11-06 20:00:00+00:00,Everton,Coventry,fixturedownload,False
+E0,10,2026-11-07 12:30:00+00:00,Leeds,Tottenham,fixturedownload,False
+E0,10,2026-11-07 15:00:00+00:00,Arsenal,Hull,fixturedownload,False
+E0,10,2026-11-07 15:00:00+00:00,Fulham,Newcastle,fixturedownload,False
+E0,10,2026-11-07 17:30:00+00:00,Nott'm Forest,Man City,fixturedownload,False
+E0,10,2026-11-08 14:00:00+00:00,Brighton,Brentford,fixturedownload,False
+E0,10,2026-11-08 14:00:00+00:00,Crystal Palace,Liverpool,fixturedownload,False
+E0,10,2026-11-08 14:00:00+00:00,Ipswich,Bournemouth,fixturedownload,False
+E0,10,2026-11-08 14:00:00+00:00,Sunderland,Chelsea,fixturedownload,False
+E0,10,2026-11-08 16:30:00+00:00,Man United,Aston Villa,fixturedownload,False
+E0,11,2026-11-21 12:30:00+00:00,Man City,Fulham,fixturedownload,False
+E0,11,2026-11-21 15:00:00+00:00,Bournemouth,Nott'm Forest,fixturedownload,False
+E0,11,2026-11-21 15:00:00+00:00,Aston Villa,Sunderland,fixturedownload,False
+E0,11,2026-11-21 15:00:00+00:00,Chelsea,Leeds,fixturedownload,False
+E0,11,2026-11-21 15:00:00+00:00,Coventry,Crystal Palace,fixturedownload,False
+E0,11,2026-11-21 15:00:00+00:00,Tottenham,Ipswich,fixturedownload,False
+E0,11,2026-11-21 17:30:00+00:00,Newcastle,Arsenal,fixturedownload,False
+E0,11,2026-11-22 14:00:00+00:00,Hull,Brighton,fixturedownload,False
+E0,11,2026-11-22 16:30:00+00:00,Liverpool,Man United,fixturedownload,False
+E0,11,2026-11-23 20:00:00+00:00,Brentford,Everton,fixturedownload,False
+E0,12,2026-11-27 20:00:00+00:00,Nott'm Forest,Chelsea,fixturedownload,False
+E0,12,2026-11-28 15:00:00+00:00,Leeds,Coventry,fixturedownload,False
+E0,12,2026-11-28 15:00:00+00:00,Man United,Brentford,fixturedownload,False
+E0,12,2026-11-28 17:30:00+00:00,Ipswich,Aston Villa,fixturedownload,False
+E0,12,2026-11-29 12:00:00+00:00,Everton,Liverpool,fixturedownload,False
+E0,12,2026-11-29 14:05:00+00:00,Brighton,Newcastle,fixturedownload,False
+E0,12,2026-11-29 14:05:00+00:00,Crystal Palace,Hull,fixturedownload,False
+E0,12,2026-11-29 14:05:00+00:00,Fulham,Bournemouth,fixturedownload,False
+E0,12,2026-11-29 14:05:00+00:00,Sunderland,Tottenham,fixturedownload,False
+E0,12,2026-11-29 16:30:00+00:00,Arsenal,Man City,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Bournemouth,Brighton,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Aston Villa,Everton,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Brentford,Arsenal,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Chelsea,Crystal Palace,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Coventry,Ipswich,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Hull,Nott'm Forest,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Liverpool,Sunderland,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Man City,Leeds,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Newcastle,Man United,fixturedownload,False
+E0,13,2026-12-02 20:00:00+00:00,Tottenham,Fulham,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Bournemouth,Hull,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Aston Villa,Crystal Palace,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Brentford,Man City,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Chelsea,Liverpool,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Everton,Fulham,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Leeds,Ipswich,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Man United,Coventry,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Newcastle,Sunderland,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Nott'm Forest,Brighton,fixturedownload,False
+E0,14,2026-12-05 15:00:00+00:00,Tottenham,Arsenal,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Arsenal,Bournemouth,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Brighton,Everton,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Coventry,Aston Villa,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Crystal Palace,Man United,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Fulham,Brentford,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Hull,Tottenham,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Ipswich,Newcastle,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Liverpool,Leeds,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Man City,Chelsea,fixturedownload,False
+E0,15,2026-12-12 15:00:00+00:00,Sunderland,Nott'm Forest,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Bournemouth,Coventry,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Arsenal,Man United,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Brentford,Newcastle,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Brighton,Ipswich,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Chelsea,Aston Villa,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Leeds,Fulham,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Liverpool,Tottenham,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Man City,Hull,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Nott'm Forest,Everton,fixturedownload,False
+E0,16,2026-12-19 15:00:00+00:00,Sunderland,Crystal Palace,fixturedownload,False
+E0,17,2026-12-26 12:30:00+00:00,Aston Villa,Leeds,fixturedownload,False
+E0,17,2026-12-26 15:00:00+00:00,Everton,Sunderland,fixturedownload,False
+E0,17,2026-12-26 15:00:00+00:00,Fulham,Brighton,fixturedownload,False
+E0,17,2026-12-26 15:00:00+00:00,Ipswich,Brentford,fixturedownload,False
+E0,17,2026-12-26 15:00:00+00:00,Tottenham,Bournemouth,fixturedownload,False
+E0,17,2026-12-26 17:30:00+00:00,Hull,Liverpool,fixturedownload,False
+E0,17,2026-12-26 20:00:00+00:00,Newcastle,Man City,fixturedownload,False
+E0,17,2026-12-27 14:00:00+00:00,Coventry,Chelsea,fixturedownload,False
+E0,17,2026-12-27 16:30:00+00:00,Man United,Nott'm Forest,fixturedownload,False
+E0,17,2026-12-27 19:00:00+00:00,Crystal Palace,Arsenal,fixturedownload,False
+E0,18,2026-12-29 19:30:00+00:00,Hull,Leeds,fixturedownload,False
+E0,18,2026-12-29 19:30:00+00:00,Tottenham,Brighton,fixturedownload,False
+E0,18,2026-12-29 20:15:00+00:00,Everton,Man City,fixturedownload,False
+E0,18,2026-12-30 19:30:00+00:00,Coventry,Brentford,fixturedownload,False
+E0,18,2026-12-30 19:30:00+00:00,Crystal Palace,Bournemouth,fixturedownload,False
+E0,18,2026-12-30 19:30:00+00:00,Fulham,Arsenal,fixturedownload,False
+E0,18,2026-12-30 19:30:00+00:00,Man United,Sunderland,fixturedownload,False
+E0,18,2026-12-30 19:30:00+00:00,Newcastle,Nott'm Forest,fixturedownload,False
+E0,18,2026-12-30 20:15:00+00:00,Aston Villa,Liverpool,fixturedownload,False
+E0,18,2026-12-30 20:15:00+00:00,Ipswich,Chelsea,fixturedownload,False
+E0,19,2027-01-01 20:00:00+00:00,Leeds,Everton,fixturedownload,False
+E0,19,2027-01-02 12:30:00+00:00,Brighton,Man United,fixturedownload,False
+E0,19,2027-01-02 15:00:00+00:00,Arsenal,Ipswich,fixturedownload,False
+E0,19,2027-01-02 15:00:00+00:00,Brentford,Crystal Palace,fixturedownload,False
+E0,19,2027-01-02 15:00:00+00:00,Liverpool,Coventry,fixturedownload,False
+E0,19,2027-01-02 15:00:00+00:00,Nott'm Forest,Fulham,fixturedownload,False
+E0,19,2027-01-02 15:00:00+00:00,Sunderland,Hull,fixturedownload,False
+E0,19,2027-01-02 17:30:00+00:00,Bournemouth,Aston Villa,fixturedownload,False
+E0,19,2027-01-03 14:00:00+00:00,Chelsea,Newcastle,fixturedownload,False
+E0,19,2027-01-03 16:30:00+00:00,Man City,Tottenham,fixturedownload,False
+E0,20,2027-01-05 19:30:00+00:00,Arsenal,Brentford,fixturedownload,False
+E0,20,2027-01-05 19:30:00+00:00,Brighton,Bournemouth,fixturedownload,False
+E0,20,2027-01-05 19:30:00+00:00,Everton,Aston Villa,fixturedownload,False
+E0,20,2027-01-05 19:30:00+00:00,Nott'm Forest,Hull,fixturedownload,False
+E0,20,2027-01-05 20:15:00+00:00,Sunderland,Liverpool,fixturedownload,False
+E0,20,2027-01-06 19:30:00+00:00,Crystal Palace,Chelsea,fixturedownload,False
+E0,20,2027-01-06 19:30:00+00:00,Fulham,Tottenham,fixturedownload,False
+E0,20,2027-01-06 19:30:00+00:00,Ipswich,Coventry,fixturedownload,False
+E0,20,2027-01-06 20:15:00+00:00,Leeds,Man City,fixturedownload,False
+E0,20,2027-01-07 20:00:00+00:00,Man United,Newcastle,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Bournemouth,Ipswich,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Aston Villa,Man United,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Brentford,Brighton,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Chelsea,Sunderland,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Coventry,Everton,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Hull,Arsenal,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Liverpool,Crystal Palace,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Man City,Nott'm Forest,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Newcastle,Fulham,fixturedownload,False
+E0,21,2027-01-16 15:00:00+00:00,Tottenham,Leeds,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Arsenal,Newcastle,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Brighton,Man City,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Crystal Palace,Tottenham,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Everton,Brentford,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Fulham,Aston Villa,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Ipswich,Hull,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Leeds,Chelsea,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Man United,Liverpool,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Nott'm Forest,Bournemouth,fixturedownload,False
+E0,22,2027-01-23 15:00:00+00:00,Sunderland,Coventry,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Bournemouth,Fulham,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Aston Villa,Ipswich,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Brentford,Man United,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Chelsea,Nott'm Forest,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Coventry,Leeds,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Hull,Crystal Palace,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Liverpool,Everton,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Man City,Arsenal,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Newcastle,Brighton,fixturedownload,False
+E0,23,2027-01-30 15:00:00+00:00,Tottenham,Sunderland,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Arsenal,Liverpool,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Brighton,Hull,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Crystal Palace,Coventry,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Everton,Newcastle,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Fulham,Man City,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Ipswich,Tottenham,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Leeds,Bournemouth,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Man United,Chelsea,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Nott'm Forest,Brentford,fixturedownload,False
+E0,24,2027-02-06 15:00:00+00:00,Sunderland,Aston Villa,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Aston Villa,Bournemouth,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Coventry,Liverpool,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Crystal Palace,Brentford,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Everton,Leeds,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Fulham,Nott'm Forest,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Hull,Sunderland,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Ipswich,Arsenal,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Man United,Brighton,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Newcastle,Chelsea,fixturedownload,False
+E0,25,2027-02-10 20:00:00+00:00,Tottenham,Man City,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Bournemouth,Crystal Palace,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Arsenal,Fulham,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Brentford,Coventry,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Brighton,Tottenham,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Chelsea,Ipswich,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Leeds,Aston Villa,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Liverpool,Hull,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Man City,Newcastle,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Nott'm Forest,Man United,fixturedownload,False
+E0,26,2027-02-20 15:00:00+00:00,Sunderland,Everton,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Aston Villa,Chelsea,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Coventry,Bournemouth,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Crystal Palace,Sunderland,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Everton,Nott'm Forest,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Fulham,Leeds,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Hull,Man City,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Ipswich,Brighton,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Man United,Arsenal,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Newcastle,Brentford,fixturedownload,False
+E0,27,2027-02-27 15:00:00+00:00,Tottenham,Liverpool,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Bournemouth,Tottenham,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Arsenal,Crystal Palace,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Brentford,Ipswich,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Brighton,Fulham,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Chelsea,Coventry,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Leeds,Hull,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Liverpool,Aston Villa,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Man City,Everton,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Nott'm Forest,Newcastle,fixturedownload,False
+E0,28,2027-03-03 20:00:00+00:00,Sunderland,Man United,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Bournemouth,Newcastle,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Aston Villa,Hull,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Chelsea,Arsenal,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Coventry,Man City,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Crystal Palace,Fulham,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Leeds,Brighton,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Liverpool,Ipswich,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Man United,Everton,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Sunderland,Brentford,fixturedownload,False
+E0,29,2027-03-13 15:00:00+00:00,Tottenham,Nott'm Forest,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Arsenal,Sunderland,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Brentford,Bournemouth,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Brighton,Coventry,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Everton,Tottenham,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Fulham,Liverpool,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Hull,Chelsea,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Ipswich,Crystal Palace,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Man City,Man United,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Newcastle,Leeds,fixturedownload,False
+E0,30,2027-03-20 15:00:00+00:00,Nott'm Forest,Aston Villa,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Bournemouth,Man City,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Aston Villa,Brighton,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Chelsea,Fulham,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Coventry,Arsenal,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Crystal Palace,Everton,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Leeds,Nott'm Forest,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Liverpool,Newcastle,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Man United,Hull,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Sunderland,Ipswich,fixturedownload,False
+E0,31,2027-04-10 14:00:00+00:00,Tottenham,Brentford,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Arsenal,Aston Villa,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Brentford,Leeds,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Brighton,Chelsea,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Everton,Bournemouth,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Fulham,Sunderland,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Hull,Coventry,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Ipswich,Man United,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Man City,Crystal Palace,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Newcastle,Tottenham,fixturedownload,False
+E0,32,2027-04-17 14:00:00+00:00,Nott'm Forest,Liverpool,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Bournemouth,Arsenal,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Aston Villa,Coventry,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Brentford,Fulham,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Chelsea,Man City,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Everton,Brighton,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Leeds,Liverpool,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Man United,Crystal Palace,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Newcastle,Ipswich,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Nott'm Forest,Sunderland,fixturedownload,False
+E0,33,2027-04-24 14:00:00+00:00,Tottenham,Hull,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Arsenal,Tottenham,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Brighton,Nott'm Forest,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Coventry,Man United,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Crystal Palace,Aston Villa,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Fulham,Everton,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Hull,Bournemouth,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Ipswich,Leeds,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Liverpool,Chelsea,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Man City,Brentford,fixturedownload,False
+E0,34,2027-05-01 14:00:00+00:00,Sunderland,Newcastle,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Bournemouth,Man United,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Brentford,Aston Villa,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Brighton,Sunderland,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Everton,Hull,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Fulham,Ipswich,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Leeds,Arsenal,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Man City,Liverpool,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Newcastle,Coventry,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Nott'm Forest,Crystal Palace,fixturedownload,False
+E0,35,2027-05-08 14:00:00+00:00,Tottenham,Chelsea,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Arsenal,Nott'm Forest,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Aston Villa,Newcastle,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Chelsea,Everton,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Coventry,Tottenham,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Crystal Palace,Brighton,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Hull,Fulham,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Ipswich,Man City,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Liverpool,Brentford,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Man United,Leeds,fixturedownload,False
+E0,36,2027-05-15 14:00:00+00:00,Sunderland,Bournemouth,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Bournemouth,Chelsea,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Brentford,Hull,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Brighton,Liverpool,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Everton,Arsenal,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Fulham,Coventry,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Leeds,Sunderland,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Man City,Aston Villa,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Newcastle,Crystal Palace,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Nott'm Forest,Ipswich,fixturedownload,False
+E0,37,2027-05-23 14:00:00+00:00,Tottenham,Man United,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Arsenal,Brighton,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Aston Villa,Tottenham,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Chelsea,Brentford,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Coventry,Nott'm Forest,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Crystal Palace,Leeds,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Hull,Newcastle,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Ipswich,Everton,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Liverpool,Bournemouth,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Man United,Fulham,fixturedownload,False
+E0,38,2027-05-30 15:00:00+00:00,Sunderland,Man City,fixturedownload,False
+SP1,1,2026-08-15 17:30:00+00:00,Alaves,Getafe,fixturedownload,True
+SP1,1,2026-08-15 19:30:00+00:00,Sevilla,Vallecano,fixturedownload,True
+SP1,1,2026-08-16 15:00:00+00:00,Santander,Villarreal,fixturedownload,True
+SP1,1,2026-08-16 17:00:00+00:00,Espanol,Levante,fixturedownload,True
+SP1,1,2026-08-17 19:00:00+00:00,La Coruna,Elche,fixturedownload,True
+SP1,1,2026-08-19 19:00:00+00:00,Ath Madrid,Malaga,fixturedownload,True
+SP1,1,2026-08-25 19:00:00+00:00,Valencia,Betis,fixturedownload,True
+SP1,1,2026-08-26 19:00:00+00:00,Real Madrid,Sociedad,fixturedownload,True
+SP1,1,2026-08-27 18:30:00+00:00,Celta,Osasuna,fixturedownload,True
+SP1,1,2026-08-27 19:00:00+00:00,Barcelona,Ath Bilbao,fixturedownload,True
+SP1,2,2026-08-20 19:00:00+00:00,Vallecano,Alaves,fixturedownload,True
+SP1,2,2026-08-21 19:00:00+00:00,Betis,Sociedad,fixturedownload,True
+SP1,2,2026-08-22 15:00:00+00:00,Ath Bilbao,Sevilla,fixturedownload,True
+SP1,2,2026-08-22 17:30:00+00:00,Valencia,Celta,fixturedownload,True
+SP1,2,2026-08-22 19:30:00+00:00,Espanol,Real Madrid,fixturedownload,True
+SP1,2,2026-08-23 15:00:00+00:00,Ath Madrid,Villarreal,fixturedownload,True
+SP1,2,2026-08-23 17:30:00+00:00,Getafe,Santander,fixturedownload,True
+SP1,2,2026-08-23 19:30:00+00:00,Elche,Barcelona,fixturedownload,True
+SP1,2,2026-08-24 17:30:00+00:00,Osasuna,Levante,fixturedownload,True
+SP1,2,2026-08-24 19:30:00+00:00,Malaga,La Coruna,fixturedownload,True
+SP1,3,2026-08-28 17:00:00+00:00,Santander,Elche,fixturedownload,True
+SP1,3,2026-08-28 19:30:00+00:00,Alaves,Villarreal,fixturedownload,True
+SP1,3,2026-08-29 15:00:00+00:00,Levante,Betis,fixturedownload,True
+SP1,3,2026-08-29 17:00:00+00:00,Sociedad,Espanol,fixturedownload,True
+SP1,3,2026-08-29 19:30:00+00:00,Sevilla,Ath Madrid,fixturedownload,True
+SP1,3,2026-08-30 15:00:00+00:00,Real Madrid,Malaga,fixturedownload,True
+SP1,3,2026-08-30 17:30:00+00:00,La Coruna,Valencia,fixturedownload,True
+SP1,3,2026-08-30 19:30:00+00:00,Celta,Ath Bilbao,fixturedownload,True
+SP1,3,2026-08-31 17:30:00+00:00,Osasuna,Getafe,fixturedownload,True
+SP1,3,2026-08-31 19:30:00+00:00,Barcelona,Vallecano,fixturedownload,True
+SP1,4,2026-09-04 19:00:00+00:00,Betis,Real Madrid,fixturedownload,True
+SP1,4,2026-09-05 14:15:00+00:00,Ath Bilbao,Ath Madrid,fixturedownload,True
+SP1,4,2026-09-05 16:30:00+00:00,Vallecano,Santander,fixturedownload,True
+SP1,4,2026-09-05 19:00:00+00:00,Villarreal,La Coruna,fixturedownload,True
+SP1,4,2026-09-06 14:15:00+00:00,Valencia,Barcelona,fixturedownload,True
+SP1,4,2026-09-06 16:30:00+00:00,Alaves,Osasuna,fixturedownload,True
+SP1,4,2026-09-06 16:30:00+00:00,Malaga,Levante,fixturedownload,True
+SP1,4,2026-09-06 19:00:00+00:00,Espanol,Sevilla,fixturedownload,True
+SP1,4,2026-09-07 17:00:00+00:00,Getafe,Celta,fixturedownload,True
+SP1,4,2026-09-07 19:30:00+00:00,Elche,Sociedad,fixturedownload,True
+SP1,5,2026-09-11 19:00:00+00:00,Sevilla,Valencia,fixturedownload,True
+SP1,5,2026-09-12 12:00:00+00:00,Santander,Alaves,fixturedownload,True
+SP1,5,2026-09-12 14:15:00+00:00,Osasuna,Espanol,fixturedownload,True
+SP1,5,2026-09-12 16:30:00+00:00,Ath Bilbao,Elche,fixturedownload,True
+SP1,5,2026-09-12 19:00:00+00:00,Real Madrid,Vallecano,fixturedownload,True
+SP1,5,2026-09-13 12:00:00+00:00,Celta,Malaga,fixturedownload,True
+SP1,5,2026-09-13 14:15:00+00:00,Levante,Barcelona,fixturedownload,True
+SP1,5,2026-09-13 16:30:00+00:00,Getafe,La Coruna,fixturedownload,True
+SP1,5,2026-09-13 19:00:00+00:00,Sociedad,Ath Madrid,fixturedownload,True
+SP1,5,2026-09-14 19:00:00+00:00,Villarreal,Betis,fixturedownload,True
+SP1,6,2026-09-03 19:00:00+00:00,Sociedad,Celta,fixturedownload,True
+SP1,6,2026-09-15 17:00:00+00:00,Vallecano,Espanol,fixturedownload,True
+SP1,6,2026-09-15 18:00:00+00:00,Alaves,Valencia,fixturedownload,True
+SP1,6,2026-09-15 19:30:00+00:00,Elche,Real Madrid,fixturedownload,True
+SP1,6,2026-09-16 17:00:00+00:00,Ath Madrid,Osasuna,fixturedownload,True
+SP1,6,2026-09-16 17:00:00+00:00,La Coruna,Sevilla,fixturedownload,True
+SP1,6,2026-09-16 19:30:00+00:00,Barcelona,Santander,fixturedownload,True
+SP1,6,2026-09-17 17:00:00+00:00,Betis,Getafe,fixturedownload,True
+SP1,6,2026-09-17 19:30:00+00:00,Malaga,Villarreal,fixturedownload,True
+SP1,6,2026-10-21 18:00:00+00:00,Levante,Ath Bilbao,fixturedownload,True
+SP1,7,2026-09-18 19:00:00+00:00,Espanol,Elche,fixturedownload,True
+SP1,7,2026-09-19 12:00:00+00:00,Osasuna,Vallecano,fixturedownload,True
+SP1,7,2026-09-19 14:15:00+00:00,Ath Bilbao,Alaves,fixturedownload,True
+SP1,7,2026-09-19 16:30:00+00:00,Celta,Santander,fixturedownload,True
+SP1,7,2026-09-19 19:00:00+00:00,Sevilla,Barcelona,fixturedownload,True
+SP1,7,2026-09-20 12:00:00+00:00,Getafe,Malaga,fixturedownload,True
+SP1,7,2026-09-20 14:15:00+00:00,Ath Madrid,Real Madrid,fixturedownload,True
+SP1,7,2026-09-20 16:30:00+00:00,La Coruna,Betis,fixturedownload,True
+SP1,7,2026-09-20 16:30:00+00:00,Villarreal,Levante,fixturedownload,True
+SP1,7,2026-09-20 19:00:00+00:00,Valencia,Sociedad,fixturedownload,True
+SP1,8,2026-10-09 19:00:00+00:00,Malaga,Espanol,fixturedownload,True
+SP1,8,2026-10-10 12:00:00+00:00,Vallecano,Ath Bilbao,fixturedownload,False
+SP1,8,2026-10-10 14:15:00+00:00,Alaves,Ath Madrid,fixturedownload,True
+SP1,8,2026-10-10 16:30:00+00:00,Barcelona,Getafe,fixturedownload,True
+SP1,8,2026-10-10 19:00:00+00:00,Real Madrid,Villarreal,fixturedownload,True
+SP1,8,2026-10-11 12:00:00+00:00,Elche,Celta,fixturedownload,True
+SP1,8,2026-10-11 14:15:00+00:00,Sociedad,La Coruna,fixturedownload,True
+SP1,8,2026-10-11 16:30:00+00:00,Betis,Osasuna,fixturedownload,True
+SP1,8,2026-10-11 19:00:00+00:00,Santander,Valencia,fixturedownload,True
+SP1,8,2026-10-12 19:00:00+00:00,Levante,Sevilla,fixturedownload,True
+SP1,9,2026-10-16 19:00:00+00:00,La Coruna,Levante,fixturedownload,True
+SP1,9,2026-10-17 12:00:00+00:00,Espanol,Ath Madrid,fixturedownload,True
+SP1,9,2026-10-17 14:15:00+00:00,Villarreal,Elche,fixturedownload,True
+SP1,9,2026-10-17 16:30:00+00:00,Betis,Barcelona,fixturedownload,True
+SP1,9,2026-10-17 19:00:00+00:00,Valencia,Ath Bilbao,fixturedownload,True
+SP1,9,2026-10-18 12:00:00+00:00,Osasuna,Santander,fixturedownload,True
+SP1,9,2026-10-18 14:15:00+00:00,Celta,Alaves,fixturedownload,True
+SP1,9,2026-10-18 16:30:00+00:00,Malaga,Sociedad,fixturedownload,True
+SP1,9,2026-10-18 19:00:00+00:00,Real Madrid,Sevilla,fixturedownload,True
+SP1,9,2026-10-19 19:00:00+00:00,Getafe,Vallecano,fixturedownload,True
+SP1,10,2026-10-23 19:00:00+00:00,Alaves,Malaga,fixturedownload,False
+SP1,10,2026-10-24 12:00:00+00:00,Vallecano,Elche,fixturedownload,False
+SP1,10,2026-10-24 14:15:00+00:00,Santander,Espanol,fixturedownload,False
+SP1,10,2026-10-24 16:30:00+00:00,Valencia,Villarreal,fixturedownload,False
+SP1,10,2026-10-24 19:00:00+00:00,Ath Madrid,La Coruna,fixturedownload,False
+SP1,10,2026-10-25 13:00:00+00:00,Ath Bilbao,Getafe,fixturedownload,False
+SP1,10,2026-10-25 15:15:00+00:00,Celta,Betis,fixturedownload,False
+SP1,10,2026-10-25 17:30:00+00:00,Sociedad,Levante,fixturedownload,False
+SP1,10,2026-10-25 20:00:00+00:00,Barcelona,Real Madrid,fixturedownload,False
+SP1,10,2026-10-26 20:00:00+00:00,Sevilla,Osasuna,fixturedownload,False
+SP1,11,2026-10-30 20:00:00+00:00,Villarreal,Espanol,fixturedownload,False
+SP1,11,2026-10-31 13:00:00+00:00,Levante,Ath Madrid,fixturedownload,False
+SP1,11,2026-10-31 15:15:00+00:00,Vallecano,Celta,fixturedownload,False
+SP1,11,2026-10-31 17:30:00+00:00,Betis,Malaga,fixturedownload,False
+SP1,11,2026-10-31 20:00:00+00:00,Barcelona,Alaves,fixturedownload,False
+SP1,11,2026-11-01 13:00:00+00:00,Getafe,Sevilla,fixturedownload,False
+SP1,11,2026-11-01 15:15:00+00:00,Santander,Real Madrid,fixturedownload,False
+SP1,11,2026-11-01 17:30:00+00:00,Elche,Valencia,fixturedownload,False
+SP1,11,2026-11-01 20:00:00+00:00,Ath Bilbao,Sociedad,fixturedownload,False
+SP1,11,2026-11-02 20:00:00+00:00,La Coruna,Osasuna,fixturedownload,False
+SP1,12,2026-11-06 20:00:00+00:00,Sevilla,Alaves,fixturedownload,False
+SP1,12,2026-11-07 13:00:00+00:00,Malaga,Santander,fixturedownload,False
+SP1,12,2026-11-07 15:15:00+00:00,Espanol,La Coruna,fixturedownload,False
+SP1,12,2026-11-07 17:30:00+00:00,Osasuna,Ath Bilbao,fixturedownload,False
+SP1,12,2026-11-07 20:00:00+00:00,Valencia,Real Madrid,fixturedownload,False
+SP1,12,2026-11-08 13:00:00+00:00,Elche,Betis,fixturedownload,False
+SP1,12,2026-11-08 15:15:00+00:00,Sociedad,Vallecano,fixturedownload,False
+SP1,12,2026-11-08 17:30:00+00:00,Celta,Levante,fixturedownload,False
+SP1,12,2026-11-08 17:30:00+00:00,Villarreal,Getafe,fixturedownload,False
+SP1,12,2026-11-08 20:00:00+00:00,Ath Madrid,Barcelona,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Alaves,La Coruna,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Ath Bilbao,Espanol,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Barcelona,Villarreal,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Getafe,Ath Madrid,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Levante,Elche,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Osasuna,Malaga,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Santander,Sociedad,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Vallecano,Valencia,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Real Madrid,Celta,fixturedownload,False
+SP1,13,2026-11-22 00:00:00+00:00,Sevilla,Betis,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Betis,Vallecano,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Celta,Villarreal,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,La Coruna,Barcelona,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Elche,Ath Madrid,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Espanol,Getafe,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Levante,Santander,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Malaga,Ath Bilbao,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Real Madrid,Alaves,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Sociedad,Sevilla,fixturedownload,False
+SP1,14,2026-11-29 00:00:00+00:00,Valencia,Osasuna,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Alaves,Espanol,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Ath Bilbao,Real Madrid,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Ath Madrid,Betis,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Barcelona,Celta,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Getafe,Valencia,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Osasuna,Elche,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Santander,La Coruna,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Vallecano,Levante,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Sevilla,Malaga,fixturedownload,False
+SP1,15,2026-12-06 00:00:00+00:00,Villarreal,Sociedad,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Ath Madrid,Valencia,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Betis,Santander,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,La Coruna,Ath Bilbao,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Elche,Sevilla,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Espanol,Celta,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Levante,Alaves,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Malaga,Barcelona,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Real Madrid,Osasuna,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Sociedad,Getafe,fixturedownload,False
+SP1,16,2026-12-13 00:00:00+00:00,Villarreal,Vallecano,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Alaves,Elche,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Ath Bilbao,Betis,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Celta,Ath Madrid,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,La Coruna,Real Madrid,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Barcelona,Sociedad,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Getafe,Levante,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Osasuna,Villarreal,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Vallecano,Malaga,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Sevilla,Santander,fixturedownload,False
+SP1,17,2026-12-20 00:00:00+00:00,Valencia,Espanol,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Betis,Alaves,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Celta,La Coruna,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Espanol,Barcelona,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Levante,Valencia,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Malaga,Elche,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Santander,Ath Bilbao,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Vallecano,Ath Madrid,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Real Madrid,Getafe,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Sociedad,Osasuna,fixturedownload,False
+SP1,18,2027-01-03 00:00:00+00:00,Villarreal,Sevilla,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Alaves,Sociedad,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Ath Bilbao,Villarreal,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Ath Madrid,Santander,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,La Coruna,Vallecano,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Elche,Getafe,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Espanol,Betis,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Osasuna,Barcelona,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Real Madrid,Levante,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Sevilla,Celta,fixturedownload,False
+SP1,19,2027-01-10 00:00:00+00:00,Valencia,Malaga,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Ath Madrid,Sociedad,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Betis,La Coruna,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Celta,Valencia,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Barcelona,Elche,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Getafe,Ath Bilbao,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Levante,Espanol,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Malaga,Real Madrid,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Santander,Osasuna,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Vallecano,Sevilla,fixturedownload,False
+SP1,20,2027-01-17 00:00:00+00:00,Villarreal,Alaves,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Alaves,Barcelona,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Ath Bilbao,Levante,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,La Coruna,Ath Madrid,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Elche,Vallecano,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Espanol,Villarreal,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Getafe,Osasuna,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Santander,Celta,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Real Madrid,Betis,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Sociedad,Malaga,fixturedownload,False
+SP1,21,2027-01-24 00:00:00+00:00,Valencia,Sevilla,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Ath Madrid,Espanol,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Betis,Elche,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Celta,Getafe,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Barcelona,Valencia,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Levante,Sociedad,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Malaga,Alaves,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Osasuna,La Coruna,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Vallecano,Real Madrid,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Sevilla,Ath Bilbao,fixturedownload,False
+SP1,22,2027-01-31 00:00:00+00:00,Villarreal,Santander,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Alaves,Celta,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Ath Bilbao,Osasuna,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Betis,Sevilla,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,La Coruna,Malaga,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Elche,Levante,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Espanol,Vallecano,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Barcelona,Ath Madrid,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Getafe,Villarreal,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Sociedad,Real Madrid,fixturedownload,False
+SP1,23,2027-02-07 00:00:00+00:00,Valencia,Santander,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Celta,Vallecano,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Elche,La Coruna,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Levante,Malaga,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Osasuna,Ath Madrid,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Santander,Getafe,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Real Madrid,Ath Bilbao,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Sociedad,Betis,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Sevilla,Espanol,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Valencia,Alaves,fixturedownload,False
+SP1,24,2027-02-14 00:00:00+00:00,Villarreal,Barcelona,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Alaves,Santander,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Ath Bilbao,Celta,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Ath Madrid,Elche,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,La Coruna,Sociedad,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Espanol,Osasuna,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Barcelona,Levante,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Malaga,Betis,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Vallecano,Getafe,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Sevilla,Real Madrid,fixturedownload,False
+SP1,25,2027-02-21 00:00:00+00:00,Villarreal,Valencia,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Ath Bilbao,Barcelona,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Betis,Villarreal,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Celta,Espanol,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Getafe,Alaves,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Levante,La Coruna,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Malaga,Ath Madrid,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Osasuna,Sevilla,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Santander,Vallecano,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Real Madrid,Valencia,fixturedownload,False
+SP1,26,2027-02-28 00:00:00+00:00,Sociedad,Elche,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Alaves,Ath Bilbao,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Ath Madrid,Celta,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,La Coruna,Getafe,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Elche,Malaga,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Espanol,Santander,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Barcelona,Betis,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Vallecano,Osasuna,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Sevilla,Sociedad,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Valencia,Levante,fixturedownload,False
+SP1,27,2027-03-07 00:00:00+00:00,Villarreal,Real Madrid,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Alaves,Sevilla,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Ath Bilbao,Valencia,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Betis,Levante,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Elche,Villarreal,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Barcelona,La Coruna,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Getafe,Sociedad,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Malaga,Vallecano,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Osasuna,Celta,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Santander,Ath Madrid,fixturedownload,False
+SP1,28,2027-03-14 00:00:00+00:00,Real Madrid,Espanol,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Ath Madrid,Getafe,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Celta,Real Madrid,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Espanol,Ath Bilbao,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Levante,Osasuna,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Santander,Betis,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Vallecano,Barcelona,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Sociedad,Alaves,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Sevilla,Elche,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Valencia,La Coruna,fixturedownload,False
+SP1,29,2027-03-21 00:00:00+00:00,Villarreal,Malaga,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Ath Bilbao,Santander,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Betis,Celta,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,La Coruna,Villarreal,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Elche,Alaves,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Barcelona,Sevilla,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Getafe,Espanol,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Levante,Vallecano,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Malaga,Osasuna,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Real Madrid,Ath Madrid,fixturedownload,False
+SP1,30,2027-04-04 00:00:00+00:00,Sociedad,Valencia,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Alaves,Betis,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Ath Madrid,Levante,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Celta,Elche,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Espanol,Malaga,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Osasuna,Real Madrid,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Santander,Barcelona,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Vallecano,Sociedad,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Sevilla,La Coruna,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Valencia,Getafe,fixturedownload,False
+SP1,31,2027-04-11 00:00:00+00:00,Villarreal,Ath Bilbao,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Alaves,Vallecano,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Ath Madrid,Sevilla,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Betis,Ath Bilbao,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,La Coruna,Celta,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Elche,Osasuna,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Barcelona,Espanol,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Getafe,Real Madrid,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Levante,Villarreal,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Malaga,Valencia,fixturedownload,False
+SP1,32,2027-04-18 00:00:00+00:00,Sociedad,Santander,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Ath Bilbao,La Coruna,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Celta,Barcelona,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Espanol,Sociedad,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Getafe,Betis,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Osasuna,Alaves,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Santander,Malaga,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Real Madrid,Elche,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Sevilla,Levante,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Valencia,Vallecano,fixturedownload,False
+SP1,33,2027-04-21 00:00:00+00:00,Villarreal,Ath Madrid,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Ath Madrid,Alaves,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Betis,Valencia,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Celta,Sevilla,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,La Coruna,Santander,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Elche,Espanol,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Barcelona,Osasuna,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Levante,Real Madrid,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Malaga,Getafe,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Vallecano,Villarreal,fixturedownload,False
+SP1,34,2027-05-02 00:00:00+00:00,Sociedad,Ath Bilbao,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Alaves,Levante,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Ath Bilbao,Malaga,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Betis,Espanol,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Getafe,Elche,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Osasuna,Sociedad,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Santander,Sevilla,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Vallecano,La Coruna,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Real Madrid,Barcelona,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Valencia,Ath Madrid,fixturedownload,False
+SP1,35,2027-05-09 00:00:00+00:00,Villarreal,Celta,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Ath Madrid,Vallecano,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,La Coruna,Alaves,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Elche,Ath Bilbao,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Espanol,Valencia,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Levante,Getafe,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Malaga,Celta,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Osasuna,Betis,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Real Madrid,Santander,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Sociedad,Barcelona,fixturedownload,False
+SP1,36,2027-05-16 00:00:00+00:00,Sevilla,Villarreal,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Alaves,Real Madrid,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Ath Madrid,Ath Bilbao,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Celta,Sociedad,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,La Coruna,Espanol,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Barcelona,Malaga,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Santander,Levante,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Vallecano,Betis,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Sevilla,Getafe,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Valencia,Elche,fixturedownload,False
+SP1,37,2027-05-23 00:00:00+00:00,Villarreal,Osasuna,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Ath Bilbao,Vallecano,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Betis,Ath Madrid,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Elche,Santander,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Espanol,Alaves,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Getafe,Barcelona,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Levante,Celta,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Malaga,Sevilla,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Osasuna,Valencia,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Real Madrid,La Coruna,fixturedownload,False
+SP1,38,2027-05-30 00:00:00+00:00,Sociedad,Villarreal,fixturedownload,False
+D1,1,2026-08-28 18:30:00+00:00,Bayern Munich,Stuttgart,fixturedownload,True
+D1,1,2026-08-29 13:30:00+00:00,Elversberg,Leverkusen,fixturedownload,True
+D1,1,2026-08-29 13:30:00+00:00,FC Koln,Hoffenheim,fixturedownload,True
+D1,1,2026-08-29 13:30:00+00:00,Union Berlin,Ein Frankfurt,fixturedownload,True
+D1,1,2026-08-29 13:30:00+00:00,Mainz,Paderborn,fixturedownload,True
+D1,1,2026-08-29 13:30:00+00:00,RB Leipzig,M'gladbach,fixturedownload,True
+D1,1,2026-08-29 16:30:00+00:00,Dortmund,Hamburg,fixturedownload,True
+D1,1,2026-08-30 13:30:00+00:00,Freiburg,Werder Bremen,fixturedownload,True
+D1,1,2026-08-30 15:30:00+00:00,Augsburg,Schalke 04,fixturedownload,True
+D1,2,2026-09-04 18:30:00+00:00,Stuttgart,FC Koln,fixturedownload,True
+D1,2,2026-09-05 13:30:00+00:00,Paderborn,Freiburg,fixturedownload,True
+D1,2,2026-09-05 13:30:00+00:00,Werder Bremen,RB Leipzig,fixturedownload,True
+D1,2,2026-09-05 13:30:00+00:00,M'gladbach,Elversberg,fixturedownload,True
+D1,2,2026-09-05 13:30:00+00:00,Leverkusen,Union Berlin,fixturedownload,True
+D1,2,2026-09-05 13:30:00+00:00,Hoffenheim,Dortmund,fixturedownload,True
+D1,2,2026-09-05 16:30:00+00:00,Schalke 04,Bayern Munich,fixturedownload,True
+D1,2,2026-09-06 13:30:00+00:00,Hamburg,Mainz,fixturedownload,True
+D1,2,2026-09-06 15:30:00+00:00,Ein Frankfurt,Augsburg,fixturedownload,True
+D1,3,2026-09-11 18:30:00+00:00,Union Berlin,Schalke 04,fixturedownload,True
+D1,3,2026-09-12 13:30:00+00:00,Mainz,Ein Frankfurt,fixturedownload,True
+D1,3,2026-09-12 13:30:00+00:00,Augsburg,Leverkusen,fixturedownload,True
+D1,3,2026-09-12 13:30:00+00:00,Freiburg,M'gladbach,fixturedownload,True
+D1,3,2026-09-12 13:30:00+00:00,Hoffenheim,Stuttgart,fixturedownload,True
+D1,3,2026-09-12 13:30:00+00:00,Dortmund,Paderborn,fixturedownload,True
+D1,3,2026-09-12 16:30:00+00:00,FC Koln,Werder Bremen,fixturedownload,True
+D1,3,2026-09-13 13:30:00+00:00,RB Leipzig,Hamburg,fixturedownload,True
+D1,3,2026-09-13 15:30:00+00:00,Elversberg,Bayern Munich,fixturedownload,True
+D1,4,2026-09-18 18:30:00+00:00,Bayern Munich,Union Berlin,fixturedownload,True
+D1,4,2026-09-19 13:30:00+00:00,Werder Bremen,Augsburg,fixturedownload,True
+D1,4,2026-09-19 13:30:00+00:00,Hamburg,FC Koln,fixturedownload,True
+D1,4,2026-09-19 13:30:00+00:00,M'gladbach,Mainz,fixturedownload,True
+D1,4,2026-09-19 13:30:00+00:00,Ein Frankfurt,Freiburg,fixturedownload,True
+D1,4,2026-09-19 16:30:00+00:00,Stuttgart,Dortmund,fixturedownload,True
+D1,4,2026-09-20 13:30:00+00:00,Leverkusen,RB Leipzig,fixturedownload,True
+D1,4,2026-09-20 15:30:00+00:00,Schalke 04,Elversberg,fixturedownload,True
+D1,4,2026-09-20 17:30:00+00:00,Paderborn,Hoffenheim,fixturedownload,True
+D1,5,2026-10-09 18:30:00+00:00,Dortmund,Werder Bremen,fixturedownload,True
+D1,5,2026-10-10 13:30:00+00:00,Paderborn,Stuttgart,fixturedownload,True
+D1,5,2026-10-10 13:30:00+00:00,Union Berlin,Elversberg,fixturedownload,True
+D1,5,2026-10-10 13:30:00+00:00,Mainz,Leverkusen,fixturedownload,True
+D1,5,2026-10-10 13:30:00+00:00,Augsburg,Bayern Munich,fixturedownload,True
+D1,5,2026-10-10 13:30:00+00:00,Hoffenheim,Hamburg,fixturedownload,True
+D1,5,2026-10-10 16:30:00+00:00,RB Leipzig,Ein Frankfurt,fixturedownload,True
+D1,5,2026-10-11 13:30:00+00:00,FC Koln,M'gladbach,fixturedownload,True
+D1,5,2026-10-11 15:30:00+00:00,Freiburg,Schalke 04,fixturedownload,True
+D1,6,2026-10-16 18:30:00+00:00,Ein Frankfurt,FC Koln,fixturedownload,True
+D1,6,2026-10-17 13:30:00+00:00,Elversberg,Augsburg,fixturedownload,True
+D1,6,2026-10-17 13:30:00+00:00,Schalke 04,Mainz,fixturedownload,True
+D1,6,2026-10-17 13:30:00+00:00,Werder Bremen,Paderborn,fixturedownload,True
+D1,6,2026-10-17 13:30:00+00:00,Hamburg,Stuttgart,fixturedownload,True
+D1,6,2026-10-17 13:30:00+00:00,Union Berlin,Dortmund,fixturedownload,True
+D1,6,2026-10-17 16:30:00+00:00,Bayern Munich,RB Leipzig,fixturedownload,True
+D1,6,2026-10-18 13:30:00+00:00,Leverkusen,Freiburg,fixturedownload,True
+D1,6,2026-10-18 15:30:00+00:00,M'gladbach,Hoffenheim,fixturedownload,True
+D1,7,2026-10-23 18:30:00+00:00,Stuttgart,M'gladbach,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,Paderborn,Hamburg,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,FC Koln,Schalke 04,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,Mainz,Werder Bremen,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,Augsburg,Union Berlin,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,RB Leipzig,Elversberg,fixturedownload,False
+D1,7,2026-10-24 16:30:00+00:00,Dortmund,Ein Frankfurt,fixturedownload,False
+D1,7,2026-10-25 14:30:00+00:00,Hoffenheim,Leverkusen,fixturedownload,False
+D1,7,2026-10-25 16:30:00+00:00,Freiburg,Bayern Munich,fixturedownload,False
+D1,8,2026-10-30 19:30:00+00:00,Elversberg,Mainz,fixturedownload,False
+D1,8,2026-10-31 14:30:00+00:00,Schalke 04,RB Leipzig,fixturedownload,False
+D1,8,2026-10-31 14:30:00+00:00,Werder Bremen,Hoffenheim,fixturedownload,False
+D1,8,2026-10-31 14:30:00+00:00,M'gladbach,Paderborn,fixturedownload,False
+D1,8,2026-10-31 14:30:00+00:00,Augsburg,Freiburg,fixturedownload,False
+D1,8,2026-10-31 14:30:00+00:00,Leverkusen,Stuttgart,fixturedownload,False
+D1,8,2026-10-31 17:30:00+00:00,Bayern Munich,Dortmund,fixturedownload,False
+D1,8,2026-11-01 14:30:00+00:00,Union Berlin,FC Koln,fixturedownload,False
+D1,8,2026-11-01 16:30:00+00:00,Ein Frankfurt,Hamburg,fixturedownload,False
+D1,9,2026-11-06 19:30:00+00:00,Hamburg,M'gladbach,fixturedownload,False
+D1,9,2026-11-07 14:30:00+00:00,Paderborn,Ein Frankfurt,fixturedownload,False
+D1,9,2026-11-07 14:30:00+00:00,Mainz,Bayern Munich,fixturedownload,False
+D1,9,2026-11-07 14:30:00+00:00,RB Leipzig,Augsburg,fixturedownload,False
+D1,9,2026-11-07 14:30:00+00:00,Dortmund,Elversberg,fixturedownload,False
+D1,9,2026-11-07 17:30:00+00:00,Stuttgart,Werder Bremen,fixturedownload,False
+D1,9,2026-11-08 14:30:00+00:00,FC Koln,Leverkusen,fixturedownload,False
+D1,9,2026-11-08 16:30:00+00:00,Freiburg,Union Berlin,fixturedownload,False
+D1,9,2026-11-08 18:30:00+00:00,Hoffenheim,Schalke 04,fixturedownload,False
+D1,10,2026-11-20 19:30:00+00:00,Bayern Munich,FC Koln,fixturedownload,False
+D1,10,2026-11-21 14:30:00+00:00,Elversberg,Freiburg,fixturedownload,False
+D1,10,2026-11-21 14:30:00+00:00,M'gladbach,Dortmund,fixturedownload,False
+D1,10,2026-11-21 14:30:00+00:00,Union Berlin,RB Leipzig,fixturedownload,False
+D1,10,2026-11-21 14:30:00+00:00,Ein Frankfurt,Hoffenheim,fixturedownload,False
+D1,10,2026-11-21 14:30:00+00:00,Leverkusen,Paderborn,fixturedownload,False
+D1,10,2026-11-21 17:30:00+00:00,Schalke 04,Stuttgart,fixturedownload,False
+D1,10,2026-11-22 14:30:00+00:00,Augsburg,Mainz,fixturedownload,False
+D1,10,2026-11-22 16:30:00+00:00,Werder Bremen,Hamburg,fixturedownload,False
+D1,11,2026-11-27 19:30:00+00:00,Werder Bremen,M'gladbach,fixturedownload,False
+D1,11,2026-11-28 14:30:00+00:00,Paderborn,Schalke 04,fixturedownload,False
+D1,11,2026-11-28 14:30:00+00:00,FC Koln,Elversberg,fixturedownload,False
+D1,11,2026-11-28 14:30:00+00:00,Hamburg,Bayern Munich,fixturedownload,False
+D1,11,2026-11-28 14:30:00+00:00,Mainz,Union Berlin,fixturedownload,False
+D1,11,2026-11-28 17:30:00+00:00,Stuttgart,Ein Frankfurt,fixturedownload,False
+D1,11,2026-11-29 14:30:00+00:00,Freiburg,RB Leipzig,fixturedownload,False
+D1,11,2026-11-29 16:30:00+00:00,Hoffenheim,Augsburg,fixturedownload,False
+D1,11,2026-11-29 18:30:00+00:00,Dortmund,Leverkusen,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Elversberg,Stuttgart,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Schalke 04,Dortmund,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Union Berlin,Hamburg,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Augsburg,FC Koln,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Ein Frankfurt,Werder Bremen,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Freiburg,Hoffenheim,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Leverkusen,M'gladbach,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,RB Leipzig,Mainz,fixturedownload,False
+D1,12,2026-12-04 00:00:00+00:00,Bayern Munich,Paderborn,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Paderborn,Elversberg,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Werder Bremen,Leverkusen,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,FC Koln,RB Leipzig,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Hamburg,Schalke 04,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,M'gladbach,Ein Frankfurt,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Mainz,Freiburg,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Hoffenheim,Bayern Munich,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Stuttgart,Union Berlin,fixturedownload,False
+D1,13,2026-12-11 00:00:00+00:00,Dortmund,Augsburg,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Elversberg,Hamburg,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Schalke 04,M'gladbach,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Union Berlin,Hoffenheim,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Mainz,FC Koln,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Augsburg,Paderborn,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Freiburg,Stuttgart,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Leverkusen,Ein Frankfurt,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,RB Leipzig,Dortmund,fixturedownload,False
+D1,14,2026-12-18 00:00:00+00:00,Bayern Munich,Werder Bremen,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Paderborn,RB Leipzig,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Werder Bremen,Union Berlin,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,FC Koln,Freiburg,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Hamburg,Leverkusen,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,M'gladbach,Bayern Munich,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Ein Frankfurt,Schalke 04,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Hoffenheim,Elversberg,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Stuttgart,Augsburg,fixturedownload,False
+D1,15,2027-01-08 00:00:00+00:00,Dortmund,Mainz,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Elversberg,Ein Frankfurt,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Schalke 04,Werder Bremen,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,FC Koln,Dortmund,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Union Berlin,Paderborn,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Mainz,Hoffenheim,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Augsburg,M'gladbach,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Freiburg,Hamburg,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,RB Leipzig,Stuttgart,fixturedownload,False
+D1,16,2027-01-12 00:00:00+00:00,Bayern Munich,Leverkusen,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Paderborn,FC Koln,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Werder Bremen,Elversberg,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Hamburg,Augsburg,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,M'gladbach,Union Berlin,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Ein Frankfurt,Bayern Munich,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Leverkusen,Schalke 04,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Hoffenheim,RB Leipzig,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Stuttgart,Mainz,fixturedownload,False
+D1,17,2027-01-15 00:00:00+00:00,Dortmund,Freiburg,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Paderborn,Mainz,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Schalke 04,Augsburg,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Werder Bremen,Freiburg,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Hamburg,Dortmund,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,M'gladbach,RB Leipzig,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Ein Frankfurt,Union Berlin,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Leverkusen,Elversberg,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Hoffenheim,FC Koln,fixturedownload,False
+D1,18,2027-01-22 00:00:00+00:00,Stuttgart,Bayern Munich,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Elversberg,M'gladbach,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,FC Koln,Stuttgart,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Union Berlin,Leverkusen,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Mainz,Hamburg,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Augsburg,Ein Frankfurt,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Freiburg,Paderborn,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,RB Leipzig,Werder Bremen,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Dortmund,Hoffenheim,fixturedownload,False
+D1,19,2027-01-29 00:00:00+00:00,Bayern Munich,Schalke 04,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Paderborn,Dortmund,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Schalke 04,Union Berlin,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Werder Bremen,FC Koln,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Hamburg,RB Leipzig,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,M'gladbach,Freiburg,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Ein Frankfurt,Mainz,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Leverkusen,Augsburg,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Stuttgart,Hoffenheim,fixturedownload,False
+D1,20,2027-02-05 00:00:00+00:00,Bayern Munich,Elversberg,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Elversberg,Schalke 04,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,FC Koln,Hamburg,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Union Berlin,Bayern Munich,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Mainz,M'gladbach,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Augsburg,Werder Bremen,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Freiburg,Ein Frankfurt,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Hoffenheim,Paderborn,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,RB Leipzig,Leverkusen,fixturedownload,False
+D1,21,2027-02-12 00:00:00+00:00,Dortmund,Stuttgart,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Elversberg,Union Berlin,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Schalke 04,Freiburg,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Werder Bremen,Dortmund,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Hamburg,Hoffenheim,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,M'gladbach,FC Koln,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Ein Frankfurt,RB Leipzig,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Leverkusen,Mainz,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Stuttgart,Paderborn,fixturedownload,False
+D1,22,2027-02-19 00:00:00+00:00,Bayern Munich,Augsburg,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Paderborn,Werder Bremen,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,FC Koln,Ein Frankfurt,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Mainz,Schalke 04,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Augsburg,Elversberg,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Freiburg,Leverkusen,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Hoffenheim,M'gladbach,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Stuttgart,Hamburg,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,RB Leipzig,Bayern Munich,fixturedownload,False
+D1,23,2027-02-26 00:00:00+00:00,Dortmund,Union Berlin,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Elversberg,RB Leipzig,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Schalke 04,FC Koln,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Werder Bremen,Mainz,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Hamburg,Paderborn,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,M'gladbach,Stuttgart,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Union Berlin,Augsburg,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Ein Frankfurt,Dortmund,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Leverkusen,Hoffenheim,fixturedownload,False
+D1,24,2027-03-02 00:00:00+00:00,Bayern Munich,Freiburg,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Paderborn,M'gladbach,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,FC Koln,Union Berlin,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Hamburg,Ein Frankfurt,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Mainz,Elversberg,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Freiburg,Augsburg,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Hoffenheim,Werder Bremen,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Stuttgart,Leverkusen,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,RB Leipzig,Schalke 04,fixturedownload,False
+D1,25,2027-03-05 00:00:00+00:00,Dortmund,Bayern Munich,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Elversberg,Dortmund,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Schalke 04,Hoffenheim,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Werder Bremen,Stuttgart,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,M'gladbach,Hamburg,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Union Berlin,Freiburg,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Augsburg,RB Leipzig,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Ein Frankfurt,Paderborn,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Leverkusen,FC Koln,fixturedownload,False
+D1,26,2027-03-12 00:00:00+00:00,Bayern Munich,Mainz,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Paderborn,Leverkusen,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,FC Koln,Bayern Munich,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Hamburg,Werder Bremen,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Mainz,Augsburg,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Freiburg,Elversberg,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Hoffenheim,Ein Frankfurt,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Stuttgart,Schalke 04,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,RB Leipzig,Union Berlin,fixturedownload,False
+D1,27,2027-03-19 00:00:00+00:00,Dortmund,M'gladbach,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Elversberg,FC Koln,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Schalke 04,Paderborn,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,M'gladbach,Werder Bremen,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Union Berlin,Mainz,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Augsburg,Hoffenheim,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Ein Frankfurt,Stuttgart,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Leverkusen,Dortmund,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,RB Leipzig,Freiburg,fixturedownload,False
+D1,28,2027-04-02 00:00:00+00:00,Bayern Munich,Hamburg,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Paderborn,Bayern Munich,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Werder Bremen,Ein Frankfurt,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,FC Koln,Augsburg,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Hamburg,Union Berlin,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,M'gladbach,Leverkusen,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Mainz,RB Leipzig,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Hoffenheim,Freiburg,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Stuttgart,Elversberg,fixturedownload,False
+D1,29,2027-04-09 00:00:00+00:00,Dortmund,Schalke 04,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Elversberg,Paderborn,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Schalke 04,Hamburg,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Union Berlin,Stuttgart,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Augsburg,Dortmund,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Ein Frankfurt,M'gladbach,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Freiburg,Mainz,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Leverkusen,Werder Bremen,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,RB Leipzig,FC Koln,fixturedownload,False
+D1,30,2027-04-16 00:00:00+00:00,Bayern Munich,Hoffenheim,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Paderborn,Augsburg,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Werder Bremen,Bayern Munich,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,FC Koln,Mainz,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Hamburg,Elversberg,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,M'gladbach,Schalke 04,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Ein Frankfurt,Leverkusen,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Hoffenheim,Union Berlin,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Stuttgart,Freiburg,fixturedownload,False
+D1,31,2027-04-23 00:00:00+00:00,Dortmund,RB Leipzig,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Elversberg,Hoffenheim,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Schalke 04,Ein Frankfurt,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Union Berlin,Werder Bremen,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Mainz,Dortmund,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Augsburg,Stuttgart,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Freiburg,FC Koln,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Leverkusen,Hamburg,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,RB Leipzig,Paderborn,fixturedownload,False
+D1,32,2027-05-07 00:00:00+00:00,Bayern Munich,M'gladbach,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Paderborn,Union Berlin,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Werder Bremen,Schalke 04,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Hamburg,Freiburg,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,M'gladbach,Augsburg,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Ein Frankfurt,Elversberg,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Leverkusen,Bayern Munich,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Hoffenheim,Mainz,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Stuttgart,RB Leipzig,fixturedownload,False
+D1,33,2027-05-14 00:00:00+00:00,Dortmund,FC Koln,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Elversberg,Werder Bremen,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Schalke 04,Leverkusen,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,FC Koln,Paderborn,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Union Berlin,M'gladbach,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Mainz,Stuttgart,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Augsburg,Hamburg,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Freiburg,Dortmund,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,RB Leipzig,Hoffenheim,fixturedownload,False
+D1,34,2027-05-22 13:30:00+00:00,Bayern Munich,Ein Frankfurt,fixturedownload,False
+F1,1,2026-08-21 18:45:00+00:00,Marseille,Strasbourg,openfootball,True
+F1,1,2026-08-22 15:15:00+00:00,Lens,Auxerre,openfootball,True
+F1,1,2026-08-22 18:45:00+00:00,Le Mans,Brest,openfootball,True
+F1,1,2026-08-22 18:45:00+00:00,Troyes,Paris FC,openfootball,False
+F1,1,2026-08-22 18:45:00+00:00,Nice,Lorient,openfootball,False
+F1,1,2026-08-22 18:45:00+00:00,Toulouse,Lyon,openfootball,True
+F1,1,2026-08-23 13:00:00+00:00,Angers,Lille,openfootball,True
+F1,1,2026-08-23 15:15:00+00:00,Le Havre,Monaco,openfootball,True
+F1,1,2026-08-23 18:45:00+00:00,Rennes,Paris SG,openfootball,True
+F1,2,2026-08-28 18:45:00+00:00,Lille,Paris SG,openfootball,True
+F1,2,2026-08-29 15:15:00+00:00,Strasbourg,Lens,openfootball,True
+F1,2,2026-08-29 18:45:00+00:00,Lorient,Troyes,openfootball,True
+F1,2,2026-08-29 18:45:00+00:00,Lyon,Le Havre,openfootball,True
+F1,2,2026-08-29 18:45:00+00:00,Auxerre,Angers,openfootball,True
+F1,2,2026-08-29 18:45:00+00:00,Brest,Toulouse,openfootball,True
+F1,2,2026-08-30 13:00:00+00:00,Paris FC,Nice,openfootball,True
+F1,2,2026-08-30 15:15:00+00:00,Rennes,Le Mans,openfootball,True
+F1,2,2026-08-30 18:45:00+00:00,Monaco,Marseille,openfootball,True
+F1,3,2026-09-03 18:45:00+00:00,Toulouse,Lille,openfootball,True
+F1,3,2026-09-04 17:00:00+00:00,Lyon,Auxerre,openfootball,True
+F1,3,2026-09-04 19:05:00+00:00,Paris SG,Monaco,openfootball,True
+F1,3,2026-09-05 15:15:00+00:00,Lens,Lorient,openfootball,True
+F1,3,2026-09-05 18:45:00+00:00,Le Havre,Brest,openfootball,True
+F1,3,2026-09-05 18:45:00+00:00,Nice,Le Mans,openfootball,True
+F1,3,2026-09-06 13:00:00+00:00,Troyes,Strasbourg,openfootball,True
+F1,3,2026-09-06 15:15:00+00:00,Angers,Rennes,openfootball,True
+F1,3,2026-09-06 18:45:00+00:00,Marseille,Paris FC,openfootball,True
+F1,4,2026-09-11 18:45:00+00:00,Rennes,Marseille,openfootball,True
+F1,4,2026-09-12 15:15:00+00:00,Strasbourg,Monaco,openfootball,True
+F1,4,2026-09-12 18:45:00+00:00,Lorient,Toulouse,openfootball,True
+F1,4,2026-09-12 18:45:00+00:00,Auxerre,Nice,openfootball,True
+F1,4,2026-09-12 18:45:00+00:00,Le Havre,Angers,openfootball,False
+F1,4,2026-09-12 18:45:00+00:00,Paris FC,Lyon,openfootball,False
+F1,4,2026-09-13 13:00:00+00:00,Lille,Troyes,openfootball,True
+F1,4,2026-09-13 15:15:00+00:00,Le Mans,Lens,openfootball,True
+F1,4,2026-09-13 18:45:00+00:00,Brest,Paris SG,openfootball,True
+F1,5,2026-09-18 18:45:00+00:00,Monaco,Lens,openfootball,True
+F1,5,2026-09-19 15:15:00+00:00,Paris FC,Strasbourg,openfootball,True
+F1,5,2026-09-19 18:45:00+00:00,Le Mans,Lorient,openfootball,True
+F1,5,2026-09-19 18:45:00+00:00,Toulouse,Le Havre,openfootball,True
+F1,5,2026-09-19 18:45:00+00:00,Angers,Troyes,openfootball,True
+F1,5,2026-09-19 18:45:00+00:00,Lyon,Rennes,openfootball,True
+F1,5,2026-09-20 13:00:00+00:00,Auxerre,Brest,openfootball,True
+F1,5,2026-09-20 15:15:00+00:00,Nice,Lille,openfootball,True
+F1,5,2026-09-20 18:45:00+00:00,Marseille,Paris SG,openfootball,True
+F1,6,2026-10-09 18:45:00+00:00,Lens,Lyon,openfootball,False
+F1,6,2026-10-10 15:15:00+00:00,Lille,Le Havre,openfootball,False
+F1,6,2026-10-10 18:45:00+00:00,Brest,Angers,openfootball,False
+F1,6,2026-10-10 18:45:00+00:00,Lorient,Paris FC,openfootball,False
+F1,6,2026-10-10 18:45:00+00:00,Paris SG,Le Mans,openfootball,False
+F1,6,2026-10-10 18:45:00+00:00,Monaco,Toulouse,openfootball,False
+F1,6,2026-10-11 13:00:00+00:00,Nice,Strasbourg,openfootball,False
+F1,6,2026-10-11 15:15:00+00:00,Rennes,Auxerre,openfootball,False
+F1,6,2026-10-11 18:45:00+00:00,Troyes,Marseille,openfootball,False
+F1,7,2026-10-16 18:45:00+00:00,Le Mans,Toulouse,openfootball,False
+F1,7,2026-10-17 15:15:00+00:00,Strasbourg,Paris SG,openfootball,False
+F1,7,2026-10-17 18:45:00+00:00,Troyes,Lens,openfootball,False
+F1,7,2026-10-17 18:45:00+00:00,Lille,Brest,openfootball,False
+F1,7,2026-10-18 13:00:00+00:00,Angers,Marseille,openfootball,False
+F1,7,2026-10-18 15:15:00+00:00,Lorient,Monaco,openfootball,False
+F1,7,2026-10-18 15:15:00+00:00,Paris FC,Rennes,openfootball,False
+F1,7,2026-10-18 15:15:00+00:00,Le Havre,Auxerre,openfootball,False
+F1,7,2026-10-18 18:45:00+00:00,Lyon,Nice,openfootball,False
+F1,8,2026-10-23 18:45:00+00:00,Brest,Nice,openfootball,False
+F1,8,2026-10-24 15:15:00+00:00,Toulouse,Troyes,openfootball,False
+F1,8,2026-10-24 18:45:00+00:00,Lens,Paris FC,openfootball,False
+F1,8,2026-10-25 14:00:00+00:00,Monaco,Lille,openfootball,False
+F1,8,2026-10-25 16:15:00+00:00,Marseille,Le Havre,openfootball,False
+F1,8,2026-10-25 16:15:00+00:00,Rennes,Strasbourg,openfootball,False
+F1,8,2026-10-25 16:15:00+00:00,Angers,Lorient,openfootball,False
+F1,8,2026-10-25 16:15:00+00:00,Auxerre,Le Mans,openfootball,False
+F1,8,2026-10-25 19:45:00+00:00,Paris SG,Lyon,openfootball,False
+F1,9,2026-10-30 18:00:00+00:00,Le Havre,Paris SG,openfootball,False
+F1,9,2026-10-30 20:05:00+00:00,Lille,Lens,openfootball,False
+F1,9,2026-10-31 16:15:00+00:00,Nice,Rennes,openfootball,False
+F1,9,2026-10-31 19:45:00+00:00,Lyon,Angers,openfootball,False
+F1,9,2026-10-31 19:45:00+00:00,Lorient,Brest,openfootball,False
+F1,9,2026-10-31 19:45:00+00:00,Troyes,Le Mans,openfootball,False
+F1,9,2026-11-01 14:00:00+00:00,Strasbourg,Auxerre,openfootball,False
+F1,9,2026-11-01 16:15:00+00:00,Paris FC,Monaco,openfootball,False
+F1,9,2026-11-01 19:45:00+00:00,Marseille,Toulouse,openfootball,False
+F1,10,2026-11-06 19:45:00+00:00,Toulouse,Strasbourg,openfootball,False
+F1,10,2026-11-07 16:15:00+00:00,Auxerre,Paris FC,openfootball,False
+F1,10,2026-11-07 19:45:00+00:00,Paris SG,Troyes,openfootball,False
+F1,10,2026-11-08 14:00:00+00:00,Rennes,Lille,openfootball,False
+F1,10,2026-11-08 16:15:00+00:00,Le Mans,Monaco,openfootball,False
+F1,10,2026-11-08 16:15:00+00:00,Brest,Lyon,openfootball,False
+F1,10,2026-11-08 16:15:00+00:00,Le Havre,Lorient,openfootball,False
+F1,10,2026-11-08 16:15:00+00:00,Angers,Nice,openfootball,False
+F1,10,2026-11-08 19:45:00+00:00,Lens,Marseille,openfootball,False
+F1,11,2026-11-20 19:45:00+00:00,Troyes,Le Havre,openfootball,False
+F1,11,2026-11-21 16:15:00+00:00,Nice,Paris SG,openfootball,False
+F1,11,2026-11-21 19:45:00+00:00,Monaco,Auxerre,openfootball,False
+F1,11,2026-11-21 19:45:00+00:00,Lens,Toulouse,openfootball,False
+F1,11,2026-11-21 19:45:00+00:00,Lille,Lyon,openfootball,False
+F1,11,2026-11-21 19:45:00+00:00,Strasbourg,Brest,openfootball,False
+F1,11,2026-11-22 14:00:00+00:00,Paris FC,Angers,openfootball,False
+F1,11,2026-11-22 16:15:00+00:00,Lorient,Rennes,openfootball,False
+F1,11,2026-11-22 19:45:00+00:00,Marseille,Le Mans,openfootball,False
+F1,12,2026-11-27 19:45:00+00:00,Brest,Paris FC,openfootball,False
+F1,12,2026-11-28 16:15:00+00:00,Angers,Lens,openfootball,False
+F1,12,2026-11-28 19:45:00+00:00,Le Mans,Lille,openfootball,False
+F1,12,2026-11-28 19:45:00+00:00,Nice,Troyes,openfootball,False
+F1,12,2026-11-28 19:45:00+00:00,Le Havre,Strasbourg,openfootball,False
+F1,12,2026-11-28 19:45:00+00:00,Paris SG,Lorient,openfootball,False
+F1,12,2026-11-29 14:00:00+00:00,Auxerre,Marseille,openfootball,False
+F1,12,2026-11-29 16:15:00+00:00,Toulouse,Rennes,openfootball,False
+F1,12,2026-11-29 19:45:00+00:00,Lyon,Monaco,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Troyes,Lyon,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Monaco,Angers,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Lens,Le Havre,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Lille,Auxerre,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Marseille,Nice,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Rennes,Brest,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Toulouse,Paris SG,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Strasbourg,Lorient,openfootball,False
+F1,13,2026-12-04 23:00:00+00:00,Paris FC,Le Mans,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Nice,Lens,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Paris SG,Paris FC,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Angers,Strasbourg,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Brest,Troyes,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Le Havre,Le Mans,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Rennes,Monaco,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Lorient,Lille,openfootball,False
+F1,14,2026-12-11 23:00:00+00:00,Auxerre,Toulouse,openfootball,False
+F1,14,2026-12-13 19:45:00+00:00,Lyon,Marseille,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Le Mans,Lyon,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Brest,Marseille,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Troyes,Rennes,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Toulouse,Angers,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Monaco,Nice,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Paris FC,Le Havre,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Lorient,Auxerre,openfootball,False
+F1,15,2027-01-01 23:00:00+00:00,Lille,Strasbourg,openfootball,False
+F1,15,2027-01-03 19:45:00+00:00,Lens,Paris SG,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Marseille,Lille,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Lyon,Lorient,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Paris FC,Toulouse,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Rennes,Lens,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Nice,Le Havre,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Auxerre,Troyes,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Strasbourg,Le Mans,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Monaco,Brest,openfootball,False
+F1,16,2027-01-15 23:00:00+00:00,Angers,Paris SG,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Le Havre,Rennes,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Strasbourg,Lyon,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Lille,Paris FC,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Lens,Brest,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Paris SG,Auxerre,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Troyes,Monaco,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Lorient,Marseille,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Le Mans,Angers,openfootball,False
+F1,17,2027-01-22 23:00:00+00:00,Toulouse,Nice,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Paris FC,Auxerre,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Lyon,Lille,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Rennes,Lorient,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Le Mans,Nice,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Marseille,Troyes,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Angers,Le Havre,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Brest,Strasbourg,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Monaco,Paris SG,openfootball,False
+F1,18,2027-01-29 23:00:00+00:00,Toulouse,Lens,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Troyes,Lille,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Lens,Angers,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Le Havre,Toulouse,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Lorient,Le Mans,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Nice,Brest,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Rennes,Lyon,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Strasbourg,Paris FC,openfootball,False
+F1,19,2027-02-05 23:00:00+00:00,Auxerre,Monaco,openfootball,False
+F1,19,2027-02-07 19:45:00+00:00,Paris SG,Marseille,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Brest,Rennes,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Paris FC,Troyes,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Le Mans,Paris SG,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Lorient,Le Havre,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Auxerre,Strasbourg,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Toulouse,Monaco,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Marseille,Angers,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Lille,Nice,openfootball,False
+F1,20,2027-02-12 23:00:00+00:00,Lyon,Lens,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Angers,Paris FC,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Rennes,Toulouse,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Paris SG,Brest,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Strasbourg,Marseille,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Nice,Auxerre,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Le Havre,Lyon,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Monaco,Le Mans,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Lille,Lorient,openfootball,False
+F1,21,2027-02-19 23:00:00+00:00,Lens,Troyes,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Strasbourg,Le Havre,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Auxerre,Lille,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Troyes,Nice,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Brest,Monaco,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Lorient,Angers,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Marseille,Rennes,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Lyon,Toulouse,openfootball,False
+F1,22,2027-02-26 23:00:00+00:00,Le Mans,Paris FC,openfootball,False
+F1,22,2027-02-28 19:45:00+00:00,Paris SG,Lens,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Le Havre,Nice,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Paris SG,Rennes,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Lens,Strasbourg,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Toulouse,Le Mans,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Troyes,Lorient,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Angers,Auxerre,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Monaco,Lyon,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Paris FC,Brest,openfootball,False
+F1,23,2027-03-05 23:00:00+00:00,Lille,Marseille,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Nice,Toulouse,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Paris FC,Lorient,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Strasbourg,Angers,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Le Mans,Rennes,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Brest,Lille,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Le Havre,Lens,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Marseille,Monaco,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Auxerre,Paris SG,openfootball,False
+F1,24,2027-03-12 23:00:00+00:00,Lyon,Troyes,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Angers,Le Mans,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Toulouse,Brest,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Troyes,Auxerre,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Rennes,Paris FC,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Monaco,Le Havre,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Paris SG,Strasbourg,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Lens,Lille,openfootball,False
+F1,25,2027-03-19 23:00:00+00:00,Lorient,Nice,openfootball,False
+F1,25,2027-03-21 19:45:00+00:00,Marseille,Lyon,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Le Havre,Troyes,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Angers,Monaco,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Le Mans,Marseille,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Auxerre,Lens,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Lille,Rennes,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Brest,Lorient,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Strasbourg,Toulouse,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Paris FC,Paris SG,openfootball,False
+F1,26,2027-04-02 22:00:00+00:00,Nice,Lyon,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Lorient,Lens,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Marseille,Brest,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Monaco,Rennes,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Troyes,Angers,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Paris SG,Le Havre,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Lyon,Strasbourg,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Le Mans,Auxerre,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Lille,Toulouse,openfootball,False
+F1,27,2027-04-09 22:00:00+00:00,Nice,Paris FC,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Auxerre,Lorient,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Brest,Le Mans,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Monaco,Strasbourg,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Angers,Lyon,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Lens,Nice,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Rennes,Troyes,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Le Havre,Marseille,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Paris SG,Lille,openfootball,False
+F1,28,2027-04-16 22:00:00+00:00,Toulouse,Paris FC,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Paris FC,Lens,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Marseille,Auxerre,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Lille,Monaco,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Lorient,Paris SG,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Troyes,Toulouse,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Nice,Angers,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Lyon,Brest,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Le Mans,Le Havre,openfootball,False
+F1,29,2027-04-23 22:00:00+00:00,Strasbourg,Rennes,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Strasbourg,Lille,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Monaco,Lorient,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Troyes,Brest,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Lens,Le Mans,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Paris SG,Angers,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Le Havre,Paris FC,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Auxerre,Lyon,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Rennes,Nice,openfootball,False
+F1,30,2027-04-30 22:00:00+00:00,Toulouse,Marseille,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Paris FC,Lille,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Lorient,Strasbourg,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Brest,Auxerre,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Le Mans,Troyes,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Rennes,Le Havre,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Lens,Monaco,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Angers,Toulouse,openfootball,False
+F1,31,2027-05-07 22:00:00+00:00,Nice,Marseille,openfootball,False
+F1,31,2027-05-09 18:45:00+00:00,Lyon,Paris SG,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Monaco,Paris FC,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Lyon,Le Mans,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Paris SG,Nice,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Toulouse,Lorient,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Brest,Le Havre,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Marseille,Lens,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Lille,Angers,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Auxerre,Rennes,openfootball,False
+F1,32,2027-05-15 22:00:00+00:00,Strasbourg,Troyes,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Nice,Monaco,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Angers,Brest,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Lorient,Lyon,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Troyes,Paris SG,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Le Mans,Strasbourg,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Toulouse,Auxerre,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Le Havre,Lille,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Paris FC,Marseille,openfootball,False
+F1,33,2027-05-21 22:00:00+00:00,Lens,Rennes,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Monaco,Troyes,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Paris SG,Toulouse,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Lille,Le Mans,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Brest,Lens,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Marseille,Lorient,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Rennes,Angers,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Lyon,Paris FC,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Auxerre,Le Havre,openfootball,False
+F1,34,2027-05-28 22:00:00+00:00,Strasbourg,Nice,openfootball,False
