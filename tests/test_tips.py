@@ -63,6 +63,16 @@ def test_stale_odds_are_ignored(tmp_path):
     assert tips.candidates(fd, NOW, NOW - pd.Timedelta(days=8)).empty
 
 
+def test_fetch_time_saved_next_to_the_file_wins_over_file_time(tmp_path):
+    from forecast1x2.data import fetched_at_of, fetched_at_path
+    fx = fixtures_file(tmp_path, [GOOD])
+    assert abs(fetched_at_of(fx) - pd.Timestamp.now(tz="UTC")) < pd.Timedelta(minutes=5)   # fallback: file time
+    fetched_at_path(fx).write_text("2026-10-01T10:00:00+00:00")   # e.g. after a fresh git checkout
+    assert fetched_at_of(fx) == pd.Timestamp("2026-10-01 10:00", tz="UTC")
+    tips.update_register(matches([]), NOW, fx, tmp_path / "reg.csv")   # 22 days old: no new tips
+    assert tips.load_register(tmp_path / "reg.csv").empty
+
+
 def test_settlement_won_lost_and_void(tmp_path):
     reg_path = tmp_path / "reg.csv"
     under = "F2,24/10/2026,19:00,Metz,Caen,2,3,4,1.8,2.3,2.0,2.0"   # under +15%

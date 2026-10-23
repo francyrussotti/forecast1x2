@@ -13,7 +13,9 @@ Include un backtest walk-forward contro le quote di chiusura e una dashboard Str
 
 ### Aggiornamento automatico in base alle partite
 
-Doppio clic su `attiva aggiornamento automatico.command`. Da quel momento macOS lancia `python -m forecast1x2 auto` ogni 30 minuti.
+**Su GitHub (in uso da ottobre 2026).** Il workflow `.github/workflows/aggiorna.yml` lancia `python -m forecast1x2 auto` ogni ora e salva nel repository i dati, le previsioni e il registro dei consigli aggiornati; la dashboard su Streamlit Cloud si aggiorna da sola. Gira senza Sportmonks, quindi le previsioni usano solo i gol (vedi la sezione xG). Si può lanciare a mano dalla scheda Actions → «Aggiornamento automatico» → Run workflow. Se lo usi, non tenere attivo anche l'aggiornamento sul Mac.
+
+**Sul Mac (alternativa).** Doppio clic su `attiva aggiornamento automatico.command`. Da quel momento macOS lancia `python -m forecast1x2 auto` ogni 30 minuti.
 
 **Quando aggiorna davvero:** il comando scarica e ricalcola solo se, dall'ultimo aggiornamento, è passato uno di questi momenti:
 
@@ -244,7 +246,11 @@ Il segnale c'è solo in seconda divisione, con circa 100 casi a stagione in tutt
 - Chi vince con regolarità viene limitato dai bookmaker: è successo anche agli autori dello studio del 2017.
 - Prima di qualsiasi conclusione serve almeno una stagione intera di prova.
 
-## xG (expected goals): attivi tramite Sportmonks
+## xG (expected goals): disattivati da ottobre 2026
+
+**Decisione (23/10/2026).** Sportmonks è stato tolto dall'aggiornamento automatico su GitHub. Il guadagno degli xG è piccolo e non statisticamente certo: ensemble 0,9857 con xG contro 0,9872 senza; sul solo Dixon-Coles −0,0012 di log-loss, con IC 95% da −0,0035 a +0,0011. In pratica le previsioni cambiano di pochi decimi di punto percentuale. Senza xG le previsioni usano automaticamente il peso xG 0 e la dashboard mostra le statistiche dell'ensemble senza xG. Il registro dei consigli non usa gli xG.
+
+Il codice è rimasto: con la chiave Sportmonks (file o variabile qui sotto) gli xG tornano attivi, ad esempio lanciando gli aggiornamenti dal Mac. Quanto segue descrive come funzionavano.
 
 Gli xG per partita arrivano da Sportmonks (piano Starter + add-on xG).
 La chiave si legge da `~/.config/forecast1x2/sportmonks_token`, un file fuori dal progetto e leggibile solo dall'utente; in alternativa dalla variabile `SPORTMONKS_API_TOKEN`.

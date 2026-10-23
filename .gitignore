@@ -8,6 +8,11 @@ __pycache__/
 # Registro dell'aggiornamento automatico, specifico di questo Mac
 logs/
 
+# xG Sportmonks della stagione in corso: 3 MB su una riga, riscaricato a ogni aggiornamento
+# (su git peserebbe ~1 GB l'anno). Resta su git xg.csv, usato se Sportmonks non risponde.
+# A inizio stagione nuova: aggiornare l'anno qui e aggiungere a git il file della stagione chiusa.
+data/raw/xg_sportmonks_2627.json
+
 # Lucchetti degli aggiornamenti in corso
 outputs/*.lock
 

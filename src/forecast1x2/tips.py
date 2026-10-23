@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .data import (LEAGUES, ODDS_MAX_AGE, RAW, ROOT, SEASONS, SECOND_DIV, parse_dates,
+from .data import (LEAGUES, ODDS_MAX_AGE, RAW, ROOT, SEASONS, SECOND_DIV, fetched_at_of, parse_dates,
                    parse_fd_fixtures, parse_results_csv, results_path, write_csv_atomic)
 from .evaluation import _roi_ci
 
@@ -125,7 +125,7 @@ def update_register(matches: pd.DataFrame, now: pd.Timestamp = None, fd_path: Pa
     reg = load_register(path)
     warnings = []
     if fd_path.exists():
-        fetched_at = pd.Timestamp(fd_path.stat().st_mtime, unit="s", tz="UTC")
+        fetched_at = fetched_at_of(fd_path)
         fd = parse_fd_fixtures(fd_path.read_bytes())
         if "Max>2.5" not in fd.columns:
             warnings.append("registro consigli: fixtures.csv senza quote over/under, nessun nuovo consiglio")

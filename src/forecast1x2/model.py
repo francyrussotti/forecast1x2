@@ -213,13 +213,18 @@ def predict_all() -> None:
     now = pd.Timestamp.now(tz="UTC")
     odds = usable_odds(load_upcoming_odds(), fixtures, now).set_index(["league", "home", "away"])
     today = now.tz_localize(None).normalize()
+    # without Sportmonks (no token, as on GitHub) there are no xG: goals only, and meta.json says so
+    has_xg = "hxg" in matches and matches.hxg.notna().any()
+    xg_weight = hyper.get("xg_weight", 0.0) if has_xg else 0.0
+    if not has_xg:
+        print("xG non disponibili: previsioni sui soli gol (ensemble senza xG)")
     OUTPUTS.mkdir(exist_ok=True)
 
     rows, ratings, model_meta = [], [], {}
     for div, (name, *_) in LEAGUES.items():
         h = league_history(matches, div)
         train = h[h.date < today]
-        params = fit(train, today, hyper["xi"], l2=hyper["l2"], xg_weight=hyper.get("xg_weight", 0.0))
+        params = fit(train, today, hyper["xi"], l2=hyper["l2"], xg_weight=xg_weight)
         played = h[(h.season == CURRENT_SEASON) & (h.tier == 1)]
         promoted = promoted_teams(h, CURRENT_SEASON)
         up = upcoming_round(fixtures[fixtures.league == div], played, now)
@@ -266,7 +271,7 @@ def predict_all() -> None:
     write_csv_atomic(pd.DataFrame(ratings), OUTPUTS / "ratings.csv")
     update_meta = json.loads((PROCESSED / "update_meta.json").read_text())
     meta = {**update_meta, "predictions_generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-            "xi": hyper["xi"], "l2": hyper["l2"], "w": hyper["w"], "xg_weight": hyper.get("xg_weight", 0.0),
+            "xi": hyper["xi"], "l2": hyper["l2"], "w": hyper["w"], "xg_weight": xg_weight,
             "ensemble_a": hyper["ensemble_a"], "elo_k": hyper["elo_k"], "elo_regress": hyper["elo_regress"],
             "model": model_meta}
     write_atomic(OUTPUTS / "meta.json", json.dumps(meta, indent=2))

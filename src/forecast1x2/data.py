@@ -382,6 +382,18 @@ def parse_fd_fixtures(content: bytes) -> pd.DataFrame:
     return df
 
 
+def fetched_at_path(path: Path) -> Path:
+    return path.with_suffix(".fetched_at")
+
+
+def fetched_at_of(path: Path) -> pd.Timestamp:
+    """When a downloaded file was fetched: saved next to it, because a fresh git checkout resets file times."""
+    side = fetched_at_path(path)
+    if side.exists():
+        return pd.Timestamp(side.read_text().strip())
+    return pd.Timestamp(path.stat().st_mtime, unit="s", tz="UTC")
+
+
 def update_upcoming_odds() -> list:
     """Early odds for upcoming matches (football-data publishes them a few days before each round).
 
@@ -392,11 +404,12 @@ def update_upcoming_odds() -> list:
     warnings = []
     try:
         download(FD_FIXTURES_URL, dest, parse_fd_fixtures)
+        write_atomic(fetched_at_path(dest), pd.Timestamp.now(tz="UTC").isoformat(timespec="seconds"))
     except DataError as e:
         warnings.append(f"quote pre-partita non aggiornate ({e}); uso l'ultimo file se recente")
     if not dest.exists():
         return warnings
-    fetched_at = pd.Timestamp(dest.stat().st_mtime, unit="s", tz="UTC")
+    fetched_at = fetched_at_of(dest)
     df = parse_fd_fixtures(dest.read_bytes())
     df = df[df.Div.str.strip().isin(LEAGUES)]
     values, source = pick_odds(df, closing=False)
