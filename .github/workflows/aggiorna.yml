@@ -1,4 +1,4 @@
-# Aggiornamento automatico di dati, previsioni e registro dei consigli in prova.
+# Aggiornamento automatico di dati, previsioni, registro dei consigli in prova e quote Planetwin365.
 # Ogni ora lancia `python -m forecast1x2 auto`, che aggiorna solo se è passato un evento partita
 # (24h e 3h prima, 3h e 24h dopo, e almeno una volta al giorno); poi salva i file cambiati nel repository.
 # Si può lanciare anche a mano: scheda Actions → «Aggiornamento automatico» → Run workflow.
@@ -20,6 +20,8 @@ jobs:
   aggiorna:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      ODDSPAPI_API_KEY: ${{ secrets.ODDSPAPI_API_KEY }}
     # Niente Sportmonks: senza token gli xG sono disattivati e le previsioni usano solo i gol.
     steps:
       - uses: actions/checkout@v4
