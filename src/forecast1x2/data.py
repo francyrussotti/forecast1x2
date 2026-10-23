@@ -362,6 +362,11 @@ def update_data(force: bool = False) -> None:
         warnings += update_register(matches)
     except (DataError, ValueError, KeyError) as e:
         warnings.append(f"registro consigli non aggiornato ({e})")
+    from .markets import update_fair_odds   # local import: markets imports this module
+    try:   # fair odds of all result markets: optional, never blocks results and predictions
+        warnings += update_fair_odds()
+    except (DataError, ValueError, KeyError) as e:
+        warnings.append(f"quote giuste non aggiornate ({e})")
     for w in warnings:
         print(f"ATTENZIONE: {w}")
     write_csv_atomic(matches, PROCESSED / "matches.csv")

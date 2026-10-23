@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 import altair as alt
+import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -14,6 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
+from forecast1x2.markets import fair_odds_for, load_params
 from forecast1x2.tips import RULE_FROZEN, RULE_VERSION, THRESHOLD, load_register, summary
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -61,7 +63,7 @@ def sidebar_update(meta):
         nxt = next_update(pd.Timestamp.now(tz="UTC"), load_kickoffs(), last_update_time())
         st.sidebar.caption(f"Aggiornamento automatico attivo · prossimo verso il {nxt.tz_convert(TZ):%d/%m %H:%M}")
     else:
-        st.sidebar.caption("Aggiornamento automatico non attivo (vedi README)")
+        st.sidebar.caption("Aggiornamento automatico su GitHub: controllo ogni ora, aggiorna attorno alle partite")
     if st.sidebar.button("Aggiorna dati e previsioni", width="stretch"):
         with st.spinner("Scarico risultati, quote e calendari e rifaccio le previsioni..."):
             try:
@@ -400,10 +402,143 @@ def page_tips():
             st.dataframe(reg.sort_values("kickoff_utc", ascending=False), hide_index=True, width="stretch")
 
 
-page = st.sidebar.radio("Pagina", ["Previsioni", "Consigli in prova", "Backtest"])
+KELLY_FRACTION = 0.25
+MAX_STAKE = 0.05   # never more than 5% of the budget on one bet
+SUSPICIOUS = 2.0   # odds above twice the fair odds: almost surely a typo (e.g. 24 instead of 2,4)
+
+
+def parse_odds(s: pd.Series) -> np.ndarray:
+    """Odds typed by hand: '2,40' or '2.40'; NaN if not a number above 1."""
+    v = pd.to_numeric(s.astype(str).str.strip().str.replace(",", ".", regex=False), errors="coerce").to_numpy(float)
+    return np.where(v > 1, v, np.nan)
+
+
+def kelly_stake(prob, odds):
+    """Fraction of the budget: a quarter of Kelly, capped; 0 when the bet has no value."""
+    f = (odds * prob - 1) / (odds - 1)
+    return np.clip(KELLY_FRACTION * f, 0, MAX_STAKE)
+
+
+def page_fair_odds():
+    st.title("Quote giuste e strategia")
+    st.info(DISCLAIMER)
+    up = read_csv("fair_odds.csv")
+    if up is None or up.empty:
+        st.warning("Nessuna partita con quote disponibili: football-data pubblica le quote di solito il venerdì.")
+        return
+    params = load_params()
+    cal = read_csv("markets_calibration.csv")
+    err = {}
+    if cal is not None:
+        t = cal[cal.period.str.startswith("verifica")]
+        err = {(g, m): d for g, m, d in zip(t.group, t.market, t.diff_pp)}
+    st.caption("Le probabilità vengono dalle quote medie 1X2 e Over/Under 2.5 senza margine (i mercati più "
+               "precisi), trasformate in gol attesi e poi in ogni altro mercato. Scrivi la quota del tuo bookmaker: "
+               "c'è **valore** solo se è più alta della quota giusta.")
+
+    up = up.assign(k=pd.to_datetime(up.kickoff_utc, utc=True)).sort_values("k")
+    c1, c2 = st.columns([1, 2])
+    leagues = [d for d in ALL_LEAGUE_NAMES if d in set(up.league)]
+    div = c1.selectbox("Campionato", leagues, format_func=ALL_LEAGUE_NAMES.get, key="fo_league")
+    games = up[up.league == div]
+    labels = [f"{k.tz_convert(TZ):%d/%m %H:%M} · {h} – {a}" for k, h, a in zip(games.k, games.home, games.away)]
+    idx = c2.selectbox("Partita", range(len(games)), format_func=lambda i: labels[i], key="fo_game")
+    row = games.iloc[idx]
+    st.markdown(f"**Gol attesi:** {row.home} {row.exp_home:.2f} – {row.exp_away:.2f} {row.away} · "
+                f"mercato: 1 {100 * row.p1:.0f}%, 2 {100 * row.p2:.0f}%, Over 2.5 {100 * row.p_over:.0f}%")
+
+    fo = fair_odds_for(row, params)
+    groups = list(dict.fromkeys(fo.group))
+    default = ["1X2", "Doppia chance", "Under/Over", "Goal/No goal", "Multigoal", "Combo 1X2 + U/O"]
+    chosen = st.multiselect("Mercati", groups, default=[g for g in default if g in groups], key="fo_groups")
+    fo = fo[fo.group.isin(chosen)].reset_index(drop=True)
+    table = pd.DataFrame({
+        "Gruppo": fo.group, "Mercato": fo.market, "Probabilità %": (100 * fo.prob).round(1),
+        "Quota giusta": fo.fair_odds.round(2),
+        "Errore storico (pp)": [round(err.get((g, m), np.nan), 1) for g, m in zip(fo.group, fo.market)],
+        "Quota bookmaker": "",
+    })
+    edited = st.data_editor(
+        table, hide_index=True, width="stretch", key=f"fo_edit_{div}_{row.home}_{row.away}",
+        disabled=["Gruppo", "Mercato", "Probabilità %", "Quota giusta", "Errore storico (pp)"],
+        column_config={"Quota bookmaker": st.column_config.TextColumn(
+                           help="La quota del tuo bookmaker, con la virgola o con il punto: 2,40 oppure 2.40."),
+                       "Errore storico (pp)": st.column_config.NumberColumn(
+                           help="Verifica 2024/25-2025/26: frequenza osservata − probabilità prevista, in punti %.")})
+    st.caption("Errore storico: quanto, in media, la probabilità del mercato si è discostata dalla frequenza reale "
+               "nelle stagioni di verifica. Un valore stimato più piccolo di questo errore non è affidabile.")
+
+    entered = edited["Quota bookmaker"].fillna("").astype(str).str.strip()
+    q = edited[entered != ""].copy()
+    if not q.empty:
+        odds = parse_odds(q["Quota bookmaker"])
+        bad = np.isnan(odds)
+        if bad.any():
+            st.warning("Quote non valide (servono numeri maggiori di 1, es. 2,40): "
+                       + ", ".join(q["Mercato"][bad]))
+        q, odds = q[~bad], odds[~bad]
+    if not q.empty:
+        p = q["Probabilità %"].to_numpy() / 100
+        value = odds * p - 1
+        margin_pp = np.abs(q["Errore storico (pp)"].fillna(0).to_numpy()) / 100 * odds   # value error from model error
+        suspicious = odds > SUSPICIOUS * q["Quota giusta"].to_numpy()
+        q["Quota bookmaker"] = odds
+        q["Valore %"] = (100 * value).round(1)
+        q["Puntata (% budget)"] = np.where(suspicious, 0.0, (100 * kelly_stake(p, odds)).round(2))
+        q["Giudizio"] = np.where(suspicious, "quota sospetta: ricontrolla",
+                                 np.where(value <= 0, "nessun valore",
+                                          np.where(value <= margin_pp, "valore entro l'errore", "valore")))
+        value = np.where(suspicious, -1.0, value)
+        st.subheader("Le tue quote")
+        st.dataframe(q[["Mercato", "Quota giusta", "Quota bookmaker", "Valore %", "Puntata (% budget)", "Giudizio"]]
+                     .sort_values("Valore %", ascending=False), hide_index=True, width="stretch")
+        st.caption(f"Puntata = un quarto del criterio di Kelly, al massimo il {100 * MAX_STAKE:.0f}% del budget: "
+                   "cresce con il valore e si azzera senza valore. Con quote sbagliate o valore stimato male, "
+                   "puntate più alte fanno perdere più in fretta.")
+        if st.button("Aggiungi le giocate con valore alla schedina", key="fo_add"):
+            slip = st.session_state.setdefault("slip", [])
+            have = {(b["Partita"], b["Mercato"]) for b in slip}
+            for market, prob, o, v in zip(q["Mercato"], p, odds, value):
+                if v > 0 and (f"{row.home} – {row.away}", market) not in have:
+                    slip.append({"Partita": f"{row.home} – {row.away}", "Mercato": market,
+                                 "prob": float(prob), "Quota": float(o)})
+    slip_section()
+
+
+def slip_section():
+    """Singles vs accumulator on the selected bets (assumed independent: different matches only)."""
+    slip = st.session_state.get("slip", [])
+    st.subheader("Schedina")
+    if not slip:
+        st.caption("Vuota. Scrivi le quote del tuo bookmaker e aggiungi le giocate con valore.")
+        return
+    s = pd.DataFrame(slip)
+    st.dataframe(s.assign(**{"Probabilità %": (100 * s.prob).round(1)})[["Partita", "Mercato", "Probabilità %", "Quota"]],
+                 hide_index=True, width="stretch")
+    singles_ev = (s.prob * s.Quota - 1).mean()
+    same_match = s.Partita.duplicated().any()
+    acc_p, acc_q = s.prob.prod(), s.Quota.prod()
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Valore medio delle singole", f"{100 * singles_ev:+.1f}%")
+    c2.metric("Multipla: quota", f"{acc_q:.2f}", f"probabilità {100 * acc_p:.1f}%", delta_color="off")
+    c3.metric("Multipla: valore", f"{100 * (acc_p * acc_q - 1):+.1f}%")
+    if same_match:
+        st.warning("Ci sono due giocate sulla stessa partita: non sono indipendenti e il calcolo della multipla "
+                   "non vale (molti bookmaker non le accettano insieme).")
+    st.caption("In una multipla i valori si moltiplicano: se ogni giocata ha valore la multipla ne ha di più, ma se "
+               "anche una sola è sotto la quota giusta il margine del bookmaker si accumula. La multipla vince "
+               "molto più di rado: a parità di valore atteso, le singole oscillano molto meno.")
+    if st.button("Svuota la schedina", key="slip_clear"):
+        st.session_state["slip"] = []
+        st.rerun()
+
+
+page = st.sidebar.radio("Pagina", ["Previsioni", "Quote giuste e strategia", "Consigli in prova", "Backtest"])
 sidebar_update(read_meta())
 if page == "Previsioni":
     page_predictions()
+elif page == "Quote giuste e strategia":
+    page_fair_odds()
 elif page == "Consigli in prova":
     page_tips()
 else:

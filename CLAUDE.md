@@ -18,7 +18,8 @@ Previsioni 1X2 (Dixon-Coles + Elo + xG) per Serie A, Premier, Liga, Bundesliga, 
 Per l'anteprima nel browser integrato c'è la configurazione `dashboard-progetto` in `.claude/launch.json` (porta 8502).
 
 ## Struttura
-- `src/forecast1x2/`: `data.py` (download e normalizzazione), `model.py` (Dixon-Coles), `elo.py`, `xg.py`, `evaluation.py` (backtest), `auto.py` (aggiornamento automatico), `tips.py` (registro dei consigli in prova over/under), `__main__.py` (CLI).
+- `src/forecast1x2/`: `data.py` (download e normalizzazione), `model.py` (Dixon-Coles), `elo.py`, `xg.py`, `evaluation.py` (backtest), `auto.py` (aggiornamento automatico), `tips.py` (registro dei consigli in prova over/under), `markets.py` (quote giuste di 181 mercati sul risultato, dalle quote di mercato), `__main__.py` (CLI).
+- Nuovi mercati in `markets.py`: aggiungili a `_build_markets()` come funzione dei gol, così la stessa funzione dà probabilità ed esito, e rilancia `quote-giuste-verifica`.
 - `data/tips/ou_register.csv`: registro dei consigli in prova, solo in aggiunta. Non modificarlo a mano e non cambiare la regola `ou25-v1` guardando i risultati: una regola nuova va in una versione nuova.
 - `app/dashboard.py`: legge solo da `outputs/`, non rifà le stime.
 - `data/raw/`: CSV football-data e JSON di calendari/xG scaricati. `data/team_names.csv`: mappatura dei nomi delle squadre per fonte.

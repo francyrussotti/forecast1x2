@@ -15,6 +15,7 @@ def main(argv=None):
     sub.add_parser("aggiorna", help="update-data + predict: il comando da usare prima di ogni giornata")
     sub.add_parser("auto", help="aggiorna solo se è passato un evento partita (per l'esecuzione pianificata)")
     sub.add_parser("consigli-backtest", help="verifica storica della regola dei consigli in prova (over/under)")
+    sub.add_parser("quote-giuste-verifica", help="stima i parametri e verifica sullo storico le quote giuste dei mercati")
     args = p.parse_args(argv)
 
     if args.cmd == "auto":
@@ -39,6 +40,9 @@ def main(argv=None):
             elif args.cmd == "consigli-backtest":
                 from .tips import run_rule_backtest
                 run_rule_backtest()
+            elif args.cmd == "quote-giuste-verifica":
+                from .markets import run_calibration
+                run_calibration()
     except DataError as e:
         print(f"ERRORE: {e}", file=sys.stderr)
         return 1

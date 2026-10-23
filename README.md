@@ -67,6 +67,7 @@ Testato con Python 3.9.6, l'unico disponibile su questa macchina. Con Python ≥
 .venv/bin/python -m forecast1x2 backtest             # calibra ξ, λ e w (2022/23 + 2023/24), backtest su 2024/25 e 2025/26 (~4 min)
 .venv/bin/python -m forecast1x2 predict              # previsioni della prossima giornata
 .venv/bin/python -m forecast1x2 consigli-backtest    # verifica storica della regola dei consigli in prova
+.venv/bin/python -m forecast1x2 quote-giuste-verifica # parametri e verifica delle quote giuste dei mercati (~1 min)
 .venv/bin/streamlit run app/dashboard.py --server.address localhost   # dashboard su http://localhost:8501
 .venv/bin/python -m pytest                           # test
 ```
@@ -205,6 +206,39 @@ Le percentuali si aggiornano a ogni backtest (`outputs/risk_tiers.csv`). La colo
 | Gioca sempre il favorito del mercato (riferimento) | −3,4% | circa il margine del bookmaker |
 
 Le cifre valgono sia per il modello sui soli gol sia per quello con xG. Il modello «vede valore» soprattutto dove sbaglia rispetto al mercato.
+
+## Quote giuste per tutti i mercati sul risultato
+
+Pagina «Quote giuste e strategia» della dashboard; codice in `src/forecast1x2/markets.py`. Copre 181 mercati del regolamento scommesse calcio, nei 10 campionati:
+- 1X2, Doppia chance, Draw no bet, Under/Over da 0,5 a 5,5, Goal/No goal, Multigoal (anche di squadra), Under/Over di squadra, Pari/Dispari, Handicap, Risultato esatto;
+- Combo 1X2 + U/O, 1X2 + GG/NG, DC + U/O, DC + GG/NG, DC + Multigoal, 1X2 + Multigoal, GG/NG + U/O;
+- primo e secondo tempo, Tempo/finale, Tempo con più gol, Gol in entrambi i tempi.
+
+Marcatori, angoli, cartellini e simili non ci sono, perché mancano i dati.
+
+**Come si calcola.**
+1. Dalle quote medie 1X2 e Over/Under 2.5 del venerdì (i mercati più precisi) si tolgono i margini.
+2. Si cercano i gol attesi delle due squadre che riproducono quelle probabilità.
+3. Da questi si ricava la probabilità di ogni altro mercato.
+
+I gol di una squadra seguono una Poisson corretta (Conway-Maxwell-Poisson, ν = 1,1: meno zeri e meno goleade, come nella realtà), con la correzione dei punteggi bassi di Dixon-Coles (ρ = −0,05). Nel primo tempo cade il 43,8% dei gol. I parametri sono scelti sul 2015/16-2023/24; il file `outputs/markets_params.json` si rigenera con `python -m forecast1x2 quote-giuste-verifica`.
+
+**Verifica 2024/25-2025/26** (7.514 partite, `outputs/markets_calibration.csv`):
+- tra probabilità prevista e frequenza reale ci sono in media 0,55 punti percentuali, al massimo 1,7 (Handicap casa −1);
+- con la Poisson semplice erano 0,82 in media, e il Goal veniva sottostimato di 2,5 punti.
+
+La pagina mostra l'errore di ogni mercato accanto alla sua quota giusta.
+
+**Uso.** Si sceglie la partita e si scrive la quota del proprio bookmaker (va bene sia 2,40 sia 2.40). La pagina mostra:
+- il **valore** (probabilità × quota − 1);
+- la **puntata** suggerita: un quarto del criterio di Kelly, al massimo il 5% del budget;
+- un giudizio: «valore», «valore entro l'errore» (non affidabile) oppure «nessun valore». Una quota oltre il doppio di quella giusta viene segnalata come probabile errore di battitura.
+
+Le giocate con valore si possono aggiungere a una **schedina**, che confronta le singole con la multipla.
+
+**Limiti.**
+- Le probabilità sono quelle del mercato: il valore nasce solo dove il proprio bookmaker paga più del mercato. Succede soprattutto sui mercati «esotici» (Combo, Multigoal), dove il margine è più alto e le quote sono meno curate.
+- Per questi mercati non abbiamo quote storiche: si è verificato che le probabilità sono giuste, non che giocarli avrebbe reso.
 
 ## Consigli in prova: over/under 2.5
 
