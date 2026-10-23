@@ -41,9 +41,15 @@ st.set_page_config(page_title="Forecast 1X2", layout="wide")
 
 
 @st.cache_data
-def read_csv(name, **kw):
+def _read_csv_cached(name, mtime, **kw):
     path = OUTPUTS / name
-    return pd.read_csv(path, **kw) if path.exists() else None
+    return pd.read_csv(path, **kw) if mtime is not None else None
+
+
+def read_csv(name, **kw):
+    """Cached read that follows the file: a new version (e.g. pushed by the GitHub update) is read again."""
+    path = OUTPUTS / name
+    return _read_csv_cached(name, path.stat().st_mtime_ns if path.exists() else None, **kw)
 
 
 def read_meta():
