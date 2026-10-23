@@ -141,14 +141,19 @@ def goal_pmf(lam, n=G, nu=1.0):
     return p / p.sum(axis=1, keepdims=True)
 
 
-def score_matrices(lh, la, rho, n=G, nu=1.0):
-    """Dixon-Coles score matrices (N, n, n): home goals on axis 1, away on axis 2."""
+def score_matrices(lh, la, rho, n=G, nu=1.0, kappa=0.0):
+    """Dixon-Coles score matrices (N, n, n): home goals on axis 1, away on axis 2.
+
+    kappa: dependence between the two teams' goals; every score where both teams scored is multiplied by
+    exp(kappa) before normalising (kappa > 0: «both teams score» more often than with independent goals)."""
     lh, la = np.atleast_1d(lh).astype(float), np.atleast_1d(la).astype(float)
     M = goal_pmf(lh, n, nu)[:, :, None] * goal_pmf(la, n, nu)[:, None, :]
     M[:, 0, 0] *= 1 - lh * la * rho
     M[:, 0, 1] *= 1 + lh * rho
     M[:, 1, 0] *= 1 + la * rho
     M[:, 1, 1] *= 1 - rho
+    if kappa:
+        M[:, 1:, 1:] *= np.exp(kappa)
     M = np.clip(M, 0, None)
     return M / M.sum(axis=(1, 2), keepdims=True)
 
@@ -164,7 +169,7 @@ def _core_probs(M):
     return np.stack([p1, p2, po], axis=1)
 
 
-def fit_rates(p1, p2, p_over, rho, nu=1.0, iters: int = 25):
+def fit_rates(p1, p2, p_over, rho, nu=1.0, iters: int = 25, kappa=0.0):
     """Rates (home, away) whose Dixon-Coles probabilities match P(1), P(2), P(Over 2.5).
 
     Vectorised damped Gauss-Newton on log-rates (2 unknowns, 3 targets: least squares).
@@ -173,27 +178,28 @@ def fit_rates(p1, p2, p_over, rho, nu=1.0, iters: int = 25):
     n = len(target)
     x = np.log(np.full((n, 2), [1.4, 1.1]))
     eps = 1e-4
+    sm = lambda a, b: score_matrices(np.exp(a), np.exp(b), rho, nu=nu, kappa=kappa)
     for _ in range(iters):
-        f = _core_probs(score_matrices(np.exp(x[:, 0]), np.exp(x[:, 1]), rho, nu=nu))
+        f = _core_probs(sm(x[:, 0], x[:, 1]))
         r = f - target
         J = np.empty((n, 3, 2))
         for k in range(2):
             xe = x.copy()
             xe[:, k] += eps
-            J[:, :, k] = (_core_probs(score_matrices(np.exp(xe[:, 0]), np.exp(xe[:, 1]), rho, nu=nu)) - f) / eps
+            J[:, :, k] = (_core_probs(sm(xe[:, 0], xe[:, 1])) - f) / eps
         A = np.einsum("nik,nil->nkl", J, J) + 1e-6 * np.eye(2)
         b = -np.einsum("nik,ni->nk", J, r)
         step = np.linalg.solve(A, b[:, :, None])[:, :, 0]
         x += np.clip(step, -0.5, 0.5)
         if np.abs(step).max() < 1e-7:
             break
-    resid = np.abs(_core_probs(score_matrices(np.exp(x[:, 0]), np.exp(x[:, 1]), rho, nu=nu)) - target).max(axis=1)
+    resid = np.abs(_core_probs(sm(x[:, 0], x[:, 1])) - target).max(axis=1)
     return np.exp(x[:, 0]), np.exp(x[:, 1]), resid
 
 
-def expected_goals(lh, la, rho, nu=1.0):
+def expected_goals(lh, la, rho, nu=1.0, kappa=0.0):
     """Mean goals (home, away) of the final-score matrix."""
-    M = score_matrices(lh, la, rho, nu=nu)
+    M = score_matrices(lh, la, rho, nu=nu, kappa=kappa)
     return (M * _I).sum(axis=(1, 2)), (M * _J).sum(axis=(1, 2))
 
 
@@ -207,12 +213,12 @@ def rate_for_mean(mean, n=GH, nu=1.0):
     return np.exp(np.interp(np.asarray(mean, dtype=float), means, np.log(_LAM_TABLE)))
 
 
-def market_probs(lh, la, rho, share, nu=1.0):
+def market_probs(lh, la, rho, share, nu=1.0, kappa=0.0):
     """Probability of every market for each match: DataFrame (N rows x markets).
 
     Halves: same dispersion ν, with share / (1 - share) of the expected goals, independent of each other."""
     lh, la = np.atleast_1d(lh), np.atleast_1d(la)
-    M = score_matrices(lh, la, rho, nu=nu)
+    M = score_matrices(lh, la, rho, nu=nu, kappa=kappa)
     mh, ma = (M * _I).sum(axis=(1, 2)), (M * _J).sum(axis=(1, 2))
     half = lambda m: rate_for_mean(m, GH, nu)
     M1 = score_matrices(half(share * mh), half(share * ma), 0.0, GH, nu)

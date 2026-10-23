@@ -603,8 +603,7 @@ HISTORY = pd.DataFrame({   # strategy_research: Bet365, 10 campionati, verifica 
     "Vinte": ["60%", "83%", "37%", "21%", "13%", "8%", "10%"],
     "Rendimento": ["−3,6%", "+0,1%", "−4,4%", "−10,0%", "−11,6%", "−15,9%", "−49,5%"],
 })
-SLIPS = {"Singola (quota ≥ 1,50)": (1, 1.5), "Doppia prudente (≥ 1,50)": (2, 1.5),
-         "Doppia (≥ 2,00)": (2, 2.0), "Tripla (≥ 3,00)": (3, 3.0)}
+SLIPS = advisor.PRESETS
 
 
 def matches_label(df):
@@ -779,11 +778,83 @@ def page_advice():
         }), hide_index=True, width="stretch")
 
 
-page = st.sidebar.radio("Pagina", ["Schedine pronte", "Giocate per partita", "Previsioni",
+def tracking_table(s: pd.DataFrame, label: str) -> pd.DataFrame:
+    pct = lambda v: "—" if pd.isna(v) else f"{100 * v:+.1f}%"
+    ci = lambda lo, hi: "—" if pd.isna(lo) else f"{100 * lo:+.1f}% … {100 * hi:+.1f}%"
+    return pd.DataFrame({
+        label: s.group.astype(str).to_numpy(), "Giocate": s.bets.to_numpy(), "Vinte": s.wins.to_numpy(),
+        "Rendimento": [pct(v) for v in s.roi], "IC 95%": [ci(a, b) for a, b in zip(s.roi_lo, s.roi_hi)],
+        "CLV medio": [pct(v) for v in s.clv], "IC 95% CLV": [ci(a, b) for a, b in zip(s.clv_lo, s.clv_hi)],
+    })
+
+
+def page_tracking():
+    st.title("Verifica dei consigli")
+    st.info(DISCLAIMER)
+    st.markdown(
+        "Ogni consiglio viene salvato **prima della partita** e non viene più modificato. Dopo la partita si "
+        "segna l'esito e si calcola il **CLV** (closing line value): la quota presa confrontata con la probabilità "
+        "del mercato alla chiusura. **CLV positivo in media = le quote prese erano migliori di quelle finali**, il "
+        "segnale più rapido che i consigli valgono qualcosa: bastano poche settimane, mentre per il rendimento "
+        "servono centinaia di giocate.")
+    from forecast1x2.tracking import PICKS, SLIPS as SLIPS_PATH, leg_results, results_table, summary as tr_summary
+    picks = pd.read_csv(PICKS) if PICKS.exists() else pd.DataFrame()
+    slips = pd.read_csv(SLIPS_PATH) if SLIPS_PATH.exists() else pd.DataFrame()
+    if picks.empty:
+        st.warning("Il registro è vuoto: si riempie da solo con gli aggiornamenti automatici.")
+        return
+    done = picks[picks.status.isin(["vinta", "persa", "rimborsata"])]
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Giocate registrate", len(picks))
+    c2.metric("Concluse", len(done))
+    c3.metric("In attesa del risultato", int((picks.status == "aperta").sum()))
+    if len(done) < 100:
+        st.caption("Meno di 100 giocate concluse: i numeri qui sotto dipendono ancora molto dal caso. "
+                   "Il CLV diventa leggibile dopo 3-4 settimane, il rendimento dopo una stagione.")
+
+    st.subheader("Giocate singole")
+    st.dataframe(tracking_table(tr_summary(picks, "kind"), "Tipo"), hide_index=True, width="stretch")
+    with st.expander("Per mercato e per bookmaker"):
+        st.dataframe(tracking_table(tr_summary(picks, "group").iloc[1:], "Mercato"), hide_index=True, width="stretch")
+        b = tr_summary(picks.assign(book=picks.bookmaker.map(lambda x: BOOKMAKERS.get(x, x))), "book").iloc[1:]
+        st.dataframe(tracking_table(b, "Bookmaker"), hide_index=True, width="stretch")
+
+    st.subheader("Schedine pronte")
+    if slips.empty:
+        st.caption("Nessuna schedina registrata.")
+    else:
+        st.dataframe(tracking_table(tr_summary(slips.assign(kickoff_utc=slips.logged_at), "preset"), "Schedina"),
+                     hide_index=True, width="stretch")
+
+    ou = load_register()
+    ou = ou[ou.status.isin(["vinta", "persa"])]
+    if len(ou):
+        st.subheader("Consigli in prova over/under (regola ou25-v1)")
+        legs = pd.DataFrame({"league": ou.league, "kickoff_utc": ou.kickoff_utc, "home": ou.home, "away": ou.away,
+                             "group": "Under/Over", "market": ou.pick + " 2.5"})
+        lr = leg_results(legs, results_table(), load_params())
+        ou = ou.reset_index(drop=True).assign(clv=ou.odds_best.to_numpy() * lr.close_prob.to_numpy() - 1)
+        st.dataframe(tracking_table(tr_summary(ou), "Registro"), hide_index=True, width="stretch")
+
+    if len(done):
+        st.subheader("Ultime giocate concluse")
+        last = done.sort_values("kickoff_utc", ascending=False).head(30)
+        st.dataframe(pd.DataFrame({
+            "Data (Roma)": matches_label(last), "Partita": (last.home + " – " + last.away).to_numpy(),
+            "Giocata": (last.market + " @ " + last.odds.map("{:.2f}".format)).to_numpy(),
+            "Dove": last.bookmaker.map(lambda x: BOOKMAKERS.get(x, x)).to_numpy(),
+            "Esito": last.status.to_numpy(),
+            "CLV": [("—" if pd.isna(v) else f"{100 * v:+.1f}%") for v in last.clv],
+        }), hide_index=True, width="stretch")
+
+
+page = st.sidebar.radio("Pagina", ["Schedine pronte", "Giocate per partita", "Verifica", "Previsioni",
                                    "Quote giuste e strategia", "Consigli in prova", "Backtest"])
 sidebar_update(read_meta())
 if page == "Previsioni":
     page_predictions()
+elif page == "Verifica":
+    page_tracking()
 elif page == "Schedine pronte":
     page_slips()
 elif page == "Giocate per partita":

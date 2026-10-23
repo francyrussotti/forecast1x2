@@ -23,6 +23,9 @@ POOL = 15              # le schedine si cercano tra le migliori POOL giocate
 
 
 MIN_PROB_CHEAP = 0.60  # la giocata «più conveniente» deve comunque essere probabile
+# le schedine pronte: nome -> (partite, quota totale minima)
+PRESETS = {"Singola (quota ≥ 1,50)": (1, 1.5), "Doppia prudente (≥ 1,50)": (2, 1.5),
+           "Doppia (≥ 2,00)": (2, 2.0), "Tripla (≥ 3,00)": (3, 3.0)}
 KEYS = ["league", "home", "away"]
 
 

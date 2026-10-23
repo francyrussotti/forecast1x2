@@ -371,7 +371,12 @@ def update_data(force: bool = False) -> None:
     try:   # Planetwin365 odds from OddsPapi: optional (needs a key), never blocks the rest
         warnings += update_bookmaker_odds()
     except (DataError, ValueError, KeyError, TypeError) as e:
-        warnings.append(f"quote Planetwin365 non aggiornate ({e})")
+        warnings.append(f"quote dei bookmaker non aggiornate ({e})")
+    from .tracking import update_tracking   # local import: tracking imports this module
+    try:   # advice register with results and CLV: optional, never blocks the rest
+        warnings += update_tracking()
+    except (DataError, ValueError, KeyError, TypeError) as e:
+        warnings.append(f"registro dei consigli non aggiornato ({e})")
     for w in warnings:
         print(f"ATTENZIONE: {w}")
     write_csv_atomic(matches, PROCESSED / "matches.csv")

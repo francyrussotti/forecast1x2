@@ -236,12 +236,34 @@ La pagina mostra l'errore di ogni mercato accanto alla sua quota giusta.
 
 Le giocate con valore si possono aggiungere a una **schedina**, che confronta le singole con la multipla.
 
-**Quote Planetwin365 automatiche (OddsPapi).** Con una chiave [OddsPapi](https://oddspapi.io) la colonna «Quota bookmaker» si compila da sola, e in cima alla pagina compare «Occasioni Planetwin365»: tutte le quote sopra la quota giusta oltre l'errore del modello, nelle prossime partite. Codice in `src/forecast1x2/oddspapi.py`.
+**Quote automatiche di 3 bookmaker (OddsPapi, piano gratuito).** Con una chiave [OddsPapi](https://oddspapi.io) si scaricano le quote di **Planetwin365, Sisal/Snai e Bet365**, e per ogni giocata si usa la quota migliore dei tre («Dove» dice quale). Codice in `src/forecast1x2/oddspapi.py`.
+- **Perché questi tre:** molti marchi italiani usano le stesse quote. Planetwin365 = Goldbet = Lottomatica = Betflag; Snai = Sisal = PokerStars. Questi tre coprono i listini principali diversi.
+- **Margine misurato il 23/10/2026, quote 1,01-2,50** (rendimento atteso rispetto alla quota giusta):
+
+  | Bookmaker | Rendimento atteso |
+  |---|---|
+  | Planetwin365 | −7,2% |
+  | Sisal/Snai | −6,8% |
+  | Bet365 | −5,4% |
+  | migliore dei tre | −5,2% |
+
+  Bet365 ha la quota migliore in circa 2 casi su 3.
 - **Chiave:** variabile `ODDSPAPI_API_KEY` (segreto di GitHub con lo stesso nome) oppure file `~/.config/forecast1x2/oddspapi_key`. Senza chiave tutto il resto funziona come prima.
-- **Consumo:** al primo uso, e poi ogni 30 giorni, 3 richieste per i riferimenti (bookmaker, campionati, codici dei mercati), salvati in `data/oddspapi_reference.json`. Poi al massimo un download ogni 12 ore, di 2 richieste. Il contatore in `data/oddspapi_state.json` si ferma a 200 richieste al mese; il piano gratuito ne dichiara 250.
-- **Mercati:** 1X2, Doppia chance, Under/Over, Goal/No goal, Draw no bet, Pari/Dispari, Under/Over di squadra, primo e secondo tempo, se Planetwin365 li offre su OddsPapi. Multigoal e Combo vanno scritti a mano.
+- **Consumo:** l'API accetta un solo bookmaker e al massimo 5 campionati per richiesta, quindi servono 2 richieste per bookmaker. Si scarica al massimo una volta ogni 23 ore (3 × 2 richieste al giorno, circa 180 al mese). Ogni 30 giorni servono 3 richieste per i riferimenti (`data/oddspapi_reference.json`). Il contatore in `data/oddspapi_state.json` si ferma a 200 richieste al mese, sotto le 250 del piano gratuito, e non scarica mai metà di un bookmaker.
+- **Mercati:** 1X2, Doppia chance, Under/Over, Goal/No goal, Draw no bet, Pari/Dispari, Under/Over di squadra, primo e secondo tempo, se il bookmaker li offre su OddsPapi. Multigoal e Combo vanno scritti a mano.
 - **Abbinamento:** le partite si abbinano per campionato, orario (±3 ore) e somiglianza dei nomi, entrambe le squadre. Le partite non abbinate restano senza quota.
 - **Download manuale:** `python -m forecast1x2 quote-planetwin`. Le quote vengono scaricate in `outputs/bookmaker_odds.csv`.
+
+**Registro dei consigli e CLV** (`src/forecast1x2/tracking.py`, pagina «Verifica»). A ogni aggiornamento si salvano, prima delle partite e una volta sola:
+- per ogni partita, la giocata più probabile e la più conveniente;
+- una volta al giorno, le quattro schedine pronte.
+
+Il registro è in `data/tips/picks_register.csv` e `slips_register.csv`. Dopo la partita si segna l'esito, dal risultato finale e del primo tempo, e si calcola il **CLV**: quota presa × probabilità del mercato alla chiusura − 1, con le quote medie di chiusura di football-data passate nello stesso motore delle quote giuste.
+- Un CLV medio positivo dice che i consigli prendono quote migliori di quelle finali: è il segnale più rapido, leggibile dopo 3-4 settimane.
+- Il rendimento, invece, richiede una stagione.
+- Nelle schedine una partita rimborsata o annullata vale 1,00, come da regolamento.
+
+**Dipendenza tra i gol delle due squadre: provata, non adottata.** Il parametro κ, che moltiplica per exp(κ) i risultati in cui segnano entrambe, è stato stimato sul 2015-24 insieme a ρ e ν: il valore migliore è κ = 0. Sul 2015-24 il Goal è già calibrato (−0,01 punti). Il suo scarto sul 2024-26 (+1,0) coincide con quello dell'Over 2,5 (+1,1): in quelle stagioni si è segnato più di quanto il mercato prevedesse, non manca un pezzo al modello. Il parametro resta nel codice con valore 0.
 
 **Limiti.**
 - Le probabilità sono quelle del mercato: il valore nasce solo dove il proprio bookmaker paga più del mercato. Succede soprattutto sui mercati «esotici» (Combo, Multigoal), dove il margine è più alto e le quote sono meno curate.
