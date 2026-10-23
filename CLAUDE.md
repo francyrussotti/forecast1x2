@@ -19,6 +19,7 @@ Per l'anteprima nel browser integrato c'è la configurazione `dashboard-progetto
 
 ## Struttura
 - `src/forecast1x2/`: `data.py` (download e normalizzazione), `model.py` (Dixon-Coles), `elo.py`, `xg.py`, `evaluation.py` (backtest), `auto.py` (aggiornamento automatico), `tips.py` (registro dei consigli in prova over/under), `markets.py` (quote giuste di 181 mercati sul risultato, dalle quote di mercato), `__main__.py` (CLI).
+- `oddspapi.py`: quote Planetwin365 da OddsPapi (chiave in `ODDSPAPI_API_KEY` o `~/.config/forecast1x2/oddspapi_key`, mai nel progetto). Rispetta il tetto di 200 richieste al mese e l'intervallo di 12 ore: nei test usa sempre un finto `get`, mai la rete.
 - Nuovi mercati in `markets.py`: aggiungili a `_build_markets()` come funzione dei gol, così la stessa funzione dà probabilità ed esito, e rilancia `quote-giuste-verifica`.
 - `data/tips/ou_register.csv`: registro dei consigli in prova, solo in aggiunta. Non modificarlo a mano e non cambiare la regola `ou25-v1` guardando i risultati: una regola nuova va in una versione nuova.
 - `app/dashboard.py`: legge solo da `outputs/`, non rifà le stime.

@@ -16,6 +16,7 @@ def main(argv=None):
     sub.add_parser("auto", help="aggiorna solo se è passato un evento partita (per l'esecuzione pianificata)")
     sub.add_parser("consigli-backtest", help="verifica storica della regola dei consigli in prova (over/under)")
     sub.add_parser("quote-giuste-verifica", help="stima i parametri e verifica sullo storico le quote giuste dei mercati")
+    sub.add_parser("quote-planetwin", help="scarica subito le quote Planetwin365 da OddsPapi (serve la chiave)")
     args = p.parse_args(argv)
 
     if args.cmd == "auto":
@@ -43,6 +44,10 @@ def main(argv=None):
             elif args.cmd == "quote-giuste-verifica":
                 from .markets import run_calibration
                 run_calibration()
+            elif args.cmd == "quote-planetwin":
+                from .oddspapi import update_bookmaker_odds
+                for w in update_bookmaker_odds():
+                    print(f"ATTENZIONE: {w}")
     except DataError as e:
         print(f"ERRORE: {e}", file=sys.stderr)
         return 1

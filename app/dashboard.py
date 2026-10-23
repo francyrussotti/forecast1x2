@@ -16,6 +16,7 @@ from forecast1x2.auto import last_update_time, load_kickoffs, next_update
 from forecast1x2.data import LEAGUES
 from forecast1x2.evaluation import SOURCES, calibration_table, outcome_index, probs, rps
 from forecast1x2.markets import fair_odds_for, load_params
+from forecast1x2.oddspapi import BOOKMAKER_NAME, value_table
 from forecast1x2.tips import RULE_FROZEN, RULE_VERSION, THRESHOLD, load_register, summary
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -437,6 +438,14 @@ def page_fair_odds():
                "c'è **valore** solo se è più alta della quota giusta.")
 
     up = up.assign(k=pd.to_datetime(up.kickoff_utc, utc=True)).sort_values("k")
+    up = up[up.k > pd.Timestamp.now(tz="UTC")]
+    if up.empty:
+        st.warning("Tutte le partite con quote sono già iniziate: le prossime quote escono di solito il venerdì.")
+        return
+    bk = read_csv("bookmaker_odds.csv")
+    bk = bk if bk is not None and not bk.empty else None
+    if bk is not None:
+        bookmaker_opportunities(up, bk, params, err)
     c1, c2 = st.columns([1, 2])
     leagues = [d for d in ALL_LEAGUE_NAMES if d in set(up.league)]
     div = c1.selectbox("Campionato", leagues, format_func=ALL_LEAGUE_NAMES.get, key="fo_league")
@@ -458,6 +467,14 @@ def page_fair_odds():
         "Errore storico (pp)": [round(err.get((g, m), np.nan), 1) for g, m in zip(fo.group, fo.market)],
         "Quota bookmaker": "",
     })
+    if bk is not None:   # prefill with Planetwin365 where available; the user can overwrite
+        mine = bk[(bk.league == row.league) & (bk.home == row.home) & (bk.away == row.away)]
+        pw = {(g, m): o for g, m, o in zip(mine.group, mine.market, mine.odds)}
+        table["Quota bookmaker"] = [f"{pw[(g, m)]:.2f}".replace(".", ",") if (g, m) in pw else ""
+                                    for g, m in zip(fo.group, fo.market)]
+        if pw:
+            st.caption(f"Colonna «Quota bookmaker» già compilata con le quote {BOOKMAKER_NAME} "
+                       f"del {fmt_time(mine.fetched_at.iloc[0])}: puoi sovrascriverle con quelle di un altro bookmaker.")
     edited = st.data_editor(
         table, hide_index=True, width="stretch", key=f"fo_edit_{div}_{row.home}_{row.away}",
         disabled=["Gruppo", "Mercato", "Probabilità %", "Quota giusta", "Errore storico (pp)"],
@@ -503,6 +520,34 @@ def page_fair_odds():
                     slip.append({"Partita": f"{row.home} – {row.away}", "Mercato": market,
                                  "prob": float(prob), "Quota": float(o)})
     slip_section()
+
+
+def bookmaker_opportunities(up, bk, params, err):
+    """All Planetwin365 prices above fair odds by more than the model's error, across the upcoming matches."""
+    vt = value_table(up, bk, params, err)
+    st.subheader(f"Occasioni {BOOKMAKER_NAME}")
+    if vt.empty:
+        st.caption(f"Nessuna quota {BOOKMAKER_NAME} abbinata alle prossime partite.")
+        return
+    good = vt[vt.verdict == "valore"].sort_values("value", ascending=False)
+    fetched = fmt_time(bk.fetched_at.max())
+    if good.empty:
+        st.caption(f"Nessuna quota {BOOKMAKER_NAME} sopra la quota giusta oltre l'errore del modello "
+                   f"({len(vt)} quote controllate, aggiornate il {fetched}).")
+        return
+    k = pd.to_datetime(good.kickoff_utc, utc=True).dt.tz_convert(TZ)
+    st.dataframe(pd.DataFrame({
+        "Data (Roma)": k.dt.dayofweek.map(dict(enumerate(DAYS))).to_numpy() + " " + k.dt.strftime("%d/%m %H:%M").to_numpy(),
+        "Campionato": good.league.map(ALL_LEAGUE_NAMES).to_numpy(),
+        "Partita": (good.home + " – " + good.away).to_numpy(),
+        "Mercato": (good.group + ": " + good.market).to_numpy(),
+        f"Quota {BOOKMAKER_NAME}": good.odds.round(2).to_numpy(),
+        "Quota giusta": good.fair_odds.round(2).to_numpy(),
+        "Valore %": (100 * good.value).round(1).to_numpy(),
+        "Puntata (% budget)": (100 * good.stake).round(2).to_numpy(),
+    }), hide_index=True, width="stretch")
+    st.caption(f"{len(good)} occasioni su {len(vt)} quote {BOOKMAKER_NAME} controllate (aggiornate il {fetched}). "
+               "Controlla sempre la quota sul sito prima di giocare: può essere cambiata.")
 
 
 def slip_section():

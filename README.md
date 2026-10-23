@@ -236,6 +236,13 @@ La pagina mostra l'errore di ogni mercato accanto alla sua quota giusta.
 
 Le giocate con valore si possono aggiungere a una **schedina**, che confronta le singole con la multipla.
 
+**Quote Planetwin365 automatiche (OddsPapi).** Con una chiave [OddsPapi](https://oddspapi.io) la colonna «Quota bookmaker» si compila da sola, e in cima alla pagina compare «Occasioni Planetwin365»: tutte le quote sopra la quota giusta oltre l'errore del modello, nelle prossime partite. Codice in `src/forecast1x2/oddspapi.py`.
+- **Chiave:** variabile `ODDSPAPI_API_KEY` (segreto di GitHub con lo stesso nome) oppure file `~/.config/forecast1x2/oddspapi_key`. Senza chiave tutto il resto funziona come prima.
+- **Consumo:** al primo uso, e poi ogni 30 giorni, 3 richieste per i riferimenti (bookmaker, campionati, codici dei mercati), salvati in `data/oddspapi_reference.json`. Poi al massimo un download ogni 12 ore, di 2 richieste. Il contatore in `data/oddspapi_state.json` si ferma a 200 richieste al mese; il piano gratuito ne dichiara 250.
+- **Mercati:** 1X2, Doppia chance, Under/Over, Goal/No goal, Draw no bet, Pari/Dispari, Under/Over di squadra, primo e secondo tempo, se Planetwin365 li offre su OddsPapi. Multigoal e Combo vanno scritti a mano.
+- **Abbinamento:** le partite si abbinano per campionato, orario (±3 ore) e somiglianza dei nomi, entrambe le squadre. Le partite non abbinate restano senza quota.
+- **Download manuale:** `python -m forecast1x2 quote-planetwin`. Le quote vengono scaricate in `outputs/bookmaker_odds.csv`.
+
 **Limiti.**
 - Le probabilità sono quelle del mercato: il valore nasce solo dove il proprio bookmaker paga più del mercato. Succede soprattutto sui mercati «esotici» (Combo, Multigoal), dove il margine è più alto e le quote sono meno curate.
 - Per questi mercati non abbiamo quote storiche: si è verificato che le probabilità sono giuste, non che giocarli avrebbe reso.

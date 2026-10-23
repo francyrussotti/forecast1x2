@@ -367,6 +367,11 @@ def update_data(force: bool = False) -> None:
         warnings += update_fair_odds()
     except (DataError, ValueError, KeyError) as e:
         warnings.append(f"quote giuste non aggiornate ({e})")
+    from .oddspapi import update_bookmaker_odds   # local import: oddspapi imports this module
+    try:   # Planetwin365 odds from OddsPapi: optional (needs a key), never blocks the rest
+        warnings += update_bookmaker_odds()
+    except (DataError, ValueError, KeyError, TypeError) as e:
+        warnings.append(f"quote Planetwin365 non aggiornate ({e})")
     for w in warnings:
         print(f"ATTENZIONE: {w}")
     write_csv_atomic(matches, PROCESSED / "matches.csv")
