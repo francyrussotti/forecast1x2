@@ -1,0 +1,415 @@
+{
+ "bookmaker": "planetwin365.it",
+ "tournaments": {
+  "I1": 23,
+  "I2": 53,
+  "E0": 17,
+  "E1": 18,
+  "SP1": 8,
+  "SP2": 54,
+  "D1": 35,
+  "D2": 44,
+  "F1": 34,
+  "F2": 182
+ },
+ "missing_tournaments": [],
+ "outcomes": {
+  "103": [
+   "1X2",
+   "2"
+  ],
+  "101": [
+   "1X2",
+   "1"
+  ],
+  "102": [
+   "1X2",
+   "X"
+  ],
+  "104": [
+   "Goal/No goal",
+   "Goal"
+  ],
+  "105": [
+   "Goal/No goal",
+   "No goal"
+  ],
+  "107": [
+   "Under/Over",
+   "Under 0.5"
+  ],
+  "106": [
+   "Under/Over",
+   "Over 0.5"
+  ],
+  "108": [
+   "Under/Over",
+   "Over 1.5"
+  ],
+  "109": [
+   "Under/Over",
+   "Under 1.5"
+  ],
+  "1010": [
+   "Under/Over",
+   "Over 2.5"
+  ],
+  "1011": [
+   "Under/Over",
+   "Under 2.5"
+  ],
+  "1013": [
+   "Under/Over",
+   "Under 3.5"
+  ],
+  "1012": [
+   "Under/Over",
+   "Over 3.5"
+  ],
+  "1014": [
+   "Under/Over",
+   "Over 4.5"
+  ],
+  "1015": [
+   "Under/Over",
+   "Under 4.5"
+  ],
+  "1017": [
+   "Under/Over",
+   "Under 5.5"
+  ],
+  "1016": [
+   "Under/Over",
+   "Over 5.5"
+  ],
+  "10208": [
+   "Primo tempo",
+   "1X2 1T: 1"
+  ],
+  "10210": [
+   "Primo tempo",
+   "1X2 1T: 2"
+  ],
+  "10209": [
+   "Primo tempo",
+   "1X2 1T: X"
+  ],
+  "10213": [
+   "Secondo tempo",
+   "1X2 2T: 2"
+  ],
+  "10212": [
+   "Secondo tempo",
+   "1X2 2T: X"
+  ],
+  "10211": [
+   "Secondo tempo",
+   "1X2 2T: 1"
+  ],
+  "10215": [
+   "Draw no bet",
+   "2 (rimborso se X)"
+  ],
+  "10214": [
+   "Draw no bet",
+   "1 (rimborso se X)"
+  ],
+  "10223": [
+   "Pari/Dispari",
+   "Pari"
+  ],
+  "10222": [
+   "Pari/Dispari",
+   "Dispari"
+  ],
+  "10224": [
+   "Under/Over squadra",
+   "Over 0.5 casa"
+  ],
+  "10225": [
+   "Under/Over squadra",
+   "Under 0.5 casa"
+  ],
+  "10227": [
+   "Under/Over squadra",
+   "Under 1.5 casa"
+  ],
+  "10226": [
+   "Under/Over squadra",
+   "Over 1.5 casa"
+  ],
+  "10228": [
+   "Under/Over squadra",
+   "Over 2.5 casa"
+  ],
+  "10229": [
+   "Under/Over squadra",
+   "Under 2.5 casa"
+  ],
+  "10241": [
+   "Under/Over squadra",
+   "Under 0.5 ospite"
+  ],
+  "10240": [
+   "Under/Over squadra",
+   "Over 0.5 ospite"
+  ],
+  "10243": [
+   "Under/Over squadra",
+   "Under 1.5 ospite"
+  ],
+  "10242": [
+   "Under/Over squadra",
+   "Over 1.5 ospite"
+  ],
+  "10244": [
+   "Under/Over squadra",
+   "Over 2.5 ospite"
+  ],
+  "10245": [
+   "Under/Over squadra",
+   "Under 2.5 ospite"
+  ],
+  "10256": [
+   "Primo tempo",
+   "Over 0.5 1T"
+  ],
+  "10257": [
+   "Primo tempo",
+   "Under 0.5 1T"
+  ],
+  "10258": [
+   "Primo tempo",
+   "Over 1.5 1T"
+  ],
+  "10259": [
+   "Primo tempo",
+   "Under 1.5 1T"
+  ],
+  "10260": [
+   "Primo tempo",
+   "Over 2.5 1T"
+  ],
+  "10261": [
+   "Primo tempo",
+   "Under 2.5 1T"
+  ],
+  "10271": [
+   "Secondo tempo",
+   "Under 0.5 2T"
+  ],
+  "10270": [
+   "Secondo tempo",
+   "Over 0.5 2T"
+  ],
+  "10272": [
+   "Secondo tempo",
+   "Over 1.5 2T"
+  ],
+  "10273": [
+   "Secondo tempo",
+   "Under 1.5 2T"
+  ],
+  "10274": [
+   "Secondo tempo",
+   "Over 2.5 2T"
+  ],
+  "10275": [
+   "Secondo tempo",
+   "Under 2.5 2T"
+  ],
+  "10300": [
+   "Primo tempo",
+   "Goal 1T"
+  ],
+  "101902": [
+   "Doppia chance",
+   "1X"
+  ],
+  "101903": [
+   "Doppia chance",
+   "12"
+  ]
+ },
+ "participants": {
+  "50": "Brentford FC",
+  "2715": "Palermo FC",
+  "64": "Wrexham AFC",
+  "3": "Wolverhampton Wanderers",
+  "2851": "Real Oviedo",
+  "2702": "AS Roma",
+  "2839": "SD Eibar",
+  "2793": "Sassuolo Calcio",
+  "1672": "Le Mans FC",
+  "25": "Millwall FC",
+  "44": "Liverpool FC",
+  "5067": "CD Castellon",
+  "2673": "Borussia Dortmund",
+  "263": "Norwich City",
+  "2801": "Frosinone Calcio",
+  "1": "Queens Park Rangers",
+  "2561": "SC Paderborn 07",
+  "2819": "Villarreal CF",
+  "2822": "Tenerife CD",
+  "6": "Burnley FC",
+  "2719": "Cagliari Calcio",
+  "47": "Charlton Athletic",
+  "2848": "Albacete Balompie",
+  "2697": "Inter Milano",
+  "36360": "RB Leipzig",
+  "2547": "Union Berlin",
+  "2676": "Hamburger SV",
+  "1653": "AS Monaco",
+  "2742": "Cesena FC",
+  "9": "Birmingham City",
+  "2690": "Parma Calcio",
+  "2595": "Dynamo Dresden",
+  "1649": "Olympique Lyon",
+  "2820": "CA Osasuna",
+  "2852": "Sporting Gijon",
+  "24": "Watford FC",
+  "2816": "Real Betis Seville",
+  "6070": "Paris FC",
+  "2701": "Hellas Verona",
+  "4488": "Cadiz CF",
+  "5885": "1. FC Heidenheim",
+  "1658": "Stade Rennais FC",
+  "2830": "Malaga CF",
+  "15": "Sheffield United",
+  "2695": "Udinese Calcio",
+  "96": "Hull City",
+  "2759": "Benevento Calcio",
+  "1682": "Stade Reims",
+  "74": "Swansea City",
+  "24336": "RC Celta Fortuna",
+  "2693": "ACF Fiorentina",
+  "1659": "Strasbourg Alsace",
+  "2532": "Energie Cottbus",
+  "1646": "AJ Auxerre",
+  "2846": "Elche CF",
+  "41": "Sunderland AFC",
+  "2573": "Holstein Kiel",
+  "58": "Bristol City",
+  "2672": "Bayern Munich",
+  "2696": "Torino FC",
+  "6577": "UD Las Palmas",
+  "2681": "Bayer Leverkusen",
+  "14": "Nottingham Forest",
+  "2688": "Venezia FC",
+  "2832": "RC Deportivo de A Coruna",
+  "2528": "Hertha BSC",
+  "1681": "Toulouse FC",
+  "2845": "CD Leganes",
+  "1648": "Racing Club De Lens",
+  "1643": "Lille OSC",
+  "2745": "Carrarese Calcio",
+  "1652": "ESTAC Troyes",
+  "1661": "OGC Nice",
+  "2540": "Arminia Bielefeld",
+  "1686": "Dijon FCO",
+  "60": "AFC Bournemouth",
+  "1642": "Montpellier HSC",
+  "2685": "Bologna FC",
+  "1662": "Le Havre AC",
+  "36": "Middlesbrough FC",
+  "2581": "VfL 1899 Osnabruck",
+  "1644": "Paris Saint-Germain",
+  "47321": "Club Deportivo Eldense",
+  "2770": "Mantova 1911",
+  "2714": "SSC Napoli",
+  "5": "Bolton Wanderers",
+  "43680": "Virtus Entella",
+  "610334": "FC Andorra",
+  "11": "Coventry City",
+  "2796": "US Catanzaro",
+  "17": "Manchester City",
+  "39": "Newcastle United",
+  "2569": "TSG Hoffenheim",
+  "2598": "SV 07 Elversberg",
+  "2689": "US Lecce",
+  "2850": "Cordoba CF",
+  "2825": "Athletic Bilbao",
+  "1678": "AS Saint-Etienne",
+  "5324": "Juve Stabia",
+  "2551": "Greuther Furth",
+  "1715": "Stade Brest 29",
+  "2699": "Lazio Rome",
+  "2704": "Como 1907",
+  "2836": "Atletico Madrid",
+  "2821": "RC Celta de Vigo",
+  "2530": "Schalke 04",
+  "2": "Portsmouth FC",
+  "2858": "UD Almeria",
+  "2538": "SC Freiburg",
+  "2826": "RCD Mallorca",
+  "24335": "CE Sabadell FC",
+  "2814": "Espanyol Barcelona",
+  "2730": "US Avellino",
+  "2828": "Valencia CF",
+  "43": "Fulham FC",
+  "21": "Preston North End",
+  "46": "Blackburn Rovers",
+  "8": "West Bromwich Albion",
+  "2741": "Calcio Padova",
+  "52874": "Red Star FC",
+  "2885": "Deportivo Alaves",
+  "32": "Ipswich Town",
+  "2541": "Hannover 96",
+  "30": "Brighton & Hove Albion",
+  "61": "Cardiff City",
+  "2824": "Real Sociedad San Sebastian",
+  "2556": "FSV Mainz",
+  "2817": "FC Barcelona",
+  "1647": "FC Nantes",
+  "2729": "AC Monza",
+  "2711": "Sampdoria Genoa",
+  "2760": "FC Sudtirol Bolzano",
+  "38": "Chelsea FC",
+  "2671": "1. FC Cologne",
+  "2706": "Modena FC",
+  "92": "Lincoln City",
+  "2833": "Sevilla FC",
+  "2707": "Ascoli Calcio 1898",
+  "1684": "Angers SCO",
+  "1711": "US Boulogne",
+  "33": "Tottenham Hotspur",
+  "2687": "Juventus Turin",
+  "24264": "Girona FC",
+  "2761": "US Cremonese",
+  "2737": "Pisa SC",
+  "2553": "Karlsruher SC",
+  "1656": "FC Lorient",
+  "2818": "Rayo Vallecano",
+  "2600": "FC Augsburg",
+  "2829": "Real Madrid",
+  "35": "Manchester United",
+  "2686": "Atalanta BC",
+  "29": "Stoke City",
+  "6925": "Rodez Aveyron Football",
+  "27": "Derby County",
+  "1641": "Olympique Marseille",
+  "7": "Crystal Palace",
+  "42": "Arsenal FC",
+  "2713": "Genoa CFC",
+  "34": "Leeds United",
+  "45": "Southampton FC",
+  "2591": "1. FC Magdeburg",
+  "2854": "Burgos CF",
+  "48": "Everton FC",
+  "2674": "Eintracht Frankfurt",
+  "2557": "Eintracht Braunschweig",
+  "2675": "1 FC Kaiserslautern",
+  "2835": "Racing Santander",
+  "2523": "1 FC Nuremberg",
+  "37": "West Ham United",
+  "2849": "Levante UD",
+  "24360": "Real Sociedad San Sebastian B",
+  "2731": "SS Arezzo",
+  "2869": "AD Ceuta",
+  "40": "Aston Villa",
+  "2692": "AC Milan",
+  "2534": "Werder Bremen",
+  "2859": "Getafe CF"
+ },
+ "fetched_at": "2026-10-23T18:39:00+00:00"
+}

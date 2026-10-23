@@ -1,15 +1,18 @@
-"""Quote Planetwin365 da OddsPapi (https://docs.oddspapi.io), confrontate con le quote giuste di markets.py.
+"""Quote Planetwin365 da OddsPapi (API v4, piano gratuito), confrontate con le quote giuste di markets.py.
 
 Facoltativo: senza chiave (variabile ODDSPAPI_API_KEY o file KEY_FILE, fuori dal progetto) non fa nulla.
-Pochi request: al primo uso (e ogni 30 giorni) scarica i riferimenti (bookmaker, campionati, codici dei mercati)
-in REFERENCE; poi, al massimo ogni MIN_INTERVAL, 1 request per l'elenco delle partite e 1 ogni 100 partite per
-le quote. Il contatore mensile in STATE si ferma a MONTHLY_CAP (il piano gratuito dichiara 250 al mese).
+Pochi request:
+  - al primo uso e ogni 30 giorni, 3 request di riferimento (bookmaker, campionati, codici dei mercati) in REFERENCE;
+  - poi, al massimo ogni MIN_INTERVAL, 2 request per le quote dei 10 campionati (/odds-by-tournaments accetta
+    al massimo 5 campionati), più 1 per i nomi delle squadre solo quando compare una squadra nuova.
+Il contatore mensile in STATE si ferma a MONTHLY_CAP (il piano gratuito dichiara 250 al mese).
 
 Le partite di OddsPapi si abbinano alle nostre per campionato, orario (±3 ore) e somiglianza dei nomi.
 """
 import json
 import os
 import re
+import time
 import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -20,7 +23,7 @@ import requests
 
 from .data import ROOT, DataError, write_atomic, write_csv_atomic
 
-BASE_URL = "https://v5.oddspapi.io/en"
+BASE_URL = "https://api.oddspapi.io/v4"
 BOOKMAKER = "planetwin365.it"
 BOOKMAKER_NAME = "Planetwin365"
 SOCCER = 10
@@ -31,10 +34,12 @@ STATE = ROOT / "data" / "oddspapi_state.json"
 OUT = ROOT / "outputs" / "bookmaker_odds.csv"
 MIN_INTERVAL = pd.Timedelta(hours=12)
 MONTHLY_CAP = 200
-HORIZON = pd.Timedelta(days=5)
+HORIZON = pd.Timedelta(days=7)
 REFERENCE_MAX_AGE = pd.Timedelta(days=30)
 MAX_KICKOFF_GAP = pd.Timedelta(hours=3)
 MIN_NAME_SCORE = 0.45
+COOLDOWN_S = 1.1   # the API asks for 1 s between calls to the same endpoint
+MAX_TOURNAMENTS_PER_CALL = 5   # API limit of /odds-by-tournaments
 OUT_COLS = ["league", "kickoff_utc", "home", "away", "bookmaker", "group", "market", "odds", "fetched_at"]
 
 # our league code -> (OddsPapi categoryName, accepted tournamentName values)
@@ -94,10 +99,11 @@ def name_score(a: str, b: str) -> float:
 # ------------------------------------------------------------------ client
 
 class Client:
-    """Counts every request in the state dict and refuses to go over MONTHLY_CAP."""
+    """Counts every request in the state dict, refuses to go over MONTHLY_CAP, waits COOLDOWN_S between calls."""
 
-    def __init__(self, key: str, state: dict, now: pd.Timestamp, get=requests.get):
-        self.key, self.state, self.get_fn = key, state, get
+    def __init__(self, key: str, state: dict, now: pd.Timestamp, get=requests.get, sleep=time.sleep):
+        self.key, self.state, self.get_fn, self.sleep = key, state, get, sleep
+        self.calls = 0
         month = now.strftime("%Y-%m")
         if state.get("month") != month:
             state.update(month=month, requests=0)
@@ -105,6 +111,9 @@ class Client:
     def get(self, path: str, **params):
         if self.state["requests"] >= MONTHLY_CAP:
             raise DataError(f"OddsPapi: raggiunto il limite di {MONTHLY_CAP} richieste per questo mese")
+        if self.calls:
+            self.sleep(COOLDOWN_S)
+        self.calls += 1
         self.state["requests"] += 1
         try:
             r = self.get_fn(BASE_URL + path, params={**params, "apiKey": self.key}, timeout=60)
@@ -133,10 +142,14 @@ def resolve_tournaments(rows: list) -> dict:
     return out
 
 
-def market_key(market_type: str, period: str, handicap: float, outcome: str):
+def market_key(market_type: str, period: str, handicap: float, outcome: str, market_name: str = ""):
     """(group, market) of markets.MARKETS for an OddsPapi outcome, or None if we do not price it."""
     h, o = f"{float(handicap):g}", str(outcome).strip()
     full = period in ("fulltime", "result")
+    if o in ("Yes", "No") and (market_type == "bothteamsscore" or "both teams" in market_name.lower()):
+        if full:
+            return ("Goal/No goal", "Goal" if o == "Yes" else "No goal")
+        return ("Primo tempo", "Goal 1T") if period == "p1" and o == "Yes" else None
     if market_type == "1x2" and float(handicap) == 0 and o in ("1", "X", "2"):
         if full:
             return ("1X2", o)
@@ -145,10 +158,6 @@ def market_key(market_type: str, period: str, handicap: float, outcome: str):
         if full:
             return ("Under/Over", f"{o} {h}")
         return {"p1": ("Primo tempo", f"{o} {h} 1T"), "p2": ("Secondo tempo", f"{o} {h} 2T")}.get(period)
-    if market_type == "bothteamsscore" and o in ("Yes", "No"):
-        if full:
-            return ("Goal/No goal", "Goal" if o == "Yes" else "No goal")
-        return ("Primo tempo", "Goal 1T") if period == "p1" and o == "Yes" else None
     if not full:
         return None
     if market_type == "drawnobet" and o in ("1", "2"):
@@ -169,57 +178,68 @@ def outcome_map(markets: list) -> dict:
     known = {(g, m) for g, m, _, _ in MARKETS}
     out = {}
     for mk in markets:
-        if mk.get("playerProp"):
+        if mk.get("playerProp") or mk.get("sportId", SOCCER) != SOCCER:
             continue
         for oc in mk.get("outcomes", []):
-            k = market_key(mk.get("marketType", ""), mk.get("period", ""), mk.get("handicap", 0), oc.get("outcomeName", ""))
+            k = market_key(mk.get("marketType", ""), mk.get("period", ""), mk.get("handicap", 0),
+                           oc.get("outcomeName", ""), mk.get("marketName", ""))
             if k in known:
                 out[str(oc["outcomeId"])] = list(k)
     return out
 
 
-def refresh_reference(client: Client, now: pd.Timestamp, path: Path = REFERENCE) -> dict:
-    books = client.get("/bookmakers", bookmakers=BOOKMAKER)
+def refresh_reference(client: Client, now: pd.Timestamp, path: Path = REFERENCE, old: dict = None) -> dict:
+    books = client.get("/bookmakers")
     if not any(b.get("slug") == BOOKMAKER for b in books):
         raise DataError(f"OddsPapi: il bookmaker '{BOOKMAKER}' non risulta disponibile per questa chiave")
     tournaments = resolve_tournaments(client.get("/tournaments", sportId=SOCCER))
-    missing = sorted(set(TOURNAMENTS) - set(tournaments))
-    outcomes = outcome_map(client.get("/markets", sportId=SOCCER))
-    ref = {"bookmaker": BOOKMAKER, "tournaments": tournaments, "missing_tournaments": missing,
-           "outcomes": outcomes, "fetched_at": now.isoformat(timespec="seconds")}
-    write_atomic(path, json.dumps(ref, indent=1))
+    outcomes = outcome_map(client.get("/markets"))
+    ref = {"bookmaker": BOOKMAKER, "tournaments": tournaments,
+           "missing_tournaments": sorted(set(TOURNAMENTS) - set(tournaments)), "outcomes": outcomes,
+           "participants": (old or {}).get("participants", {}), "fetched_at": now.isoformat(timespec="seconds")}
+    write_atomic(path, json.dumps(ref, indent=1, ensure_ascii=False))
     return ref
 
 
-# -------------------------------------------------------------- matching
+# ---------------------------------------------------------------- fixtures
+
+def normalize_fixture(fx: dict, names: dict, bookmaker: str = BOOKMAKER) -> dict:
+    """v4 fixture -> {fixtureId, tournamentId, start, home, away, prices {outcomeId: price}} (active prices only)."""
+    prices = {}
+    bo = (fx.get("bookmakerOdds") or {}).get(bookmaker) or {}
+    if bo.get("bookmakerIsActive", True):
+        for market in (bo.get("markets") or {}).values():
+            for oid, oc in (market.get("outcomes") or {}).items():
+                p = (oc.get("players") or {}).get("0") or {}
+                if p.get("active", True) and p.get("price") and float(p["price"]) > 1:
+                    prices[str(oid)] = float(p["price"])
+    return {"fixtureId": fx["fixtureId"], "tournamentId": int(fx.get("tournamentId", -1)),
+            "start": pd.Timestamp(fx["startTime"]).tz_convert("UTC") if pd.Timestamp(fx["startTime"]).tzinfo
+            else pd.Timestamp(fx["startTime"], tz="UTC"),
+            "home": names.get(str(fx.get("participant1Id")), ""), "away": names.get(str(fx.get("participant2Id")), ""),
+            "prices": prices}
+
 
 def match_fixtures(ours: pd.DataFrame, fixtures: list, tournaments: dict) -> list:
-    """Pairs (index in ours, OddsPapi fixture): same league, kickoff within MAX_KICKOFF_GAP, best names.
+    """Pairs (index in ours, normalized fixture): same league, kickoff within MAX_KICKOFF_GAP, both names similar.
 
-    One-to-one, best pairs first; a pair needs both team names to be reasonably similar."""
+    One-to-one, best pairs first."""
     league_of = {v: k for k, v in tournaments.items()}
     cands = []
     for fx in fixtures:
-        div = league_of.get(int(fx.get("tournament", {}).get("tournamentId", -1)))
-        if div is None:
-            continue
-        start = pd.Timestamp(int(fx["startTime"]), unit="s", tz="UTC")
-        p = fx.get("participants", {})
-        names1 = [n for n in (p.get("participant1Name"), p.get("participant1ShortName")) if n]
-        names2 = [n for n in (p.get("participant2Name"), p.get("participant2ShortName")) if n]
-        if not names1 or not names2:
+        div = league_of.get(fx["tournamentId"])
+        if div is None or not fx["home"] or not fx["away"]:
             continue
         for i, r in ours[ours.league == div].iterrows():
-            gap = abs(pd.Timestamp(r.kickoff_utc) - start)
+            gap = abs(pd.Timestamp(r.kickoff_utc) - fx["start"])
             if gap > MAX_KICKOFF_GAP:
                 continue
-            s1 = max(name_score(r.home, n) for n in names1)
-            s2 = max(name_score(r.away, n) for n in names2)
+            s1, s2 = name_score(r.home, fx["home"]), name_score(r.away, fx["away"])
             if min(s1, s2) < MIN_NAME_SCORE:
                 continue
             cands.append((s1 + s2 - gap / pd.Timedelta(hours=12), i, fx["fixtureId"], fx))
     pairs, used_i, used_f = [], set(), set()
-    for score, i, fid, fx in sorted(cands, key=lambda c: -c[0]):
+    for _, i, fid, fx in sorted(cands, key=lambda c: -c[0]):
         if i not in used_i and fid not in used_f:
             pairs.append((i, fx))
             used_i.add(i)
@@ -227,21 +247,11 @@ def match_fixtures(ours: pd.DataFrame, fixtures: list, tournaments: dict) -> lis
     return pairs
 
 
-def extract_odds(fx: dict, outcomes: dict, bookmaker: str = BOOKMAKER) -> list:
-    """[(group, market, price)] of active prices of one bookmaker in one fixture."""
-    out = []
-    for o in ((fx.get("odds") or {}).get(bookmaker) or {}).values():
-        k = outcomes.get(str(o.get("outcomeId")))
-        price = o.get("price")
-        if k and o.get("active", True) and o.get("marketActive", True) and price and float(price) > 1:
-            out.append((k[0], k[1], float(price)))
-    return out
-
-
 # ------------------------------------------------------------------ update
 
 def update_bookmaker_odds(now: pd.Timestamp = None, get=requests.get, fair_path: Path = None,
-                          state_path: Path = STATE, reference_path: Path = REFERENCE, out: Path = OUT) -> list:
+                          state_path: Path = STATE, reference_path: Path = REFERENCE, out: Path = OUT,
+                          sleep=time.sleep, force: bool = False) -> list:
     """Download Planetwin365 odds for the upcoming matches in outputs/fair_odds.csv. Returns warnings."""
     from .markets import FAIR_ODDS_OUT
     now = now if now is not None else pd.Timestamp.now(tz="UTC")
@@ -251,7 +261,7 @@ def update_bookmaker_odds(now: pd.Timestamp = None, get=requests.get, fair_path:
         return []
     state = load_json(state_path, {})
     last = state.get("last_fetch")
-    if last and now - pd.Timestamp(last) < MIN_INTERVAL:
+    if not force and last and now - pd.Timestamp(last) < MIN_INTERVAL:
         print(f"quote {BOOKMAKER_NAME}: ultimo download {last}, il prossimo almeno {MIN_INTERVAL} dopo")
         return []
     fair_path = fair_path or FAIR_ODDS_OUT
@@ -259,35 +269,43 @@ def update_bookmaker_odds(now: pd.Timestamp = None, get=requests.get, fair_path:
     if ours.empty:
         return []
     ours["kickoff_utc"] = pd.to_datetime(ours.kickoff_utc, utc=True)
-    client = Client(key, state, now, get)
+    client = Client(key, state, now, get, sleep)
     try:
         ref = load_json(reference_path, {})
         if not ref.get("fetched_at") or now - pd.Timestamp(ref["fetched_at"]) > REFERENCE_MAX_AGE:
-            ref = refresh_reference(client, now, reference_path)
-        fixtures = client.get("/fixtures", sportId=SOCCER, bookmakers=BOOKMAKER,
-                              startTimeFrom=int(now.timestamp()), startTimeTo=int((now + HORIZON).timestamp()))
-        wanted = set(ref["tournaments"].values())
-        mine = [f for f in fixtures if int(f.get("tournament", {}).get("tournamentId", -1)) in wanted]
-        pairs = match_fixtures(ours, mine, ref["tournaments"])
-        ids = [fx["fixtureId"] for _, fx in pairs]
-        priced = {}
-        for k in range(0, len(ids), 100):
-            for fx in client.get("/fixtures/odds/main", fixtureIds=",".join(ids[k:k + 100]), bookmakers=BOOKMAKER):
-                priced[fx["fixtureId"]] = fx
+            ref = refresh_reference(client, now, reference_path, ref)
+        if not ref["tournaments"]:
+            raise DataError("OddsPapi: nessuno dei nostri campionati trovato")
+        tids = [str(t) for t in ref["tournaments"].values()]
+        raw = []
+        for k in range(0, len(tids), MAX_TOURNAMENTS_PER_CALL):
+            raw += client.get("/odds-by-tournaments", bookmaker=BOOKMAKER,
+                              tournamentIds=",".join(tids[k:k + MAX_TOURNAMENTS_PER_CALL]))
+        ids = {str(fx.get(k)) for fx in raw for k in ("participant1Id", "participant2Id")}
+        if ids - set(ref.get("participants", {})):   # a team we have never seen: refresh the names once
+            names = client.get("/participants", sportId=SOCCER)
+            ref["participants"] = {**ref.get("participants", {}), **{i: names[i] for i in ids if i in names}}
+            write_atomic(reference_path, json.dumps(ref, indent=1, ensure_ascii=False))
     finally:
         write_atomic(state_path, json.dumps(state, indent=1))   # count requests even when something fails
+    fixtures = [normalize_fixture(fx, ref["participants"]) for fx in raw]
+    fixtures = [f for f in fixtures if now < f["start"] <= now + HORIZON and f["prices"]]
+    pairs = match_fixtures(ours, fixtures, ref["tournaments"])
     rows = []
     for i, fx in pairs:
         r = ours.loc[i]
-        for group, market, price in extract_odds(priced.get(fx["fixtureId"], {}), ref["outcomes"]):
-            rows.append({"league": r.league, "kickoff_utc": r.kickoff_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                         "home": r.home, "away": r.away, "bookmaker": BOOKMAKER, "group": group, "market": market,
-                         "odds": price, "fetched_at": now.isoformat(timespec="seconds")})
+        for oid, price in fx["prices"].items():
+            k = ref["outcomes"].get(oid)
+            if k:
+                rows.append({"league": r.league, "kickoff_utc": r.kickoff_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                             "home": r.home, "away": r.away, "bookmaker": BOOKMAKER, "group": k[0],
+                             "market": k[1], "odds": price, "fetched_at": now.isoformat(timespec="seconds")})
     state["last_fetch"] = now.isoformat(timespec="seconds")
     write_atomic(state_path, json.dumps(state, indent=1))
     write_csv_atomic(pd.DataFrame(rows, columns=OUT_COLS), out)
-    print(f"quote {BOOKMAKER_NAME}: {len(rows)} quote su {len(pairs)} partite "
-          f"({len(ours) - len(pairs)} senza abbinamento); richieste questo mese: {state['requests']}/{MONTHLY_CAP}")
+    print(f"quote {BOOKMAKER_NAME}: {len(rows)} quote su {len(pairs)} partite abbinate "
+          f"({len(fixtures)} partite con quote su OddsPapi, {len(ours)} nostre); "
+          f"richieste questo mese: {state['requests']}/{MONTHLY_CAP}")
     if ref.get("missing_tournaments"):
         return [f"{BOOKMAKER_NAME}: campionati non trovati su OddsPapi: {', '.join(ref['missing_tournaments'])}"]
     return []

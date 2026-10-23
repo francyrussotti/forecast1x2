@@ -7,50 +7,67 @@ from forecast1x2 import oddspapi as op
 from forecast1x2.data import DataError
 
 NOW = pd.Timestamp("2026-10-23 12:00", tz="UTC")
-KICK = int(pd.Timestamp("2026-10-24 14:00", tz="UTC").timestamp())
+KICK = pd.Timestamp("2026-10-24 14:00", tz="UTC")
 
 TOURNAMENTS = [
-    {"tournamentId": 17, "tournamentName": "Serie A", "categoryName": "Italy"},
+    {"tournamentId": 23, "tournamentName": "Serie A", "categoryName": "Italy"},
     {"tournamentId": 18, "tournamentName": "Serie A Women", "categoryName": "Italy"},
     {"tournamentId": 35, "tournamentName": "Bundesliga", "categoryName": "Germany"},
     {"tournamentId": 44, "tournamentName": "2. Bundesliga", "categoryName": "Germany"},
     {"tournamentId": 8, "tournamentName": "LaLiga", "categoryName": "Spain"},
     {"tournamentId": 99, "tournamentName": "Bundesliga", "categoryName": "Austria"},
+    {"tournamentId": 17, "tournamentName": "Premier League", "categoryName": "England"},
+    {"tournamentId": 34, "tournamentName": "Ligue 1", "categoryName": "France"},
 ]
-MARKETS = [
-    {"marketId": 101, "marketType": "1x2", "period": "fulltime", "handicap": 0.0, "playerProp": False,
-     "outcomes": [{"outcomeId": 101, "outcomeName": "1"}, {"outcomeId": 102, "outcomeName": "X"},
-                  {"outcomeId": 103, "outcomeName": "2"}]},
-    {"marketId": 104, "marketType": "bothteamsscore", "period": "fulltime", "handicap": 0.0, "playerProp": False,
-     "outcomes": [{"outcomeId": 104, "outcomeName": "Yes"}, {"outcomeId": 105, "outcomeName": "No"}]},
-    {"marketId": 1010, "marketType": "totals", "period": "fulltime", "handicap": 2.5, "playerProp": False,
-     "outcomes": [{"outcomeId": 1010, "outcomeName": "Over"}, {"outcomeId": 1011, "outcomeName": "Under"}]},
-    {"marketId": 1012, "marketType": "totals", "period": "fulltime", "handicap": 2.25, "playerProp": False,
-     "outcomes": [{"outcomeId": 1012, "outcomeName": "Over"}, {"outcomeId": 1013, "outcomeName": "Under"}]},
-    {"marketId": 10208, "marketType": "1x2", "period": "p1", "handicap": 0.0, "playerProp": False,
-     "outcomes": [{"outcomeId": 10208, "outcomeName": "1"}, {"outcomeId": 10209, "outcomeName": "X"},
-                  {"outcomeId": 10210, "outcomeName": "2"}]},
-    {"marketId": 10224, "marketType": "teamtotals-team1", "period": "fulltime", "handicap": 0.5, "playerProp": False,
+MARKETS = [   # v4 /markets: all sports, BTTS sometimes typed as "totals"
+    {"marketId": 101, "sportId": 10, "marketType": "1x2", "marketName": "Full Time Result", "period": "fulltime",
+     "handicap": 0, "playerProp": False, "outcomes": [{"outcomeId": 101, "outcomeName": "1"},
+                                                     {"outcomeId": 102, "outcomeName": "X"},
+                                                     {"outcomeId": 103, "outcomeName": "2"}]},
+    {"marketId": 104, "sportId": 10, "marketType": "totals", "marketName": "Both Teams To Score", "period": "fulltime",
+     "handicap": 0, "playerProp": False, "outcomes": [{"outcomeId": 104, "outcomeName": "Yes"},
+                                                     {"outcomeId": 105, "outcomeName": "No"}]},
+    {"marketId": 1010, "sportId": 10, "marketType": "totals", "marketName": "Over Under Full Time", "period": "fulltime",
+     "handicap": 2.5, "playerProp": False, "outcomes": [{"outcomeId": 1010, "outcomeName": "Over"},
+                                                       {"outcomeId": 1011, "outcomeName": "Under"}]},
+    {"marketId": 1012, "sportId": 10, "marketType": "totals", "marketName": "Over Under Full Time", "period": "fulltime",
+     "handicap": 2.25, "playerProp": False, "outcomes": [{"outcomeId": 1012, "outcomeName": "Over"},
+                                                        {"outcomeId": 1013, "outcomeName": "Under"}]},
+    {"marketId": 10208, "sportId": 10, "marketType": "1x2", "marketName": "First Half Result", "period": "p1",
+     "handicap": 0, "playerProp": False, "outcomes": [{"outcomeId": 10208, "outcomeName": "1"},
+                                                     {"outcomeId": 10209, "outcomeName": "X"},
+                                                     {"outcomeId": 10210, "outcomeName": "2"}]},
+    {"marketId": 10224, "sportId": 10, "marketType": "teamtotals-team1", "marketName": "Over Under Team 1",
+     "period": "fulltime", "handicap": 0.5, "playerProp": False,
      "outcomes": [{"outcomeId": 10224, "outcomeName": "Over"}, {"outcomeId": 10225, "outcomeName": "Under"}]},
-    {"marketId": 1500, "marketType": "anytimegoalscorer", "period": "fulltime", "handicap": 0.0, "playerProp": True,
-     "outcomes": [{"outcomeId": 1500, "outcomeName": "Yes"}]},
+    {"marketId": 1500, "sportId": 10, "marketType": "anytimegoalscorer", "marketName": "Goalscorer", "period": "fulltime",
+     "handicap": 0, "playerProp": True, "outcomes": [{"outcomeId": 1500, "outcomeName": "Yes"}]},
+    {"marketId": 111, "sportId": 11, "marketType": "moneyline", "marketName": "Winner", "period": "result",
+     "handicap": 0, "playerProp": False, "outcomes": [{"outcomeId": 111, "outcomeName": "1"}]},
 ]
+NAMES = {"1": "Real Madrid CF", "2": "Valencia CF", "3": "Atletico Madrid", "4": "Sevilla FC",
+         "5": "Inter Milano", "6": "AC Milan", "7": "Getafe CF", "8": "Girona FC"}
 
 
-def fixture(fid, tid, home, away, start=KICK, prices=None):
-    odds = {f"{fid}:{op.BOOKMAKER}:{oid}:0": {"outcomeId": oid, "price": p, "active": True, "marketActive": True}
-            for oid, p in (prices or {}).items()}
-    return {"fixtureId": fid, "tournament": {"tournamentId": tid}, "startTime": start,
-            "participants": {"participant1Name": home, "participant2Name": away},
-            "odds": {op.BOOKMAKER: odds} if prices else {}}
+def v4_fixture(fid, tid, p1, p2, start=KICK, prices=None, active=True):
+    markets = {}
+    for oid, price in (prices or {}).items():
+        mid = str(oid)
+        markets.setdefault(mid, {"outcomes": {}, "bookmakerMarketId": "x"})
+        markets[mid]["outcomes"][str(oid)] = {"players": {"0": {"active": active, "price": price,
+                                                                "bookmakerOutcomeId": "x", "limit": 100}}}
+    return {"fixtureId": fid, "participant1Id": p1, "participant2Id": p2, "sportId": 10, "tournamentId": tid,
+            "startTime": start.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+            "bookmakerOdds": {op.BOOKMAKER: {"bookmakerIsActive": True, "markets": markets}}}
 
 
-FIXTURES = [fixture("idA", 8, "Real Madrid CF", "Valencia CF"),
-            fixture("idB", 8, "Atletico Madrid", "Sevilla FC"),
-            fixture("idC", 17, "Inter Milano", "AC Milan", KICK + 3600),
-            fixture("idX", 18, "Inter Women", "Milan Women")]
-PRICES = {"idA": {101: 1.5, 102: 4.2, 103: 6.5, 1010: 1.7, 1011: 2.15, 1012: 1.8, 10208: 2.1, 999: 3.0},
-          "idB": {101: 1.9, 104: 1.95}, "idC": {101: 2.3, 10224: 1.25}}
+ODDS = {
+    "8": [v4_fixture("idA", 8, 1, 2, prices={101: 1.5, 102: 4.2, 103: 6.5, 1010: 1.7, 1011: 2.15, 1012: 1.8,
+                                             10208: 2.1, 104: 1.6, 999: 3.0}),
+          v4_fixture("idB", 8, 3, 4, prices={101: 1.9}),
+          v4_fixture("idP", 8, 7, 8, start=NOW - pd.Timedelta(hours=1), prices={101: 2.0})],   # already started
+    "23": [v4_fixture("idC", 23, 5, 6, start=KICK + pd.Timedelta(hours=1), prices={101: 2.3, 10224: 1.25})],
+}
 
 
 class Resp:
@@ -62,7 +79,7 @@ class Resp:
 
 
 class FakeApi:
-    """Answers like OddsPapi v5 (shapes from the official OpenAPI examples)."""
+    """Answers like OddsPapi v4 (shapes from the official docs)."""
 
     def __init__(self, fail=None):
         self.calls, self.fail = [], fail
@@ -71,49 +88,57 @@ class FakeApi:
         path = url.replace(op.BASE_URL, "")
         self.calls.append((path, params))
         if self.fail == path:
-            return Resp({"error": 401, "message": "bad key"}, 401)
+            return Resp({"error": 401, "message": "invalid apiKey"}, 401)
         if path == "/bookmakers":
-            return Resp([{"slug": op.BOOKMAKER, "bookmakerName": "Planetwin365"}])
+            return Resp([{"bookmakerName": "Planetwin365 IT", "slug": op.BOOKMAKER}])
         if path == "/tournaments":
             return Resp(TOURNAMENTS)
         if path == "/markets":
             return Resp(MARKETS)
-        if path == "/fixtures":
-            return Resp(FIXTURES)
-        if path == "/fixtures/odds/main":
-            ids = params["fixtureIds"].split(",")
-            return Resp([fixture(i, 0, "", "", prices=PRICES[i]) for i in ids if i in PRICES])
+        if path == "/participants":
+            return Resp(NAMES)
+        if path == "/odds-by-tournaments":
+            ids = params["tournamentIds"].split(",")
+            if len(ids) > 5:
+                return Resp({"error": {"message": "Too many tournament IDs specified."}}, 400)
+            return Resp([fx for t in ids for fx in ODDS.get(t, [])])
         raise AssertionError(path)
 
 
 def ours():
-    k = pd.Timestamp(KICK, unit="s", tz="UTC")
-    return pd.DataFrame({"league": ["SP1", "SP1", "I1"], "kickoff_utc": [k, k, k + pd.Timedelta(hours=1)],
+    return pd.DataFrame({"league": ["SP1", "SP1", "I1"], "kickoff_utc": [KICK, KICK, KICK + pd.Timedelta(hours=1)],
                          "home": ["Real Madrid", "Ath Madrid", "Inter"], "away": ["Valencia", "Sevilla", "Milan"]})
 
 
 def test_tournaments_need_country_and_exact_name():
-    assert op.resolve_tournaments(TOURNAMENTS) == {"I1": 17, "D1": 35, "D2": 44, "SP1": 8}   # no women, no Austria
+    t = op.resolve_tournaments(TOURNAMENTS)
+    assert t == {"I1": 23, "D1": 35, "D2": 44, "SP1": 8, "E0": 17, "F1": 34}   # no women, no Austria
 
 
-def test_outcome_map_keeps_only_markets_we_price():
+def test_outcome_map_keeps_only_soccer_markets_we_price():
     m = op.outcome_map(MARKETS)
-    assert m["101"] == ["1X2", "1"] and m["105"] == ["Goal/No goal", "No goal"]
+    assert m["101"] == ["1X2", "1"] and m["104"] == ["Goal/No goal", "Goal"]
     assert m["1011"] == ["Under/Over", "Under 2.5"] and m["10209"] == ["Primo tempo", "1X2 1T: X"]
     assert m["10224"] == ["Under/Over squadra", "Over 0.5 casa"]
-    assert "1012" not in m and "1500" not in m   # quarter line and player prop
+    assert "1012" not in m and "1500" not in m and "111" not in m   # quarter line, player prop, basketball
 
 
-def test_matching_by_league_time_and_names():
-    pairs = op.match_fixtures(ours(), FIXTURES, op.resolve_tournaments(TOURNAMENTS))
-    got = {ours().loc[i, "home"]: fx["fixtureId"] for i, fx in pairs}
+def test_normalize_and_match():
+    fx = [op.normalize_fixture(f, NAMES) for t in ODDS.values() for f in t]
+    a = next(f for f in fx if f["fixtureId"] == "idA")
+    assert a["home"] == "Real Madrid CF" and a["start"] == KICK and a["prices"]["1011"] == 2.15
+    pairs = op.match_fixtures(ours(), fx, op.resolve_tournaments(TOURNAMENTS))
+    got = {ours().loc[i, "home"]: f["fixtureId"] for i, f in pairs}
     assert got == {"Real Madrid": "idA", "Ath Madrid": "idB", "Inter": "idC"}
 
 
-def test_matching_rejects_far_kickoff_and_wrong_teams():
+def test_matching_rejects_far_kickoff_wrong_teams_and_inactive_prices():
     t = op.resolve_tournaments(TOURNAMENTS)
-    assert op.match_fixtures(ours(), [fixture("idA", 8, "Real Madrid CF", "Valencia CF", KICK + 5 * 3600)], t) == []
-    assert op.match_fixtures(ours(), [fixture("idZ", 8, "Getafe CF", "Girona FC")], t) == []
+    far = op.normalize_fixture(v4_fixture("idA", 8, 1, 2, start=KICK + pd.Timedelta(hours=5), prices={101: 2}), NAMES)
+    wrong = op.normalize_fixture(v4_fixture("idZ", 8, 7, 8, prices={101: 2}), NAMES)
+    assert op.match_fixtures(ours(), [far, wrong], t) == []
+    off = op.normalize_fixture(v4_fixture("idA", 8, 1, 2, prices={101: 2}, active=False), NAMES)
+    assert off["prices"] == {}
 
 
 @pytest.fixture
@@ -122,33 +147,33 @@ def paths(tmp_path, monkeypatch):
     fair = tmp_path / "fair_odds.csv"
     o = ours()
     o.assign(kickoff_utc=o.kickoff_utc.dt.strftime("%Y-%m-%dT%H:%M:%SZ")).to_csv(fair, index=False)
-    return {"fair_path": fair, "state_path": tmp_path / "state.json",
-            "reference_path": tmp_path / "ref.json", "out": tmp_path / "bk.csv"}
+    return {"fair_path": fair, "state_path": tmp_path / "state.json", "reference_path": tmp_path / "ref.json",
+            "out": tmp_path / "bk.csv", "sleep": lambda s: None}
 
 
 def test_update_downloads_matches_and_counts_requests(paths):
     api = FakeApi()
     warnings = op.update_bookmaker_odds(NOW, api, **paths)
-    assert warnings == ["Planetwin365: campionati non trovati su OddsPapi: E0, E1, F1, F2, I2, SP2"]
-    assert [c[0] for c in api.calls] == ["/bookmakers", "/tournaments", "/markets", "/fixtures", "/fixtures/odds/main"]
-    assert all(c[1]["apiKey"] == "SECRETKEY" for c in api.calls)
-    assert api.calls[3][1]["bookmakers"] == op.BOOKMAKER
+    assert warnings == ["Planetwin365: campionati non trovati su OddsPapi: E1, F2, I2, SP2"]
+    assert [c[0] for c in api.calls] == ["/bookmakers", "/tournaments", "/markets", "/odds-by-tournaments",
+                                         "/odds-by-tournaments", "/participants"]   # 6 leagues -> 2 calls of max 5
+    assert all(c[1]["apiKey"] == "SECRETKEY" and len(c[1].get("tournamentIds", "").split(",")) <= 5 for c in api.calls)
     bk = pd.read_csv(paths["out"]).set_index(["home", "group", "market"])
     assert bk.loc[("Real Madrid", "1X2", "1"), "odds"] == 1.5
     assert bk.loc[("Real Madrid", "Under/Over", "Under 2.5"), "odds"] == 2.15
-    assert bk.loc[("Ath Madrid", "Goal/No goal", "Goal"), "odds"] == 1.95
+    assert bk.loc[("Real Madrid", "Goal/No goal", "Goal"), "odds"] == 1.6
     assert bk.loc[("Inter", "Under/Over squadra", "Over 0.5 casa"), "odds"] == 1.25
-    assert len(bk) == 10   # outcome 999 (unknown) and 1012 (quarter line) dropped
+    assert len(bk) == 10   # 7 + 1 + 2: 999 (unknown), 1012 (quarter line) and the started match dropped
     state = json.loads(paths["state_path"].read_text())
-    assert state["requests"] == 5 and state["month"] == "2026-10"
+    assert state["requests"] == 6 and state["month"] == "2026-10"
 
     api2 = FakeApi()   # 6 hours later: nothing is requested
     op.update_bookmaker_odds(NOW + pd.Timedelta(hours=6), api2, **paths)
     assert api2.calls == []
-    api3 = FakeApi()   # 13 hours later: reference cached, only fixtures + odds
+    api3 = FakeApi()   # 13 hours later: reference and team names cached, only the odds
     op.update_bookmaker_odds(NOW + pd.Timedelta(hours=13), api3, **paths)
-    assert [c[0] for c in api3.calls] == ["/fixtures", "/fixtures/odds/main"]
-    assert json.loads(paths["state_path"].read_text())["requests"] == 7
+    assert [c[0] for c in api3.calls] == ["/odds-by-tournaments", "/odds-by-tournaments"]
+    assert json.loads(paths["state_path"].read_text())["requests"] == 8
 
 
 def test_monthly_cap_and_errors_without_the_key(paths):
