@@ -272,6 +272,55 @@ def _num(df, *names):
     return pd.Series(np.nan, index=df.index)
 
 
+def fit_1x2_calibration(p1, p2, result) -> dict:
+    """Conditional logit P(j) ∝ exp(a_j + b·log q_j) on margin-free 1X2 probabilities (Hill et al. 2018, 16.4).
+
+    result: 0 home win, 1 draw, 2 away win. With a = 0, b = 1 the market would be perfectly calibrated;
+    b > 1 means favourites are a bit more likely than the odds say (favourite-longshot bias)."""
+    from scipy import optimize
+    Q = np.log(np.clip(np.stack([p1, 1 - np.asarray(p1) - np.asarray(p2), p2], 1), 1e-9, 1))
+    Y = np.eye(3)[np.asarray(result, dtype=int)]
+
+    def nll(t):
+        u = Q * t[2] + np.array([0.0, t[0], t[1]])
+        u -= u.max(1, keepdims=True)
+        return -(Y * (u - np.log(np.exp(u).sum(1, keepdims=True)))).sum()
+
+    t = optimize.minimize(nll, np.array([0.0, 0.0, 1.0]), method="BFGS").x
+    return {"a_X": round(float(t[0]), 5), "a_2": round(float(t[1]), 5), "b": round(float(t[2]), 5)}
+
+
+def calibrate_1x2(p1, p2, params: dict):
+    """Apply the 1X2 calibration in params['calib_1x2'] (if any) to margin-free probabilities."""
+    c = params.get("calib_1x2")
+    p1, p2 = np.asarray(p1, dtype=float), np.asarray(p2, dtype=float)
+    if not c:
+        return p1, p2
+    Q = np.log(np.clip(np.stack([p1, 1 - p1 - p2, p2], 1), 1e-9, 1))
+    u = Q * c["b"] + np.array([0.0, c["a_X"], c["a_2"]])
+    P = np.exp(u - u.max(1, keepdims=True))
+    P /= P.sum(1, keepdims=True)
+    return P[:, 0], P[:, 2]
+
+
+def override_1x2(P: pd.DataFrame, p1, p2, params: dict) -> pd.DataFrame:
+    """Replace the markets that depend only on the 1X2 (1X2, Doppia chance, Draw no bet) with the calibrated
+    1X2 probabilities. The other markets keep the goals engine: carrying the correction through the expected
+    goals made them worse (verification 2024/25-2025/26), while applied here it improves the 1X2 itself."""
+    if not params.get("calib_1x2"):
+        return P
+    c1, c2 = calibrate_1x2(p1, p2, params)
+    cx = 1 - c1 - c2
+    P = P.copy()
+    for col, v in {("1X2", "1"): c1, ("1X2", "X"): cx, ("1X2", "2"): c2, ("Doppia chance", "1X"): c1 + cx,
+                   ("Doppia chance", "X2"): cx + c2, ("Doppia chance", "12"): c1 + c2,
+                   ("Draw no bet", "1 (rimborso se X)"): c1 / (c1 + c2),
+                   ("Draw no bet", "2 (rimborso se X)"): c2 / (c1 + c2)}.items():
+        if col in P.columns:
+            P[col] = v
+    return P
+
+
 def market_inputs(df: pd.DataFrame) -> pd.DataFrame:
     """Margin-free P(1), P(2), P(Over 2.5) from football-data average odds (Bet365 as fallback)."""
     h, d, a = (_num(df, f"Avg{c}", f"BbAv{c}").fillna(_num(df, f"B365{c}")) for c in "HDA")
@@ -312,7 +361,9 @@ def choose_params(cal: pd.DataFrame) -> dict:
             grid.append({"nu": nu, "rho": rho, "loglik": float(np.log(M[np.arange(len(cal)), i, j]).mean())})
     best = max(grid, key=lambda r: r["loglik"])
     share = (cal.h1 + cal.a1).sum() / (cal.hg + cal.ag).sum()
-    return {"rho": best["rho"], "nu": best["nu"], "first_half_share": round(float(share), 4),
+    result = np.select([cal.hg > cal.ag, cal.hg == cal.ag], [0, 1], 2)
+    calib = fit_1x2_calibration(cal.p1.to_numpy(), cal.p2.to_numpy(), result)
+    return {"rho": best["rho"], "nu": best["nu"], "first_half_share": round(float(share), 4), "calib_1x2": calib,
             "exact_score_loglik": round(best["loglik"], 5), "grid": grid, "calibration_seasons": CAL_SEASONS,
             "fitted_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
@@ -321,7 +372,7 @@ def calibration_table(hist: pd.DataFrame, params: dict) -> pd.DataFrame:
     """Per market and period: predicted vs observed frequency, z-score and binned calibration error."""
     rho, nu = params["rho"], params.get("nu", 1.0)
     lh, la, _ = fit_rates(hist.p1.to_numpy(), hist.p2.to_numpy(), hist.p_over.to_numpy(), rho, nu)
-    P = market_probs(lh, la, rho, params["first_half_share"], nu)
+    P = override_1x2(market_probs(lh, la, rho, params["first_half_share"], nu), hist.p1, hist.p2, params)
     Y = market_outcomes(hist.hg, hist.ag, hist.h1, hist.a1)
     rows = []
     for label, seasons in [("calibrazione 2015/16-2023/24", CAL_SEASONS), ("verifica 2024/25-2025/26", TEST_SEASONS)]:
@@ -345,7 +396,8 @@ def run_calibration() -> None:
     cal = hist[hist.season.isin(CAL_SEASONS)]
     print(f"partite con quote 1X2, over/under e primo tempo: {len(hist)} ({len(cal)} di calibrazione)")
     params = choose_params(cal)
-    print(f"ρ = {params['rho']}, ν = {params['nu']}, quota dei gol nel primo tempo = {params['first_half_share']}")
+    print(f"ρ = {params['rho']}, ν = {params['nu']}, quota dei gol nel primo tempo = {params['first_half_share']}, "
+          f"calibrazione 1X2 (logit condizionale) = {params['calib_1x2']}")
     PARAMS_PATH.parent.mkdir(exist_ok=True)
     write_atomic(PARAMS_PATH, json.dumps(params, indent=2))
     table = calibration_table(hist, params)
@@ -398,6 +450,8 @@ def fair_odds_for(row, params: dict) -> pd.DataFrame:
     """Probability and fair odds of every market for one upcoming match (a row of upcoming_rates)."""
     P = market_probs([row["rate_home"]], [row["rate_away"]], params["rho"], params["first_half_share"],
                      params.get("nu", 1.0))
+    if "p1" in row and "p2" in row:
+        P = override_1x2(P, [row["p1"]], [row["p2"]], params)
     p = P.iloc[0].to_numpy()
     return pd.DataFrame({"group": [g for g, _ in P.columns], "market": [m for _, m in P.columns],
                          "prob": p, "fair_odds": np.where(p > 0, 1 / np.maximum(p, 1e-9), np.nan)})

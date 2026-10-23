@@ -247,6 +247,31 @@ Le giocate con valore si possono aggiungere a una **schedina**, che confronta le
 - Le probabilità sono quelle del mercato: il valore nasce solo dove il proprio bookmaker paga più del mercato. Succede soprattutto sui mercati «esotici» (Combo, Multigoal), dove il margine è più alto e le quote sono meno curate.
 - Per questi mercati non abbiamo quote storiche: si è verificato che le probabilità sono giuste, non che giocarli avrebbe reso.
 
+## Diagnosi econometrica (ottobre 2026)
+
+Metodi da Hill, Griffiths e Lim, *Principles of Econometrics* (5ª ed., 2018): logit binario e condizionale (16.2, 16.4), test di Wald e del rapporto di verosimiglianza (16.2.5-16.2.6), errori standard robusti raggruppati (15.3, appendice 15A). Gli errori sono raggruppati per settimana, perché le partite della stessa settimana non sono indipendenti.
+
+**1. Il mercato 1X2 è calibrato?** Logit condizionale P(j) ∝ exp(a_j + b·log q_j) sulle probabilità senza margine delle quote medie del venerdì, stimato sul 2015/16-2023/24 (35.047 partite).
+- b = 1,112 (es 0,018) invece di 1: le quote schiacciano le probabilità verso il centro, quindi i favoriti vincono un po' più spesso di quanto dicano (favourite-longshot bias).
+- a_X = +0,059 (es 0,016): il pareggio è un po' sottostimato.
+- Test di Wald di «a = 0, b = 1»: p ≈ 10⁻¹⁰. Il test LR concorda. La calibrazione è la stessa in prima e seconda divisione (p = 0,25).
+- Fuori campione (2024/25-2025/26): log-loss 1X2 da 1,00496 a 1,00386, differenza −0,0011 con IC 95% da −0,0020 a −0,0002.
+- Per l'Over/Under 2,5 lo stesso logit trova b = 1,14, ma fuori campione la correzione non migliora (+0,0002, IC tra −0,0004 e +0,0008): non si usa.
+
+**2. Dove si applica.** Portare la correzione nei gol attesi peggiora tutti gli altri mercati: sul 2024-26 lo scarto medio passa da 0,55 a 0,69 punti e Goal/No goal peggiora di 0,7 punti, perché un modello sui gol non può rappresentare la correzione del pareggio. Si applica quindi solo ai mercati che dipendono dal 1X2: 1X2, Doppia chance e Draw no bet (`markets.override_1x2`, parametri in `outputs/markets_params.json` → `calib_1x2`). Sul 2024-26 l'errore di calibrazione (ECE) scende:
+- pareggio da 0,95 a 0,18 punti;
+- vittoria in trasferta da 1,30 a 0,58;
+- Draw no bet da 1,81 a 0,98.
+
+Gli altri mercati restano invariati.
+
+**3. Il nostro modello aggiunge informazione al mercato?** Test di encompassing: si aggiunge log p_modello al logit condizionale (2024/25-2025/26, prima divisione). Il coefficiente del modello è negativo e significativo per tutte e tre le versioni:
+- ensemble −0,37 (p = 0,002);
+- Dixon-Coles −0,32 (p = 0,005);
+- Elo −0,32 (p = 0,003).
+
+Quando il modello si discosta dal mercato sbaglia in modo sistematico: conferma che il modello non va usato per «correggere» le quote (peso w = 0 nel pool, simulazione delle scommesse in perdita).
+
 ## Schedina consigliata
 
 Due pagine della dashboard; codice in `src/forecast1x2/advisor.py`, con le quote Planetwin365, la probabilità di vincere e il rendimento atteso.

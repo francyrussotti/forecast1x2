@@ -69,6 +69,30 @@ def test_outcomes_of_a_real_score():
     assert np.isnan(draw[("Draw no bet", "1 (rimborso se X)")])
 
 
+def test_1x2_calibration_recovers_known_parameters():
+    rng = np.random.default_rng(1)
+    q = rng.dirichlet([4, 2.5, 3], 20000)                     # "market" probabilities
+    true = {"a_X": 0.06, "a_2": -0.02, "b": 1.12}
+    p1, p2 = mk.calibrate_1x2(q[:, 0], q[:, 2], {"calib_1x2": true})
+    pt = np.stack([p1, 1 - p1 - p2, p2], 1)
+    result = (rng.random(len(q))[:, None] > np.cumsum(pt, 1)).sum(1)   # outcomes drawn from the true model
+    est = mk.fit_1x2_calibration(q[:, 0], q[:, 2], result)
+    assert est["b"] == pytest.approx(1.12, abs=0.05) and est["a_X"] == pytest.approx(0.06, abs=0.04)
+    same = mk.calibrate_1x2(q[:5, 0], q[:5, 2], {"calib_1x2": {"a_X": 0, "a_2": 0, "b": 1}})
+    assert np.allclose(same[0], q[:5, 0]) and np.allclose(same[1], q[:5, 2])   # a = 0, b = 1: unchanged
+
+
+def test_override_touches_only_1x2_markets():
+    P = mk.market_probs([1.5], [1.1], -0.05, 0.44, 1.1)
+    params = {"calib_1x2": {"a_X": 0.06, "a_2": 0.0, "b": 1.11}}
+    O = mk.override_1x2(P, [0.45], [0.28], params).iloc[0]
+    assert O[("1X2", "1")] + O[("1X2", "X")] + O[("1X2", "2")] == pytest.approx(1)
+    assert O[("Doppia chance", "1X")] == pytest.approx(O[("1X2", "1")] + O[("1X2", "X")])
+    assert O[("1X2", "1")] > 0.45                               # b > 1: the favourite gets a bit more
+    assert O[("Goal/No goal", "Goal")] == P.iloc[0][("Goal/No goal", "Goal")]   # other markets untouched
+    assert mk.override_1x2(P, [0.45], [0.28], {}).equals(P)    # no calibration: nothing changes
+
+
 def test_upcoming_rates_skip_started_matches_and_stale_odds():
     fd = pd.DataFrame({"Div": ["I1", "I1", "B1"], "Date": ["24/10/2026", "23/10/2026", "24/10/2026"],
                        "Time": ["15:00", "10:00", "15:00"], "HomeTeam": ["Roma", "Lazio", "Genk"],
