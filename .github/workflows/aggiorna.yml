@@ -1,0 +1,53 @@
+# Aggiornamento automatico di dati, previsioni e registro dei consigli in prova.
+# Ogni ora lancia `python -m forecast1x2 auto`, che aggiorna solo se è passato un evento partita
+# (24h e 3h prima, 3h e 24h dopo, e almeno una volta al giorno); poi salva i file cambiati nel repository.
+# Si può lanciare anche a mano: scheda Actions → «Aggiornamento automatico» → Run workflow.
+name: Aggiornamento automatico
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # ogni ora al minuto 17 (allo scoccare dell'ora GitHub è più in ritardo)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aggiornamento
+  cancel-in-progress: false
+
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Niente Sportmonks: senza token gli xG sono disattivati e le previsioni usano solo i gol.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Installa le librerie (senza dashboard e test)
+        run: |
+          grep -v -E "^(streamlit|altair|pytest)" requirements.txt > "$RUNNER_TEMP/req.txt"
+          pip install -q -r "$RUNNER_TEMP/req.txt"
+          pip install -q --no-deps -e .
+
+      - name: Aggiorna se è passato un evento partita
+        run: python -W ignore -m forecast1x2 auto
+
+      - name: Salva i file aggiornati nel repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data outputs
+          if git diff --cached --quiet; then
+            echo "Nessun aggiornamento necessario."
+            exit 0
+          fi
+          git commit -q -m "Aggiornamento automatico $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git pull -q --rebase
+          git push -q
