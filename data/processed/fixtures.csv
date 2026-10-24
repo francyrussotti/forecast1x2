@@ -69,7 +69,7 @@ I1,7,2026-10-18 16:00:00+00:00,Milan,Atalanta,fixturedownload,True
 I1,7,2026-10-18 18:45:00+00:00,Juventus,Lazio,fixturedownload,True
 I1,7,2026-10-19 16:30:00+00:00,Monza,Cagliari,fixturedownload,True
 I1,7,2026-10-19 18:45:00+00:00,Parma,Torino,fixturedownload,True
-I1,8,2026-10-23 18:45:00+00:00,Torino,Monza,fixturedownload,False
+I1,8,2026-10-23 18:45:00+00:00,Torino,Monza,fixturedownload,True
 I1,8,2026-10-24 13:00:00+00:00,Cagliari,Bologna,fixturedownload,False
 I1,8,2026-10-24 13:00:00+00:00,Como,Sassuolo,fixturedownload,False
 I1,8,2026-10-24 16:00:00+00:00,Napoli,Roma,fixturedownload,False
@@ -449,7 +449,7 @@ E0,7,2026-10-18 13:00:00+00:00,Brighton,Crystal Palace,fixturedownload,True
 E0,7,2026-10-18 13:00:00+00:00,Leeds,Man United,fixturedownload,True
 E0,7,2026-10-18 15:30:00+00:00,Nott'm Forest,Arsenal,fixturedownload,True
 E0,7,2026-10-19 19:00:00+00:00,Tottenham,Coventry,fixturedownload,True
-E0,8,2026-10-23 19:00:00+00:00,Ipswich,Nott'm Forest,fixturedownload,False
+E0,8,2026-10-23 19:00:00+00:00,Ipswich,Nott'm Forest,fixturedownload,True
 E0,8,2026-10-24 11:30:00+00:00,Aston Villa,Man City,fixturedownload,False
 E0,8,2026-10-24 14:00:00+00:00,Arsenal,Everton,fixturedownload,False
 E0,8,2026-10-24 14:00:00+00:00,Coventry,Fulham,fixturedownload,False
@@ -499,46 +499,46 @@ E0,12,2026-11-29 14:05:00+00:00,Crystal Palace,Hull,fixturedownload,False
 E0,12,2026-11-29 14:05:00+00:00,Fulham,Bournemouth,fixturedownload,False
 E0,12,2026-11-29 14:05:00+00:00,Sunderland,Tottenham,fixturedownload,False
 E0,12,2026-11-29 16:30:00+00:00,Arsenal,Man City,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Bournemouth,Brighton,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Aston Villa,Everton,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Brentford,Arsenal,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Chelsea,Crystal Palace,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Coventry,Ipswich,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Hull,Nott'm Forest,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Liverpool,Sunderland,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Man City,Leeds,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Newcastle,Man United,fixturedownload,False
-E0,13,2026-12-02 20:00:00+00:00,Tottenham,Fulham,fixturedownload,False
+E0,13,2026-12-01 20:00:00+00:00,Coventry,Ipswich,fixturedownload,False
+E0,13,2026-12-02 19:30:00+00:00,Chelsea,Crystal Palace,fixturedownload,False
+E0,13,2026-12-02 19:30:00+00:00,Hull,Nott'm Forest,fixturedownload,False
+E0,13,2026-12-02 19:30:00+00:00,Liverpool,Sunderland,fixturedownload,False
+E0,13,2026-12-02 19:30:00+00:00,Man City,Leeds,fixturedownload,False
+E0,13,2026-12-02 20:15:00+00:00,Bournemouth,Brighton,fixturedownload,False
+E0,13,2026-12-02 20:15:00+00:00,Aston Villa,Everton,fixturedownload,False
+E0,13,2026-12-02 20:15:00+00:00,Brentford,Arsenal,fixturedownload,False
+E0,13,2026-12-02 20:15:00+00:00,Newcastle,Man United,fixturedownload,False
+E0,13,2026-12-03 20:00:00+00:00,Tottenham,Fulham,fixturedownload,False
+E0,14,2026-12-05 12:30:00+00:00,Chelsea,Liverpool,fixturedownload,False
 E0,14,2026-12-05 15:00:00+00:00,Bournemouth,Hull,fixturedownload,False
 E0,14,2026-12-05 15:00:00+00:00,Aston Villa,Crystal Palace,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Brentford,Man City,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Chelsea,Liverpool,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Everton,Fulham,fixturedownload,False
 E0,14,2026-12-05 15:00:00+00:00,Leeds,Ipswich,fixturedownload,False
 E0,14,2026-12-05 15:00:00+00:00,Man United,Coventry,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Newcastle,Sunderland,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Nott'm Forest,Brighton,fixturedownload,False
-E0,14,2026-12-05 15:00:00+00:00,Tottenham,Arsenal,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Arsenal,Bournemouth,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Brighton,Everton,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Coventry,Aston Villa,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Crystal Palace,Man United,fixturedownload,False
+E0,14,2026-12-05 17:30:00+00:00,Nott'm Forest,Brighton,fixturedownload,False
+E0,14,2026-12-05 20:00:00+00:00,Brentford,Man City,fixturedownload,False
+E0,14,2026-12-06 14:00:00+00:00,Everton,Fulham,fixturedownload,False
+E0,14,2026-12-06 14:00:00+00:00,Newcastle,Sunderland,fixturedownload,False
+E0,14,2026-12-06 16:30:00+00:00,Tottenham,Arsenal,fixturedownload,False
 E0,15,2026-12-12 15:00:00+00:00,Fulham,Brentford,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Hull,Tottenham,fixturedownload,False
 E0,15,2026-12-12 15:00:00+00:00,Ipswich,Newcastle,fixturedownload,False
 E0,15,2026-12-12 15:00:00+00:00,Liverpool,Leeds,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Man City,Chelsea,fixturedownload,False
-E0,15,2026-12-12 15:00:00+00:00,Sunderland,Nott'm Forest,fixturedownload,False
+E0,15,2026-12-12 17:30:00+00:00,Man City,Chelsea,fixturedownload,False
+E0,15,2026-12-13 14:00:00+00:00,Arsenal,Bournemouth,fixturedownload,False
+E0,15,2026-12-13 14:00:00+00:00,Brighton,Everton,fixturedownload,False
+E0,15,2026-12-13 14:00:00+00:00,Sunderland,Nott'm Forest,fixturedownload,False
+E0,15,2026-12-13 16:30:00+00:00,Coventry,Aston Villa,fixturedownload,False
+E0,15,2026-12-13 19:00:00+00:00,Crystal Palace,Man United,fixturedownload,False
+E0,15,2026-12-14 20:00:00+00:00,Hull,Tottenham,fixturedownload,False
+E0,16,2026-12-19 12:30:00+00:00,Brentford,Newcastle,fixturedownload,False
 E0,16,2026-12-19 15:00:00+00:00,Bournemouth,Coventry,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Arsenal,Man United,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Brentford,Newcastle,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Brighton,Ipswich,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Chelsea,Aston Villa,fixturedownload,False
 E0,16,2026-12-19 15:00:00+00:00,Leeds,Fulham,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Liverpool,Tottenham,fixturedownload,False
 E0,16,2026-12-19 15:00:00+00:00,Man City,Hull,fixturedownload,False
 E0,16,2026-12-19 15:00:00+00:00,Nott'm Forest,Everton,fixturedownload,False
-E0,16,2026-12-19 15:00:00+00:00,Sunderland,Crystal Palace,fixturedownload,False
+E0,16,2026-12-19 17:30:00+00:00,Liverpool,Tottenham,fixturedownload,False
+E0,16,2026-12-20 14:00:00+00:00,Brighton,Ipswich,fixturedownload,False
+E0,16,2026-12-20 14:00:00+00:00,Sunderland,Crystal Palace,fixturedownload,False
+E0,16,2026-12-20 16:30:00+00:00,Arsenal,Man United,fixturedownload,False
+E0,16,2026-12-21 20:00:00+00:00,Chelsea,Aston Villa,fixturedownload,False
 E0,17,2026-12-26 12:30:00+00:00,Aston Villa,Leeds,fixturedownload,False
 E0,17,2026-12-26 15:00:00+00:00,Everton,Sunderland,fixturedownload,False
 E0,17,2026-12-26 15:00:00+00:00,Fulham,Brighton,fixturedownload,False
@@ -849,7 +849,7 @@ SP1,9,2026-10-18 14:15:00+00:00,Celta,Alaves,fixturedownload,True
 SP1,9,2026-10-18 16:30:00+00:00,Malaga,Sociedad,fixturedownload,True
 SP1,9,2026-10-18 19:00:00+00:00,Real Madrid,Sevilla,fixturedownload,True
 SP1,9,2026-10-19 19:00:00+00:00,Getafe,Vallecano,fixturedownload,True
-SP1,10,2026-10-23 19:00:00+00:00,Alaves,Malaga,fixturedownload,False
+SP1,10,2026-10-23 19:00:00+00:00,Alaves,Malaga,fixturedownload,True
 SP1,10,2026-10-24 12:00:00+00:00,Vallecano,Elche,fixturedownload,False
 SP1,10,2026-10-24 14:15:00+00:00,Santander,Espanol,fixturedownload,False
 SP1,10,2026-10-24 16:30:00+00:00,Valencia,Villarreal,fixturedownload,False
@@ -879,16 +879,16 @@ SP1,12,2026-11-08 15:15:00+00:00,Sociedad,Vallecano,fixturedownload,False
 SP1,12,2026-11-08 17:30:00+00:00,Celta,Levante,fixturedownload,False
 SP1,12,2026-11-08 17:30:00+00:00,Villarreal,Getafe,fixturedownload,False
 SP1,12,2026-11-08 20:00:00+00:00,Ath Madrid,Barcelona,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Alaves,La Coruna,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Ath Bilbao,Espanol,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Barcelona,Villarreal,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Getafe,Ath Madrid,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Levante,Elche,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Osasuna,Malaga,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Santander,Sociedad,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Vallecano,Valencia,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Real Madrid,Celta,fixturedownload,False
-SP1,13,2026-11-22 00:00:00+00:00,Sevilla,Betis,fixturedownload,False
+SP1,13,2026-11-20 20:00:00+00:00,Ath Bilbao,Espanol,fixturedownload,False
+SP1,13,2026-11-21 13:00:00+00:00,Alaves,La Coruna,fixturedownload,False
+SP1,13,2026-11-21 15:15:00+00:00,Vallecano,Valencia,fixturedownload,False
+SP1,13,2026-11-21 17:30:00+00:00,Sevilla,Betis,fixturedownload,False
+SP1,13,2026-11-21 20:00:00+00:00,Real Madrid,Celta,fixturedownload,False
+SP1,13,2026-11-22 13:00:00+00:00,Barcelona,Villarreal,fixturedownload,False
+SP1,13,2026-11-22 15:15:00+00:00,Santander,Sociedad,fixturedownload,False
+SP1,13,2026-11-22 17:30:00+00:00,Osasuna,Malaga,fixturedownload,False
+SP1,13,2026-11-22 20:00:00+00:00,Getafe,Ath Madrid,fixturedownload,False
+SP1,13,2026-11-23 20:00:00+00:00,Levante,Elche,fixturedownload,False
 SP1,14,2026-11-29 00:00:00+00:00,Betis,Vallecano,fixturedownload,False
 SP1,14,2026-11-29 00:00:00+00:00,Celta,Villarreal,fixturedownload,False
 SP1,14,2026-11-29 00:00:00+00:00,La Coruna,Barcelona,fixturedownload,False
@@ -1193,7 +1193,7 @@ D1,6,2026-10-17 13:30:00+00:00,Union Berlin,Dortmund,fixturedownload,True
 D1,6,2026-10-17 16:30:00+00:00,Bayern Munich,RB Leipzig,fixturedownload,True
 D1,6,2026-10-18 13:30:00+00:00,Leverkusen,Freiburg,fixturedownload,True
 D1,6,2026-10-18 15:30:00+00:00,M'gladbach,Hoffenheim,fixturedownload,True
-D1,7,2026-10-23 18:30:00+00:00,Stuttgart,M'gladbach,fixturedownload,False
+D1,7,2026-10-23 18:30:00+00:00,Stuttgart,M'gladbach,fixturedownload,True
 D1,7,2026-10-24 13:30:00+00:00,Paderborn,Hamburg,fixturedownload,False
 D1,7,2026-10-24 13:30:00+00:00,FC Koln,Schalke 04,fixturedownload,False
 D1,7,2026-10-24 13:30:00+00:00,Mainz,Werder Bremen,fixturedownload,False
