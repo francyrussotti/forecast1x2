@@ -70,10 +70,10 @@ I1,7,2026-10-18 18:45:00+00:00,Juventus,Lazio,fixturedownload,True
 I1,7,2026-10-19 16:30:00+00:00,Monza,Cagliari,fixturedownload,True
 I1,7,2026-10-19 18:45:00+00:00,Parma,Torino,fixturedownload,True
 I1,8,2026-10-23 18:45:00+00:00,Torino,Monza,fixturedownload,True
-I1,8,2026-10-24 13:00:00+00:00,Cagliari,Bologna,fixturedownload,False
-I1,8,2026-10-24 13:00:00+00:00,Como,Sassuolo,fixturedownload,False
-I1,8,2026-10-24 16:00:00+00:00,Napoli,Roma,fixturedownload,False
-I1,8,2026-10-24 18:45:00+00:00,Lazio,Parma,fixturedownload,False
+I1,8,2026-10-24 13:00:00+00:00,Cagliari,Bologna,fixturedownload,True
+I1,8,2026-10-24 13:00:00+00:00,Como,Sassuolo,fixturedownload,True
+I1,8,2026-10-24 16:00:00+00:00,Napoli,Roma,fixturedownload,True
+I1,8,2026-10-24 18:45:00+00:00,Lazio,Parma,fixturedownload,True
 I1,8,2026-10-25 11:30:00+00:00,Inter,Fiorentina,fixturedownload,False
 I1,8,2026-10-25 14:00:00+00:00,Atalanta,Frosinone,fixturedownload,False
 I1,8,2026-10-25 14:00:00+00:00,Genoa,Venezia,fixturedownload,False
@@ -450,10 +450,10 @@ E0,7,2026-10-18 13:00:00+00:00,Leeds,Man United,fixturedownload,True
 E0,7,2026-10-18 15:30:00+00:00,Nott'm Forest,Arsenal,fixturedownload,True
 E0,7,2026-10-19 19:00:00+00:00,Tottenham,Coventry,fixturedownload,True
 E0,8,2026-10-23 19:00:00+00:00,Ipswich,Nott'm Forest,fixturedownload,True
-E0,8,2026-10-24 11:30:00+00:00,Aston Villa,Man City,fixturedownload,False
-E0,8,2026-10-24 14:00:00+00:00,Arsenal,Everton,fixturedownload,False
-E0,8,2026-10-24 14:00:00+00:00,Coventry,Fulham,fixturedownload,False
-E0,8,2026-10-24 16:30:00+00:00,Chelsea,Tottenham,fixturedownload,False
+E0,8,2026-10-24 11:30:00+00:00,Aston Villa,Man City,fixturedownload,True
+E0,8,2026-10-24 14:00:00+00:00,Arsenal,Everton,fixturedownload,True
+E0,8,2026-10-24 14:00:00+00:00,Coventry,Fulham,fixturedownload,True
+E0,8,2026-10-24 16:30:00+00:00,Chelsea,Tottenham,fixturedownload,True
 E0,8,2026-10-25 14:00:00+00:00,Crystal Palace,Newcastle,fixturedownload,False
 E0,8,2026-10-25 14:00:00+00:00,Hull,Brentford,fixturedownload,False
 E0,8,2026-10-25 14:00:00+00:00,Liverpool,Brighton,fixturedownload,False
@@ -850,10 +850,10 @@ SP1,9,2026-10-18 16:30:00+00:00,Malaga,Sociedad,fixturedownload,True
 SP1,9,2026-10-18 19:00:00+00:00,Real Madrid,Sevilla,fixturedownload,True
 SP1,9,2026-10-19 19:00:00+00:00,Getafe,Vallecano,fixturedownload,True
 SP1,10,2026-10-23 19:00:00+00:00,Alaves,Malaga,fixturedownload,True
-SP1,10,2026-10-24 12:00:00+00:00,Vallecano,Elche,fixturedownload,False
-SP1,10,2026-10-24 14:15:00+00:00,Santander,Espanol,fixturedownload,False
-SP1,10,2026-10-24 16:30:00+00:00,Valencia,Villarreal,fixturedownload,False
-SP1,10,2026-10-24 19:00:00+00:00,Ath Madrid,La Coruna,fixturedownload,False
+SP1,10,2026-10-24 12:00:00+00:00,Vallecano,Elche,fixturedownload,True
+SP1,10,2026-10-24 14:15:00+00:00,Santander,Espanol,fixturedownload,True
+SP1,10,2026-10-24 16:30:00+00:00,Valencia,Villarreal,fixturedownload,True
+SP1,10,2026-10-24 19:00:00+00:00,Ath Madrid,La Coruna,fixturedownload,True
 SP1,10,2026-10-25 13:00:00+00:00,Ath Bilbao,Getafe,fixturedownload,False
 SP1,10,2026-10-25 15:15:00+00:00,Celta,Betis,fixturedownload,False
 SP1,10,2026-10-25 17:30:00+00:00,Sociedad,Levante,fixturedownload,False
@@ -1194,12 +1194,12 @@ D1,6,2026-10-17 16:30:00+00:00,Bayern Munich,RB Leipzig,fixturedownload,True
 D1,6,2026-10-18 13:30:00+00:00,Leverkusen,Freiburg,fixturedownload,True
 D1,6,2026-10-18 15:30:00+00:00,M'gladbach,Hoffenheim,fixturedownload,True
 D1,7,2026-10-23 18:30:00+00:00,Stuttgart,M'gladbach,fixturedownload,True
-D1,7,2026-10-24 13:30:00+00:00,Paderborn,Hamburg,fixturedownload,False
-D1,7,2026-10-24 13:30:00+00:00,FC Koln,Schalke 04,fixturedownload,False
-D1,7,2026-10-24 13:30:00+00:00,Mainz,Werder Bremen,fixturedownload,False
-D1,7,2026-10-24 13:30:00+00:00,Augsburg,Union Berlin,fixturedownload,False
-D1,7,2026-10-24 13:30:00+00:00,RB Leipzig,Elversberg,fixturedownload,False
-D1,7,2026-10-24 16:30:00+00:00,Dortmund,Ein Frankfurt,fixturedownload,False
+D1,7,2026-10-24 13:30:00+00:00,Paderborn,Hamburg,fixturedownload,True
+D1,7,2026-10-24 13:30:00+00:00,FC Koln,Schalke 04,fixturedownload,True
+D1,7,2026-10-24 13:30:00+00:00,Mainz,Werder Bremen,fixturedownload,True
+D1,7,2026-10-24 13:30:00+00:00,Augsburg,Union Berlin,fixturedownload,True
+D1,7,2026-10-24 13:30:00+00:00,RB Leipzig,Elversberg,fixturedownload,True
+D1,7,2026-10-24 16:30:00+00:00,Dortmund,Ein Frankfurt,fixturedownload,True
 D1,7,2026-10-25 14:30:00+00:00,Hoffenheim,Leverkusen,fixturedownload,False
 D1,7,2026-10-25 16:30:00+00:00,Freiburg,Bayern Munich,fixturedownload,False
 D1,8,2026-10-30 19:30:00+00:00,Elversberg,Mainz,fixturedownload,False
