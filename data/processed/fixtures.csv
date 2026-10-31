@@ -830,7 +830,6 @@ SP1,7,2026-09-20 16:30:00+00:00,La Coruna,Betis,fixturedownload,True
 SP1,7,2026-09-20 16:30:00+00:00,Villarreal,Levante,fixturedownload,True
 SP1,7,2026-09-20 19:00:00+00:00,Valencia,Sociedad,fixturedownload,True
 SP1,8,2026-10-09 19:00:00+00:00,Malaga,Espanol,fixturedownload,True
-SP1,8,2026-10-10 12:00:00+00:00,Vallecano,Ath Bilbao,fixturedownload,False
 SP1,8,2026-10-10 14:15:00+00:00,Alaves,Ath Madrid,fixturedownload,True
 SP1,8,2026-10-10 16:30:00+00:00,Barcelona,Getafe,fixturedownload,True
 SP1,8,2026-10-10 19:00:00+00:00,Real Madrid,Villarreal,fixturedownload,True
@@ -839,6 +838,7 @@ SP1,8,2026-10-11 14:15:00+00:00,Sociedad,La Coruna,fixturedownload,True
 SP1,8,2026-10-11 16:30:00+00:00,Betis,Osasuna,fixturedownload,True
 SP1,8,2026-10-11 19:00:00+00:00,Santander,Valencia,fixturedownload,True
 SP1,8,2026-10-12 19:00:00+00:00,Levante,Sevilla,fixturedownload,True
+SP1,8,2026-12-09 19:00:00+00:00,Vallecano,Ath Bilbao,fixturedownload,False
 SP1,9,2026-10-16 19:00:00+00:00,La Coruna,Levante,fixturedownload,True
 SP1,9,2026-10-17 12:00:00+00:00,Espanol,Ath Madrid,fixturedownload,True
 SP1,9,2026-10-17 14:15:00+00:00,Villarreal,Elche,fixturedownload,True
@@ -859,7 +859,7 @@ SP1,10,2026-10-25 15:15:00+00:00,Celta,Betis,fixturedownload,True
 SP1,10,2026-10-25 17:30:00+00:00,Sociedad,Levante,fixturedownload,True
 SP1,10,2026-10-25 20:00:00+00:00,Barcelona,Real Madrid,fixturedownload,True
 SP1,10,2026-10-26 20:00:00+00:00,Sevilla,Osasuna,fixturedownload,True
-SP1,11,2026-10-30 20:00:00+00:00,Villarreal,Espanol,fixturedownload,False
+SP1,11,2026-10-30 20:00:00+00:00,Villarreal,Espanol,fixturedownload,True
 SP1,11,2026-10-31 13:00:00+00:00,Levante,Ath Madrid,fixturedownload,False
 SP1,11,2026-10-31 15:15:00+00:00,Vallecano,Celta,fixturedownload,False
 SP1,11,2026-10-31 17:30:00+00:00,Betis,Malaga,fixturedownload,False
@@ -1202,7 +1202,7 @@ D1,7,2026-10-24 13:30:00+00:00,RB Leipzig,Elversberg,fixturedownload,True
 D1,7,2026-10-24 16:30:00+00:00,Dortmund,Ein Frankfurt,fixturedownload,True
 D1,7,2026-10-25 14:30:00+00:00,Hoffenheim,Leverkusen,fixturedownload,True
 D1,7,2026-10-25 16:30:00+00:00,Freiburg,Bayern Munich,fixturedownload,True
-D1,8,2026-10-30 19:30:00+00:00,Elversberg,Mainz,fixturedownload,False
+D1,8,2026-10-30 19:30:00+00:00,Elversberg,Mainz,fixturedownload,True
 D1,8,2026-10-31 14:30:00+00:00,Schalke 04,RB Leipzig,fixturedownload,False
 D1,8,2026-10-31 14:30:00+00:00,Werder Bremen,Hoffenheim,fixturedownload,False
 D1,8,2026-10-31 14:30:00+00:00,M'gladbach,Paderborn,fixturedownload,False
