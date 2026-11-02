@@ -92,11 +92,11 @@ I1,9,2026-10-29 19:45:00+00:00,Fiorentina,Atalanta,fixturedownload,True
 I1,10,2026-10-31 14:00:00+00:00,Bologna,Monza,fixturedownload,True
 I1,10,2026-10-31 17:00:00+00:00,Udinese,Roma,fixturedownload,True
 I1,10,2026-10-31 19:45:00+00:00,Milan,Inter,fixturedownload,True
-I1,10,2026-11-01 11:30:00+00:00,Como,Venezia,fixturedownload,False
-I1,10,2026-11-01 14:00:00+00:00,Frosinone,Torino,fixturedownload,False
-I1,10,2026-11-01 14:00:00+00:00,Lazio,Cagliari,fixturedownload,False
-I1,10,2026-11-01 17:00:00+00:00,Lecce,Genoa,fixturedownload,False
-I1,10,2026-11-01 19:45:00+00:00,Juventus,Napoli,fixturedownload,False
+I1,10,2026-11-01 11:30:00+00:00,Como,Venezia,fixturedownload,True
+I1,10,2026-11-01 14:00:00+00:00,Frosinone,Torino,fixturedownload,True
+I1,10,2026-11-01 14:00:00+00:00,Lazio,Cagliari,fixturedownload,True
+I1,10,2026-11-01 17:00:00+00:00,Lecce,Genoa,fixturedownload,True
+I1,10,2026-11-01 19:45:00+00:00,Juventus,Napoli,fixturedownload,True
 I1,10,2026-11-02 17:30:00+00:00,Sassuolo,Fiorentina,fixturedownload,False
 I1,10,2026-11-02 19:45:00+00:00,Atalanta,Parma,fixturedownload,False
 I1,11,2026-11-06 19:45:00+00:00,Venezia,Udinese,fixturedownload,False
@@ -467,7 +467,7 @@ E0,9,2026-10-31 15:00:00+00:00,Hull,Ipswich,fixturedownload,True
 E0,9,2026-10-31 15:00:00+00:00,Man City,Brighton,fixturedownload,True
 E0,9,2026-10-31 17:30:00+00:00,Tottenham,Crystal Palace,fixturedownload,True
 E0,9,2026-10-31 20:00:00+00:00,Aston Villa,Fulham,fixturedownload,True
-E0,9,2026-11-01 16:30:00+00:00,Liverpool,Arsenal,fixturedownload,False
+E0,9,2026-11-01 16:30:00+00:00,Liverpool,Arsenal,fixturedownload,True
 E0,9,2026-11-02 20:00:00+00:00,Newcastle,Everton,fixturedownload,False
 E0,10,2026-11-06 20:00:00+00:00,Everton,Coventry,fixturedownload,False
 E0,10,2026-11-07 12:30:00+00:00,Leeds,Tottenham,fixturedownload,False
@@ -864,10 +864,10 @@ SP1,11,2026-10-31 13:00:00+00:00,Levante,Ath Madrid,fixturedownload,True
 SP1,11,2026-10-31 15:15:00+00:00,Vallecano,Celta,fixturedownload,True
 SP1,11,2026-10-31 17:30:00+00:00,Betis,Malaga,fixturedownload,True
 SP1,11,2026-10-31 20:00:00+00:00,Barcelona,Alaves,fixturedownload,True
-SP1,11,2026-11-01 13:00:00+00:00,Getafe,Sevilla,fixturedownload,False
-SP1,11,2026-11-01 15:15:00+00:00,Santander,Real Madrid,fixturedownload,False
-SP1,11,2026-11-01 17:30:00+00:00,Elche,Valencia,fixturedownload,False
-SP1,11,2026-11-01 20:00:00+00:00,Ath Bilbao,Sociedad,fixturedownload,False
+SP1,11,2026-11-01 13:00:00+00:00,Getafe,Sevilla,fixturedownload,True
+SP1,11,2026-11-01 15:15:00+00:00,Santander,Real Madrid,fixturedownload,True
+SP1,11,2026-11-01 17:30:00+00:00,Elche,Valencia,fixturedownload,True
+SP1,11,2026-11-01 20:00:00+00:00,Ath Bilbao,Sociedad,fixturedownload,True
 SP1,11,2026-11-02 20:00:00+00:00,La Coruna,Osasuna,fixturedownload,False
 SP1,12,2026-11-06 20:00:00+00:00,Sevilla,Alaves,fixturedownload,False
 SP1,12,2026-11-07 13:00:00+00:00,Malaga,Santander,fixturedownload,False
@@ -1209,8 +1209,8 @@ D1,8,2026-10-31 14:30:00+00:00,M'gladbach,Paderborn,fixturedownload,True
 D1,8,2026-10-31 14:30:00+00:00,Augsburg,Freiburg,fixturedownload,True
 D1,8,2026-10-31 14:30:00+00:00,Leverkusen,Stuttgart,fixturedownload,True
 D1,8,2026-10-31 17:30:00+00:00,Bayern Munich,Dortmund,fixturedownload,True
-D1,8,2026-11-01 14:30:00+00:00,Union Berlin,FC Koln,fixturedownload,False
-D1,8,2026-11-01 16:30:00+00:00,Ein Frankfurt,Hamburg,fixturedownload,False
+D1,8,2026-11-01 14:30:00+00:00,Union Berlin,FC Koln,fixturedownload,True
+D1,8,2026-11-01 16:30:00+00:00,Ein Frankfurt,Hamburg,fixturedownload,True
 D1,9,2026-11-06 19:30:00+00:00,Hamburg,M'gladbach,fixturedownload,False
 D1,9,2026-11-07 14:30:00+00:00,Paderborn,Ein Frankfurt,fixturedownload,False
 D1,9,2026-11-07 14:30:00+00:00,Mainz,Bayern Munich,fixturedownload,False
