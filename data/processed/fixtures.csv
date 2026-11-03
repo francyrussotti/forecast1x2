@@ -97,8 +97,8 @@ I1,10,2026-11-01 14:00:00+00:00,Frosinone,Torino,fixturedownload,True
 I1,10,2026-11-01 14:00:00+00:00,Lazio,Cagliari,fixturedownload,True
 I1,10,2026-11-01 17:00:00+00:00,Lecce,Genoa,fixturedownload,True
 I1,10,2026-11-01 19:45:00+00:00,Juventus,Napoli,fixturedownload,True
-I1,10,2026-11-02 17:30:00+00:00,Sassuolo,Fiorentina,fixturedownload,False
-I1,10,2026-11-02 19:45:00+00:00,Atalanta,Parma,fixturedownload,False
+I1,10,2026-11-02 17:30:00+00:00,Sassuolo,Fiorentina,fixturedownload,True
+I1,10,2026-11-02 19:45:00+00:00,Atalanta,Parma,fixturedownload,True
 I1,11,2026-11-06 19:45:00+00:00,Venezia,Udinese,fixturedownload,False
 I1,11,2026-11-07 14:00:00+00:00,Cagliari,Frosinone,fixturedownload,False
 I1,11,2026-11-07 14:00:00+00:00,Torino,Lecce,fixturedownload,False
@@ -468,7 +468,7 @@ E0,9,2026-10-31 15:00:00+00:00,Man City,Brighton,fixturedownload,True
 E0,9,2026-10-31 17:30:00+00:00,Tottenham,Crystal Palace,fixturedownload,True
 E0,9,2026-10-31 20:00:00+00:00,Aston Villa,Fulham,fixturedownload,True
 E0,9,2026-11-01 16:30:00+00:00,Liverpool,Arsenal,fixturedownload,True
-E0,9,2026-11-02 20:00:00+00:00,Newcastle,Everton,fixturedownload,False
+E0,9,2026-11-02 20:00:00+00:00,Newcastle,Everton,fixturedownload,True
 E0,10,2026-11-06 20:00:00+00:00,Everton,Coventry,fixturedownload,False
 E0,10,2026-11-07 12:30:00+00:00,Leeds,Tottenham,fixturedownload,False
 E0,10,2026-11-07 15:00:00+00:00,Arsenal,Hull,fixturedownload,False
@@ -868,7 +868,7 @@ SP1,11,2026-11-01 13:00:00+00:00,Getafe,Sevilla,fixturedownload,True
 SP1,11,2026-11-01 15:15:00+00:00,Santander,Real Madrid,fixturedownload,True
 SP1,11,2026-11-01 17:30:00+00:00,Elche,Valencia,fixturedownload,True
 SP1,11,2026-11-01 20:00:00+00:00,Ath Bilbao,Sociedad,fixturedownload,True
-SP1,11,2026-11-02 20:00:00+00:00,La Coruna,Osasuna,fixturedownload,False
+SP1,11,2026-11-02 20:00:00+00:00,La Coruna,Osasuna,fixturedownload,True
 SP1,12,2026-11-06 20:00:00+00:00,Sevilla,Alaves,fixturedownload,False
 SP1,12,2026-11-07 13:00:00+00:00,Malaga,Santander,fixturedownload,False
 SP1,12,2026-11-07 15:15:00+00:00,Espanol,La Coruna,fixturedownload,False
